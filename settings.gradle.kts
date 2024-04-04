@@ -21,3 +21,4 @@ dependencyResolutionManagement {
 
 rootProject.name = "Simple Weather"
 include(":app")
+include(":uikit")

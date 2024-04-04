@@ -1,30 +1,24 @@
 plugins {
-    alias(libs.plugins.android.application)
+    alias(libs.plugins.android.library)
     alias(libs.plugins.kotlin)
 }
 
 android {
-    namespace = "dev.s44khin.simpleweather"
+    namespace = "dev.s44khin.simpleweather.uikit"
     compileSdk = libs.versions.sdk.compile.get().toInt()
 
     defaultConfig {
-        applicationId = "dev.s44khin.simpleweather"
         minSdk = libs.versions.sdk.min.get().toInt()
-        targetSdk = libs.versions.sdk.target.get().toInt()
-        versionCode = libs.versions.version.code.get().toInt()
-        versionName = libs.versions.version.name.get()
     }
 
     buildTypes {
         release {
             isMinifyEnabled = true
-            isDebuggable = false
             proguardFiles(getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro")
         }
 
         debug {
             isMinifyEnabled = false
-            isDebuggable = true
         }
     }
 
@@ -47,13 +41,11 @@ android {
 }
 
 dependencies {
+
     implementation(platform(libs.compose.bom))
     implementation(libs.compose.material3)
     implementation(libs.compose.foundation)
     implementation(libs.compose.ui)
     implementation(libs.compose.uiToolingPreview)
     implementation(libs.compose.icons)
-    implementation(libs.compose.activity)
-    implementation(libs.compose.viewModel)
-    implementation(project(":uikit"))
 }
