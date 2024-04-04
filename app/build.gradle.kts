@@ -1,6 +1,8 @@
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin)
+    alias(libs.plugins.ksp)
+    alias(libs.plugins.hilt)
 }
 
 android {
@@ -47,6 +49,8 @@ android {
 }
 
 dependencies {
+
+    // Compose
     implementation(platform(libs.compose.bom))
     implementation(libs.compose.material3)
     implementation(libs.compose.foundation)
@@ -55,5 +59,12 @@ dependencies {
     implementation(libs.compose.icons)
     implementation(libs.compose.activity)
     implementation(libs.compose.viewModel)
+
+    // Hilt
+    implementation(libs.hilt)
+    implementation(libs.hilt.navigation)
+    ksp(libs.hilt.compiler)
+
+    // Project
     implementation(project(":uikit"))
 }

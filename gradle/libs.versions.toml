@@ -7,11 +7,15 @@ version-name = "0.0.1"
 
 gradle = "8.3.1"
 kotlin = "1.9.23"
+ksp = "1.9.23-1.0.19"
 
 compose-compiler = "1.5.11"
 compose-bom = "2024.04.00"
 compose-activity = "1.8.2"
 compose-viewModel = "2.7.0"
+
+hilt = "2.51.1"
+hilt-navigation = "1.2.0"
 
 [libraries]
 compose-bom = { group = "androidx.compose", name = "compose-bom", version.ref = "compose-bom" }
@@ -22,9 +26,14 @@ compose-uiToolingPreview = { group = "androidx.compose.ui", name = "ui-tooling-p
 compose-icons = { group = "androidx.compose.material", name = "material-icons-extended" }
 compose-activity = { group = "androidx.activity", name = "activity-compose", version.ref = "compose-activity" }
 compose-viewModel = { group = "androidx.lifecycle", name = "lifecycle-viewmodel-compose", version.ref = "compose-viewModel" }
+hilt = { group = "com.google.dagger", name = "hilt-android", version.ref = "hilt" }
+hilt-compiler = { group = "com.google.dagger", name = "hilt-compiler", version.ref = "hilt" }
+hilt-navigation = { group = "androidx.hilt", name = "hilt-navigation-compose", version.ref = "hilt-navigation" }
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "gradle" }
 android-library = { id = "com.android.library", version.ref = "gradle" }
 kotlin = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
+ksp = { id = "com.google.devtools.ksp", version.ref = "ksp" }
+hilt = { id = "com.google.dagger.hilt.android", version.ref = "hilt" }
 
