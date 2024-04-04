@@ -1,43 +1,58 @@
 plugins {
-    alias(libs.plugins.androidApplication)
-    alias(libs.plugins.jetbrainsKotlinAndroid)
+    alias(libs.plugins.android.application)
+    alias(libs.plugins.kotlin)
 }
 
 android {
     namespace = "dev.s44khin.simpleweather"
-    compileSdk = 34
+    compileSdk = libs.versions.sdk.compile.get().toInt()
 
     defaultConfig {
         applicationId = "dev.s44khin.simpleweather"
-        minSdk = 26
-        targetSdk = 34
-        versionCode = 1
-        versionName = "1.0"
-
-        testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+        minSdk = libs.versions.sdk.min.get().toInt()
+        targetSdk = libs.versions.sdk.target.get().toInt()
+        versionCode = libs.versions.version.code.get().toInt()
+        versionName = libs.versions.version.name.get()
     }
 
     buildTypes {
         release {
-            isMinifyEnabled = false
+            isMinifyEnabled = true
+            isDebuggable = false
             proguardFiles(getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro")
         }
+
+        debug {
+            isMinifyEnabled = false
+            isDebuggable = true
+        }
     }
+
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_1_8
         targetCompatibility = JavaVersion.VERSION_1_8
     }
+
     kotlinOptions {
         jvmTarget = "1.8"
+    }
+
+    buildFeatures {
+        compose = true
+    }
+
+    composeOptions {
+        kotlinCompilerExtensionVersion = libs.versions.compose.compiler.get()
     }
 }
 
 dependencies {
-
-    implementation(libs.androidx.core.ktx)
-    implementation(libs.androidx.appcompat)
-    implementation(libs.material)
-    testImplementation(libs.junit)
-    androidTestImplementation(libs.androidx.junit)
-    androidTestImplementation(libs.androidx.espresso.core)
+    implementation(platform(libs.compose.bom))
+    implementation(libs.compose.material3)
+    implementation(libs.compose.foundation)
+    implementation(libs.compose.ui)
+    implementation(libs.compose.uiToolingPreview)
+    implementation(libs.compose.icons)
+    implementation(libs.compose.activity)
+    implementation(libs.compose.viewModel)
 }

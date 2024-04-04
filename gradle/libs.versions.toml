@@ -1,22 +1,30 @@
 [versions]
-agp = "8.3.1"
-kotlin = "1.9.0"
-coreKtx = "1.10.1"
-junit = "4.13.2"
-junitVersion = "1.1.5"
-espressoCore = "3.5.1"
-appcompat = "1.6.1"
-material = "1.10.0"
+sdk-compile = "34"
+sdk-min = "26"
+sdk-target = "34"
+version-code = "1"
+version-name = "0.0.1"
+
+gradle = "8.3.1"
+kotlin = "1.9.23"
+
+compose-compiler = "1.5.11"
+compose-bom = "2024.04.00"
+compose-activity = "1.8.2"
+compose-viewModel = "2.7.0"
 
 [libraries]
-androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
-junit = { group = "junit", name = "junit", version.ref = "junit" }
-androidx-junit = { group = "androidx.test.ext", name = "junit", version.ref = "junitVersion" }
-androidx-espresso-core = { group = "androidx.test.espresso", name = "espresso-core", version.ref = "espressoCore" }
-androidx-appcompat = { group = "androidx.appcompat", name = "appcompat", version.ref = "appcompat" }
-material = { group = "com.google.android.material", name = "material", version.ref = "material" }
+compose-bom = { group = "androidx.compose", name = "compose-bom", version.ref = "compose-bom" }
+compose-material3 = { group = "androidx.compose.material3", name = "material3" }
+compose-foundation = { group = "androidx.compose.foundation", name = "foundation" }
+compose-ui = { group = "androidx.compose.ui", name = "ui" }
+compose-uiToolingPreview = { group = "androidx.compose.ui", name = "ui-tooling-preview" }
+compose-icons = { group = "androidx.compose.material", name = "material-icons-extended" }
+compose-activity = { group = "androidx.activity", name = "activity-compose", version.ref = "compose-activity" }
+compose-viewModel = { group = "androidx.lifecycle", name = "lifecycle-viewmodel-compose", version.ref = "compose-viewModel" }
 
 [plugins]
-androidApplication = { id = "com.android.application", version.ref = "agp" }
-jetbrainsKotlinAndroid = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
+android-application = { id = "com.android.application", version.ref = "gradle" }
+android-library = { id = "com.android.library", version.ref = "gradle" }
+kotlin = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
 
