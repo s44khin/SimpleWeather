@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">Simple Weather</string>
+    <string name="today_label">Today</string>
+    <string name="week_label">Week</string>
 </resources>

@@ -1,4 +1,4 @@
-package dev.s44khin.simpleweather.common
+package dev.s44khin.simpleweather.common.clearable
 
 abstract class AutoClearable<T> {
 
