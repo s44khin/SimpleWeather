@@ -7,6 +7,8 @@ import androidx.activity.enableEdgeToEdge
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.compose.rememberNavController
 import dagger.hilt.android.AndroidEntryPoint
+import dev.s44khin.simpleweather.core.navigation.NavigationCommandHandler
+import dev.s44khin.simpleweather.uikit.theme.SimpleTheme
 
 @AndroidEntryPoint
 class MainActivity : ComponentActivity() {
@@ -17,11 +19,19 @@ class MainActivity : ComponentActivity() {
 
         setContent {
             val viewModel = hiltViewModel<MainViewModel>()
+            val navHostController = rememberNavController()
 
-            MainScreen(
-                navHostController = rememberNavController(),
-                onAction = viewModel::onAction,
+            NavigationCommandHandler(
+                navController = navHostController,
+                commands = viewModel.navigationCommand,
             )
+
+            SimpleTheme {
+                MainScreen(
+                    navHostController = navHostController,
+                    onAction = viewModel::onAction,
+                )
+            }
         }
     }
 }

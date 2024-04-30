@@ -12,7 +12,6 @@ import androidx.compose.ui.util.fastForEach
 import androidx.navigation.NavDestination.Companion.hierarchy
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.currentBackStackEntryAsState
-import androidx.navigation.compose.rememberNavController
 import dev.s44khin.simpleweather.core.navigation.SimpleNavHost
 import dev.s44khin.simpleweather.today.navigation.TodayNavigation
 import dev.s44khin.simpleweather.today.navigation.todayNavigation
@@ -29,36 +28,34 @@ internal fun MainScreen(
     navHostController: NavHostController,
     onAction: (MainAction) -> Unit,
 ) {
-    SimpleTheme {
-        Box(
-            modifier = Modifier
-                .fillMaxSize()
-                .background(color = SimpleTheme.colors.root)
+    Box(
+        modifier = Modifier
+            .fillMaxSize()
+            .background(color = SimpleTheme.colors.root)
+    ) {
+        SimpleNavHost(
+            navController = navHostController,
+            startDestination = TodayNavigation
         ) {
-            SimpleNavHost(
-                navController = navHostController,
-                startDestination = TodayNavigation
-            ) {
-                todayNavigation()
-                weekNavigation()
-            }
+            todayNavigation()
+            weekNavigation()
+        }
 
-            BottomNavigation(
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .align(Alignment.BottomCenter)
-            ) {
-                val navBackStackEntry by navHostController.currentBackStackEntryAsState()
-                val currentDestination = navBackStackEntry?.destination
+        BottomNavigation(
+            modifier = Modifier
+                .fillMaxWidth()
+                .align(Alignment.BottomCenter)
+        ) {
+            val navBackStackEntry by navHostController.currentBackStackEntryAsState()
+            val currentDestination = navBackStackEntry?.destination
 
-                bottomNavigationItems.fastForEach { item ->
-                    BottomNavigationItem(
-                        selected = currentDestination?.hierarchy?.any { it.route == item.route } == true,
-                        icon = item.icon,
-                        label = item.label.resolve(),
-                        onClick = { onAction(MainAction.OnBottomNavigationClicked(item)) }
-                    )
-                }
+            bottomNavigationItems.fastForEach { item ->
+                BottomNavigationItem(
+                    selected = currentDestination?.hierarchy?.any { it.route == item.route } == true,
+                    icon = item.icon,
+                    label = item.label.resolve(),
+                    onClick = { onAction(MainAction.OnBottomNavigationClicked(item)) }
+                )
             }
         }
     }

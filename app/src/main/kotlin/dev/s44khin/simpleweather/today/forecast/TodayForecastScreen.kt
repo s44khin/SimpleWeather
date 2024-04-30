@@ -16,6 +16,7 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
+import dev.s44khin.simpleweather.common.util.rememberMutableStateOf
 import dev.s44khin.simpleweather.uikit.util.Spacer
 import dev.s44khin.simpleweather.uikit.widgets.TopNavigation
 import dev.s44khin.simpleweather.uikit.widgets.TopNavigationAction
@@ -23,9 +24,7 @@ import dev.s44khin.simpleweather.uikit.widgets.TopNavigationAction
 @Composable
 fun TodayForecastScreen() {
     Column(modifier = Modifier.fillMaxSize()) {
-        var subTitle by remember {
-            mutableStateOf(false)
-        }
+        var subTitle by rememberMutableStateOf(value = false)
 
         TopNavigation(
             modifier = Modifier.fillMaxWidth(),

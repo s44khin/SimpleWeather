@@ -33,7 +33,7 @@ fun RowScope.BottomNavigationItem(
             selectedTextColor = SimpleTheme.colors.onBackground,
             unselectedIconColor = SimpleTheme.colors.onBackgroundUnselected,
             indicatorColor = SimpleTheme.colors.primary,
-            selectedIconColor = SimpleTheme.colors.onBackground
+            selectedIconColor = SimpleTheme.colors.onPrimary,
         ),
         interactionSource = interactionSource,
         onClick = onClick

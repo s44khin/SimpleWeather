@@ -6,6 +6,8 @@ import androidx.navigation.NamedNavArgument
 import androidx.navigation.NavBackStackEntry
 import androidx.navigation.NavDeepLink
 import androidx.navigation.NavGraphBuilder
+import androidx.navigation.NavHostController
+import androidx.navigation.NavOptionsBuilder
 import androidx.navigation.compose.composable
 import androidx.navigation.navigation
 
@@ -33,3 +35,11 @@ fun NavGraphBuilder.navigation(
         builder = builder,
     )
 }
+
+fun NavHostController.navigate(
+    navDestination: NavDestination,
+    builder: NavOptionsBuilder.() -> Unit
+) = navigate(
+    route = navDestination.route,
+    builder = builder,
+)
