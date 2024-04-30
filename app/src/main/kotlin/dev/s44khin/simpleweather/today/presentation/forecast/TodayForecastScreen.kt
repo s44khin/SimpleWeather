@@ -1,4 +1,4 @@
-package dev.s44khin.simpleweather.today.forecast
+package dev.s44khin.simpleweather.today.presentation.forecast
 
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -14,6 +14,7 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
+import androidx.hilt.navigation.compose.hiltViewModel
 import dev.s44khin.simpleweather.common.util.rememberMutableStateOf
 import dev.s44khin.simpleweather.uikit.util.Spacer
 import dev.s44khin.simpleweather.uikit.widgets.TopNavigation
@@ -22,6 +23,7 @@ import dev.s44khin.simpleweather.uikit.widgets.TopNavigationAction
 @Composable
 fun TodayForecastScreen() {
     Column(modifier = Modifier.fillMaxSize()) {
+        val viewModel = hiltViewModel<TodayForecastViewModel>()
         var subTitle by rememberMutableStateOf(value = false)
 
         TopNavigation(

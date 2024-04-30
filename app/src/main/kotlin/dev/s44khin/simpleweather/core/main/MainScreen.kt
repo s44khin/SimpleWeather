@@ -13,8 +13,8 @@ import androidx.navigation.NavDestination.Companion.hierarchy
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.currentBackStackEntryAsState
 import dev.s44khin.simpleweather.core.navigation.SimpleNavHost
-import dev.s44khin.simpleweather.today.navigation.TodayNavigation
-import dev.s44khin.simpleweather.today.navigation.todayNavigation
+import dev.s44khin.simpleweather.today.core.navigation.TodayNavigation
+import dev.s44khin.simpleweather.today.core.navigation.todayNavigation
 import dev.s44khin.simpleweather.uikit.theme.SimpleTheme
 import dev.s44khin.simpleweather.uikit.widgets.BottomNavigation
 import dev.s44khin.simpleweather.uikit.widgets.BottomNavigationItem

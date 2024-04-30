@@ -28,6 +28,7 @@ android {
         }
 
         debug {
+            applicationIdSuffix = ".debug"
             isMinifyEnabled = false
             isDebuggable = true
         }
@@ -44,6 +45,7 @@ android {
 
     buildFeatures {
         compose = true
+        buildConfig = true
     }
 
     composeOptions {
@@ -68,6 +70,15 @@ dependencies {
     implementation(libs.hilt)
     ksp(libs.hilt.compiler)
     implementation(libs.hilt.navigation.compose)
+
+    // Network
+    implementation(libs.moshi)
+    ksp(libs.moshi.compiler)
+    implementation(platform(libs.okhttp.bom))
+    implementation(libs.okhttp)
+    implementation(libs.logging.interceptor)
+    implementation(libs.retrofit)
+    implementation(libs.retrofit.moshi)
 
     // Project
     implementation(project(":uikit"))

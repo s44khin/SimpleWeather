@@ -9,7 +9,7 @@ import dev.s44khin.simpleweather.core.navigation.NavRootDestination
 import dev.s44khin.simpleweather.core.navigation.composable
 import dev.s44khin.simpleweather.core.navigation.navigation
 import dev.s44khin.simpleweather.uikit.util.NativeText
-import dev.s44khin.simpleweather.week.forecast.WeekForecastScreen
+import dev.s44khin.simpleweather.week.presentation.forecast.WeekForecastScreen
 
 object WeekNavigation : NavRootDestination {
 

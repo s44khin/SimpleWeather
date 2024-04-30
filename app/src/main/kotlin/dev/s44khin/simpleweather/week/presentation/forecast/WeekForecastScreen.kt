@@ -1,4 +1,4 @@
-package dev.s44khin.simpleweather.week.forecast
+package dev.s44khin.simpleweather.week.presentation.forecast
 
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize

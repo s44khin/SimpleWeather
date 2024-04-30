@@ -1,4 +1,4 @@
-package dev.s44khin.simpleweather.today.navigation
+package dev.s44khin.simpleweather.today.core.navigation
 
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.rounded.Today
@@ -8,7 +8,7 @@ import dev.s44khin.simpleweather.core.navigation.NavDestination
 import dev.s44khin.simpleweather.core.navigation.NavRootDestination
 import dev.s44khin.simpleweather.core.navigation.composable
 import dev.s44khin.simpleweather.core.navigation.navigation
-import dev.s44khin.simpleweather.today.forecast.TodayForecastScreen
+import dev.s44khin.simpleweather.today.presentation.forecast.TodayForecastScreen
 import dev.s44khin.simpleweather.uikit.util.NativeText
 
 object TodayNavigation : NavRootDestination {
