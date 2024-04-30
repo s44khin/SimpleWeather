@@ -29,7 +29,6 @@ internal fun MainScreen(
     navHostController: NavHostController,
     onAction: (MainAction) -> Unit,
 ) {
-    val asd = rememberNavController()
     SimpleTheme {
         Box(
             modifier = Modifier

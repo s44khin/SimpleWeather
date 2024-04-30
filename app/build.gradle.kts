@@ -2,6 +2,7 @@ plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin)
     alias(libs.plugins.ksp)
+    alias(libs.plugins.hilt)
 }
 
 android {
@@ -60,9 +61,10 @@ dependencies {
     implementation(libs.compose.viewModel)
     implementation(libs.compose.navigation)
 
-    // Dagger 2
-    implementation(libs.dagger2)
-    ksp(libs.dagger2.compiler)
+    // Hilt
+    implementation(libs.hilt)
+    ksp(libs.hilt.compiler)
+    implementation(libs.hilt.navigation.compose)
 
     // Project
     implementation(project(":uikit"))
