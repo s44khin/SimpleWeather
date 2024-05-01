@@ -2,4 +2,12 @@
     <string name="app_name">Simple Weather</string>
     <string name="today_label">Today</string>
     <string name="week_label">Week</string>
+    <string name="settings_label">Settings</string>
+    <string name="settings_units">Units</string>
+    <string name="units_fahrenheit">Fahrenheit</string>
+    <string name="units_fahrenheit_sample">60°F</string>
+    <string name="units_celsius">Celsius</string>
+    <string name="units_celsius_sample">16°C</string>
+    <string name="units_kelvin">Kelvin</string>
+    <string name="units_kelvin_sample">289K</string>
 </resources>

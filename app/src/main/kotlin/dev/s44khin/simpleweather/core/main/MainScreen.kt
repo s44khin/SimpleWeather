@@ -13,6 +13,8 @@ import androidx.navigation.NavDestination.Companion.hierarchy
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.currentBackStackEntryAsState
 import dev.s44khin.simpleweather.core.navigation.SimpleNavHost
+import dev.s44khin.simpleweather.settings.core.navigation.SettingsNavigation
+import dev.s44khin.simpleweather.settings.core.navigation.settingsNavigation
 import dev.s44khin.simpleweather.today.core.navigation.TodayNavigation
 import dev.s44khin.simpleweather.today.core.navigation.todayNavigation
 import dev.s44khin.simpleweather.uikit.theme.SimpleTheme
@@ -21,7 +23,7 @@ import dev.s44khin.simpleweather.uikit.widgets.BottomNavigationItem
 import dev.s44khin.simpleweather.week.navigation.WeekNavigation
 import dev.s44khin.simpleweather.week.navigation.weekNavigation
 
-private val bottomNavigationItems = listOf(TodayNavigation, WeekNavigation)
+private val bottomNavigationItems = listOf(TodayNavigation, WeekNavigation, SettingsNavigation)
 
 @Composable
 internal fun MainScreen(
@@ -39,6 +41,7 @@ internal fun MainScreen(
         ) {
             todayNavigation()
             weekNavigation()
+            settingsNavigation()
         }
 
         BottomNavigation(

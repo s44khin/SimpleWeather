@@ -3,13 +3,14 @@ package dev.s44khin.simpleweather.uikit.widgets
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.RowScope
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.navigationBarsPadding
-import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.draw.clip
+import androidx.compose.ui.unit.dp
 import dev.s44khin.simpleweather.uikit.theme.SimpleTheme
-import dev.s44khin.simpleweather.uikit.theme.defaultShape
+
+val BottomNavigationHeight = 80.dp
 
 @Composable
 fun BottomNavigation(
@@ -18,12 +19,9 @@ fun BottomNavigation(
 ) {
     Row(
         modifier = modifier
-            .background(
-                color = SimpleTheme.colors.background,
-                shape = RoundedCornerShape(topStart = defaultShape, topEnd = defaultShape)
-            )
+            .background(color = SimpleTheme.colors.backgroundTransparent)
             .navigationBarsPadding()
-            .clip(RoundedCornerShape(topStart = defaultShape, topEnd = defaultShape)),
+            .height(BottomNavigationHeight),
         content = content,
     )
 }
