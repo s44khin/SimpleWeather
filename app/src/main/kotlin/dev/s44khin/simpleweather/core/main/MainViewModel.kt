@@ -3,6 +3,7 @@ package dev.s44khin.simpleweather.core.main
 import androidx.lifecycle.viewModelScope
 import dagger.hilt.android.lifecycle.HiltViewModel
 import dev.s44khin.simpleweather.common.data.CommonRepository
+import dev.s44khin.simpleweather.common.domain.useCases.GetAlwaysShowLabelUseCase
 import dev.s44khin.simpleweather.common.domain.useCases.GetColorUseCase
 import dev.s44khin.simpleweather.common.domain.useCases.GetThemeUseCase
 import dev.s44khin.simpleweather.common.domain.useCases.GetTransparentUseCase
@@ -16,16 +17,18 @@ import javax.inject.Inject
 @HiltViewModel
 class MainViewModel @Inject constructor(
     private val commonRepository: CommonRepository,
-    private val getColorUseCase: GetColorUseCase,
-    private val getThemeUseCase: GetThemeUseCase,
-    private val getTransparentUseCase: GetTransparentUseCase,
     private val mainConverter: MainConverter,
     private val screenRouter: ScreenRouter,
+    getAlwaysShowLabelUseCase: GetAlwaysShowLabelUseCase,
+    getColorUseCase: GetColorUseCase,
+    getThemeUseCase: GetThemeUseCase,
+    getTransparentUseCase: GetTransparentUseCase,
 ) : BaseViewModel<MainScreenState, MainUiState, MainAction>(
     initState = MainScreenState(
         color = getColorUseCase.execute(),
         theme = getThemeUseCase.execute(),
         transparent = getTransparentUseCase.execute(),
+        alwaysShowLabel = getAlwaysShowLabelUseCase.execute(),
     ),
     converter = mainConverter::convert
 ) {
@@ -53,6 +56,14 @@ class MainViewModel @Inject constructor(
             commonRepository.transparentFlow.collectLatest {
                 screenState = screenState.copy(
                     transparent = it
+                )
+            }
+        }
+
+        viewModelScope.launch {
+            commonRepository.alwaysShowLabelFlow.collectLatest {
+                screenState = screenState.copy(
+                    alwaysShowLabel = it
                 )
             }
         }

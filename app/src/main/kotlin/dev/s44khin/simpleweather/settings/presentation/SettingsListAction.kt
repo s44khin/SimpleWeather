@@ -8,6 +8,7 @@ sealed class SettingsListAction {
 
     data class OnColorClicked(val color: PrimaryColorVo) : SettingsListAction()
     data class OnThemeClicked(val theme: ThemeVo) : SettingsListAction()
-    data object OnTransparentChanged : SettingsListAction()
     data class OnUnitsClicked(val tempUnits: TempUnitsVo) : SettingsListAction()
+    data object OnAlwaysShowLabelClicked : SettingsListAction()
+    data object OnTransparentChanged : SettingsListAction()
 }

@@ -21,7 +21,7 @@ fun ColumnScope.OtherBlock(
         content = {
             Column {
                 OtherItemCheckBox(
-                    label = "Transparent",
+                    label = stringResource(R.string.settings_other_transparent),
                     selected = state.transparent,
                     onClicked = { onAction(SettingsListAction.OnTransparentChanged) }
                 )
@@ -30,24 +30,10 @@ fun ColumnScope.OtherBlock(
                     color = SimpleTheme.colors.divider
                 )
 
-                OtherItem(
-                    label = "Location",
-                )
-
-                HorizontalDivider(
-                    color = SimpleTheme.colors.divider
-                )
-
-                OtherItem(
-                    label = "Notifications",
-                )
-
-                HorizontalDivider(
-                    color = SimpleTheme.colors.divider
-                )
-
-                OtherItem(
-                    label = "Experimental",
+                OtherItemCheckBox(
+                    label = stringResource(R.string.settings_other_always_show_label),
+                    selected = state.alwaysShowLabel,
+                    onClicked = { onAction(SettingsListAction.OnAlwaysShowLabelClicked) }
                 )
             }
         }

@@ -21,6 +21,8 @@ class CommonLocal @Inject constructor(
 
     val transparentFlow get() = sharedPrefSettings.transparentFlow
 
+    val alwaysShowLabelFlow get() = sharedPrefSettings.alwaysShowLabelFlow
+
     suspend fun setColor(color: PrimaryColor) {
         sharedPrefSettings.setColor(color)
     }
@@ -31,5 +33,9 @@ class CommonLocal @Inject constructor(
 
     suspend fun setTransparent(transparent: Boolean) {
         sharedPrefSettings.setTransparent(transparent)
+    }
+
+    suspend fun setAlwaysShowLabel(alwaysShowLabel: Boolean) {
+        sharedPrefSettings.setAlwaysShowLabel(alwaysShowLabel)
     }
 }

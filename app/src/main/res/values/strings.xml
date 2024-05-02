@@ -8,6 +8,8 @@
     <string name="settings_colors">Primary color</string>
     <string name="settings_colors_info">Choose an accent color: top color for a light theme, bottom color for a dark one</string>
     <string name="settings_other">Other</string>
+    <string name="settings_other_transparent">Transparent</string>
+    <string name="settings_other_always_show_label">Always show label</string>
     <string name="settings_theme">Theme</string>
     <string name="settings_theme_info">Theme</string>
     <string name="units_fahrenheit">Fahrenheit</string>

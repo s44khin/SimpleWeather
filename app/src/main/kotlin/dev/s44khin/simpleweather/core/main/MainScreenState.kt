@@ -7,4 +7,5 @@ data class MainScreenState(
     val color: PrimaryColor,
     val theme: Theme,
     val transparent: Boolean,
+    val alwaysShowLabel: Boolean,
 )

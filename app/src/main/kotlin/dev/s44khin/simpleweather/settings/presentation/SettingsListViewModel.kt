@@ -5,10 +5,12 @@ import dagger.hilt.android.lifecycle.HiltViewModel
 import dev.s44khin.simpleweather.common.domain.model.PrimaryColor
 import dev.s44khin.simpleweather.common.domain.model.TempUnits
 import dev.s44khin.simpleweather.common.domain.model.Theme
+import dev.s44khin.simpleweather.common.domain.useCases.GetAlwaysShowLabelUseCase
 import dev.s44khin.simpleweather.common.domain.useCases.GetColorUseCase
 import dev.s44khin.simpleweather.common.domain.useCases.GetThemeUseCase
 import dev.s44khin.simpleweather.common.domain.useCases.GetTransparentUseCase
 import dev.s44khin.simpleweather.common.domain.useCases.GetUnitsUseCase
+import dev.s44khin.simpleweather.common.domain.useCases.SetAlwaysShowLabelUseCase
 import dev.s44khin.simpleweather.common.domain.useCases.SetColorUseCase
 import dev.s44khin.simpleweather.common.domain.useCases.SetThemeUseCase
 import dev.s44khin.simpleweather.common.domain.useCases.SetTransparentUseCase
@@ -23,26 +25,30 @@ import javax.inject.Inject
 
 @HiltViewModel
 class SettingsListViewModel @Inject constructor(
-    private val getColorUseCase: GetColorUseCase,
-    private val getUnitsUseCase: GetUnitsUseCase,
+    private val setAlwaysShowLabelUseCase: SetAlwaysShowLabelUseCase,
     private val setColorUseCase: SetColorUseCase,
-    private val setUnitsUseCase: SetUnitsUseCase,
     private val setThemeUseCase: SetThemeUseCase,
-    private val getThemeUseCase: GetThemeUseCase,
-    private val getTransparentUseCase: GetTransparentUseCase,
     private val setTransparentUseCase: SetTransparentUseCase,
+    private val setUnitsUseCase: SetUnitsUseCase,
     private val settingsListConverter: SettingsListConverter,
+    getColorUseCase: GetColorUseCase,
+    getThemeUseCase: GetThemeUseCase,
+    getTransparentUseCase: GetTransparentUseCase,
+    getUnitsUseCase: GetUnitsUseCase,
+    getAlwaysShowLabelUseCase: GetAlwaysShowLabelUseCase,
 ) : BaseViewModel<SettingsListScreenState, SettingsListUiState, SettingsListAction>(
     initState = SettingsListScreenState(
         tempUnits = getUnitsUseCase.execute(),
         color = getColorUseCase.execute(),
         theme = getThemeUseCase.execute(),
         transparent = getTransparentUseCase.execute(),
+        alwaysShowLabel = getAlwaysShowLabelUseCase.execute(),
     ),
     converter = settingsListConverter::convert,
 ) {
 
     override fun onAction(action: SettingsListAction) = when (action) {
+        is SettingsListAction.OnAlwaysShowLabelClicked -> onAlwaysShowLabelClicked()
         is SettingsListAction.OnColorClicked -> onColorClicked(action.color)
         is SettingsListAction.OnThemeClicked -> onThemeClicked(action.theme)
         is SettingsListAction.OnTransparentChanged -> onTransparentChanged()
@@ -102,6 +108,16 @@ class SettingsListViewModel @Inject constructor(
 
         screenState = screenState.copy(
             transparent = screenState.transparent.not(),
+        )
+    }
+
+    private fun onAlwaysShowLabelClicked() {
+        viewModelScope.launch {
+            setAlwaysShowLabelUseCase.execute(screenState.alwaysShowLabel.not())
+        }
+
+        screenState = screenState.copy(
+            alwaysShowLabel = screenState.alwaysShowLabel.not(),
         )
     }
 }

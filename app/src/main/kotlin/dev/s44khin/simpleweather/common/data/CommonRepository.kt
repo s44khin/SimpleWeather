@@ -22,6 +22,8 @@ class CommonRepository @Inject constructor(
 
     val transparentFlow get() = local.transparentFlow
 
+    val alwaysShowLabelFlow get() = local.alwaysShowLabelFlow
+
     suspend fun setColor(color: PrimaryColor) {
         local.setColor(color)
     }
@@ -32,5 +34,9 @@ class CommonRepository @Inject constructor(
 
     suspend fun setTransparent(transparent: Boolean) {
         local.setTransparent(transparent)
+    }
+
+    suspend fun setAlwaysShowLabel(alwaysShowLabel: Boolean) {
+        local.setAlwaysShowLabel(alwaysShowLabel)
     }
 }

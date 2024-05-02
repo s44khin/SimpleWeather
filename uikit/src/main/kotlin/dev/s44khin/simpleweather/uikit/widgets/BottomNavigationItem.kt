@@ -16,9 +16,10 @@ import dev.s44khin.simpleweather.uikit.theme.SimpleTheme
 fun RowScope.BottomNavigationItem(
     selected: Boolean,
     icon: ImageVector,
+    label: String,
     modifier: Modifier = Modifier,
     enabled: Boolean = true,
-    label: String,
+    alwaysShowLabel: Boolean = true,
     interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
     onClick: () -> Unit,
 ) {
@@ -36,6 +37,7 @@ fun RowScope.BottomNavigationItem(
             selectedIconColor = SimpleTheme.colors.onPrimary,
         ),
         interactionSource = interactionSource,
+        alwaysShowLabel = alwaysShowLabel,
         onClick = onClick
     )
 }

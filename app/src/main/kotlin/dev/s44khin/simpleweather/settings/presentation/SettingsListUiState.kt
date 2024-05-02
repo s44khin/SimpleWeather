@@ -11,4 +11,5 @@ data class SettingsListUiState(
     val primaryColor: PrimaryColorVo = PrimaryColorVo.CedarChest,
     val theme: ThemeVo = ThemeVo.System,
     val transparent: Boolean = true,
+    val alwaysShowLabel: Boolean = true,
 )

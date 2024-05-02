@@ -17,5 +17,6 @@ class MainConverter @Inject constructor() {
             default = ThemeVo.System,
         ),
         transparent = screenState.transparent,
+        alwaysShowLabel = screenState.alwaysShowLabel,
     )
 }

@@ -26,6 +26,7 @@ class SharedPrefSettings @Inject constructor(
         const val COLOR = "color"
         const val THEME = "theme"
         const val TRANSPARENT = "transparent"
+        const val ALWAYS_SHOW_LABEL = "always_show_label"
     }
 
     private val sharedPreferences = context.getSharedPreferences(SETTINGS, Context.MODE_PRIVATE)
@@ -59,6 +60,12 @@ class SharedPrefSettings @Inject constructor(
 
     val transparentFlow = _transparentFlow.asStateFlow()
 
+    private val _alwaysShowLabelFlow = MutableStateFlow(
+        value = sharedPreferences.getBoolean(ALWAYS_SHOW_LABEL, true)
+    )
+
+    val alwaysShowLabelFlow = _alwaysShowLabelFlow.asStateFlow()
+
     suspend fun setColor(color: PrimaryColor) {
         sharedPreferences
             .edit()
@@ -84,5 +91,14 @@ class SharedPrefSettings @Inject constructor(
             .apply()
 
         _transparentFlow.emit(transparent)
+    }
+
+    suspend fun setAlwaysShowLabel(alwaysShowLabel: Boolean) {
+        sharedPreferences
+            .edit()
+            .putBoolean(ALWAYS_SHOW_LABEL, alwaysShowLabel)
+            .apply()
+
+        _alwaysShowLabelFlow.emit(alwaysShowLabel)
     }
 }

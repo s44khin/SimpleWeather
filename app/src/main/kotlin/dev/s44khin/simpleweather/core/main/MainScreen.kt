@@ -27,6 +27,7 @@ private val bottomNavigationItems = listOf(TodayNavigation, WeekNavigation, Sett
 
 @Composable
 internal fun MainScreen(
+    state: MainUiState,
     navHostController: NavHostController,
     onAction: (MainAction) -> Unit,
 ) {
@@ -57,6 +58,7 @@ internal fun MainScreen(
                     selected = currentDestination?.hierarchy?.any { it.route == item.route } == true,
                     icon = item.icon,
                     label = item.label.resolve(),
+                    alwaysShowLabel = state.alwaysShowLabel,
                     onClick = { onAction(MainAction.OnBottomNavigationClicked(item)) }
                 )
             }

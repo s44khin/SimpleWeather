@@ -12,4 +12,5 @@ data class SettingsListScreenState(
     ),
     val theme: Theme,
     val transparent: Boolean,
+    val alwaysShowLabel: Boolean,
 )

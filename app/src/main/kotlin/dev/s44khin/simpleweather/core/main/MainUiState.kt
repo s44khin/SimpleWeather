@@ -9,4 +9,5 @@ data class MainUiState(
     val color: PrimaryColorVo,
     val theme: ThemeVo,
     val transparent: Boolean,
+    val alwaysShowLabel: Boolean,
 )

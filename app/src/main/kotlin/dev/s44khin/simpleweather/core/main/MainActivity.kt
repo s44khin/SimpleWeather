@@ -56,6 +56,7 @@ class MainActivity : ComponentActivity() {
                 }
             ) {
                 MainScreen(
+                    state = state,
                     navHostController = navHostController,
                     onAction = viewModel::onAction,
                 )
