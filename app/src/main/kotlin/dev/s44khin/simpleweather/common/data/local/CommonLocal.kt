@@ -1,5 +1,6 @@
 package dev.s44khin.simpleweather.common.data.local
 
+import dev.s44khin.simpleweather.common.domain.model.PrimaryColor
 import dev.s44khin.simpleweather.common.domain.model.TempUnits
 import javax.inject.Inject
 
@@ -12,4 +13,10 @@ class CommonLocal @Inject constructor(
         set(value) {
             sharedPrefSettings.units = value
         }
+
+    val colorFlow get() = sharedPrefSettings.colorFlow
+
+    suspend fun setColor(color: PrimaryColor) {
+        sharedPrefSettings.setColor(color)
+    }
 }

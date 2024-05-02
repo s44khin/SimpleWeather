@@ -3,57 +3,47 @@ package dev.s44khin.simpleweather.common.presentation.model
 import androidx.compose.ui.graphics.Color
 
 enum class PrimaryColorVo(
-    val primary: Color,
-    val onPrimary: Color,
+    val light: Color,
+    val dark: Color,
 ) {
 
-    Blue(
-        primary = Color(0xff0277ff),
-        onPrimary = Color(0xffffffff)
+    CedarChest(
+        light = Color(0xff86352e),
+        dark = Color(0xfff6d5d2),
     ),
 
-    Periwinkle(
-        primary = Color(0xffA7ABDD),
-        onPrimary = Color(0xff000000)
+    TrueBlue(
+        light = Color(0xff0056d6),
+        dark = Color(0xff7ddaff),
     ),
 
-    Sage(
-        primary = Color(0xffB4C292),
-        onPrimary = Color(0xff000000)
+    LightPeriwinkle(
+        light = Color(0xff58547f),
+        dark = Color(0xffc9cde5)
     ),
 
-    Wenge(
-        primary = Color(0xff5D576B),
-        onPrimary = Color(0xffffffff)
+    IguanaGreen(
+        light = Color(0xff234229),
+        dark = Color(0xffc0dac0)
     ),
 
-    CoralPink(
-        primary = Color(0xffFE938C),
-        onPrimary = Color(0xff000000)
+    DavyGrey(
+        light = Color(0xff4a4245),
+        dark = Color(0xffc0b9bd)
     ),
 
-    TeaGreen(
-        primary = Color(0xffC9D5B5),
-        onPrimary = Color(0xff000000)
+    LightCobaltBlue(
+        light = Color(0xff3e4395),
+        dark = Color(0xffb0c3f1)
     ),
 
-    Licorice(
-        primary = Color(0xff230C0F),
-        onPrimary = Color(0xffffffff)
+    PalmLeaf(
+        light = Color(0xff435b30),
+        dark = Color(0xffacc78f)
     ),
 
-    MintCream(
-        primary = Color(0xffEBF5EE),
-        onPrimary = Color(0xff000000)
-    ),
-
-    RaisinBlack(
-        primary = Color(0xff221D23),
-        onPrimary = Color(0xffffffff)
-    ),
-
-    SpaceCadet(
-        primary = Color(0xff2A324B),
-        onPrimary = Color(0xffffffff)
-    ),
+    Gold(
+        light = Color(0xff90542d),
+        dark = Color(0xffdfcc8f)
+    )
 }

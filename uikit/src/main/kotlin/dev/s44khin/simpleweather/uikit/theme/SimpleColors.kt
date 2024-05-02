@@ -16,26 +16,34 @@ data class SimpleColors(
     val divider: Color,
 )
 
-internal val LocalSimpleColors = staticCompositionLocalOf { getLightColors() }
+internal val LocalSimpleColors = staticCompositionLocalOf {
+    getLightColors()
+}
 
-internal fun getLightColors() = SimpleColors(
-    primary = Color(0xff0277ff),
+internal fun getLightColors(
+    primary: Color = Color(0xff0277ff),
+    onPrimary: Color = Color(0xffffffff),
+) = SimpleColors(
+    primary = primary,
     root = Color(0xffeceef0),
     background = Color(0xffffffff),
     onBackground = Color(0xff000000),
     onBackgroundUnselected = Color(0x80000000),
-    onPrimary = Color(0xffffffff),
+    onPrimary = onPrimary,
     backgroundTransparent = Color(0xCDFFFFFF),
     divider = Color(0xFFDFDFDF),
 )
 
-internal fun getDarkColors() = SimpleColors(
-    primary = Color(0xff0277ff),
+internal fun getDarkColors(
+    primary: Color = Color(0xff0277ff),
+    onPrimary: Color = Color(0xffffffff),
+) = SimpleColors(
+    primary = primary,
     root = Color(0xff141414),
     background = Color(0xff282424),
     onBackground = Color(0xffffffff),
     onBackgroundUnselected = Color(0x80FFFFFF),
-    onPrimary = Color(0xffffffff),
+    onPrimary = onPrimary,
     backgroundTransparent = Color(0xDE282424),
     divider = Color(0xFF131313),
 )

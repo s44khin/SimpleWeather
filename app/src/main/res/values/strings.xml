@@ -6,7 +6,7 @@
     <string name="settings_units">Units</string>
     <string name="settings_units_info">Select the units of measurement in which the temperature will be displayed</string>
     <string name="settings_colors">Primary color</string>
-    <string name="settings_colors_info">Choose the color you want to use as an accent</string>
+    <string name="settings_colors_info">Choose an accent color: top color for a light theme, bottom color for a dark one</string>
     <string name="settings_other">Other</string>
     <string name="settings_theme">Theme</string>
     <string name="settings_theme_info">Theme</string>

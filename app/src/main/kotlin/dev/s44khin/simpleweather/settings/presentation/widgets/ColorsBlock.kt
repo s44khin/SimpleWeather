@@ -27,9 +27,13 @@ fun ColumnScope.ColorsBlock(
             Row(
                 modifier = Modifier
                     .horizontalScroll(state = rememberScrollState())
-                    .padding(vertical = 16.dp)
+                    .padding(vertical = 8.dp)
             ) {
-                Spacer(width = 16.dp)
+                Spacer(width = 8.dp)
+
+                ColorFirstColumn()
+
+                Spacer(width = 8.dp)
 
                 PrimaryColorVo.entries.fastForEach {
                     PrimaryColorItem(
@@ -38,7 +42,7 @@ fun ColumnScope.ColorsBlock(
                         onClick = { onColorClicked(it) }
                     )
 
-                    Spacer(width = 16.dp)
+                    Spacer(width = 8.dp)
                 }
             }
         }

@@ -14,7 +14,7 @@ class SettingsListConverter @Inject constructor() {
         ),
         primaryColor = enumValueOrDefault(
             string = screenState.color.name,
-            default = PrimaryColorVo.Blue,
+            default = PrimaryColorVo.CedarChest,
         )
     )
 }
