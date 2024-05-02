@@ -4,10 +4,12 @@ import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.unit.dp
 import androidx.compose.ui.util.fastForEach
 import androidx.navigation.NavDestination.Companion.hierarchy
 import androidx.navigation.NavHostController
@@ -15,6 +17,7 @@ import androidx.navigation.compose.currentBackStackEntryAsState
 import com.google.accompanist.navigation.material.BottomSheetNavigator
 import com.google.accompanist.navigation.material.ExperimentalMaterialNavigationApi
 import com.google.accompanist.navigation.material.ModalBottomSheetLayout
+import dev.s44khin.simpleweather.common.core.navigation.commonNavigation
 import dev.s44khin.simpleweather.core.navigation.SimpleNavHost
 import dev.s44khin.simpleweather.settings.core.navigation.SettingsNavigation
 import dev.s44khin.simpleweather.settings.core.navigation.settingsNavigation
@@ -36,7 +39,11 @@ internal fun MainScreen(
     bottomSheetNavigator: BottomSheetNavigator,
     onAction: (MainAction) -> Unit,
 ) {
-    ModalBottomSheetLayout(bottomSheetNavigator = bottomSheetNavigator) {
+    ModalBottomSheetLayout(
+        bottomSheetNavigator = bottomSheetNavigator,
+        sheetBackgroundColor = SimpleTheme.colors.background,
+        sheetShape = RoundedCornerShape(topStart = 16.dp, topEnd = 16.dp)
+    ) {
         Box(
             modifier = Modifier
                 .fillMaxSize()
@@ -46,6 +53,7 @@ internal fun MainScreen(
                 navController = navHostController,
                 startDestination = TodayNavigation,
             ) {
+                commonNavigation()
                 todayNavigation()
                 weekNavigation()
                 settingsNavigation()

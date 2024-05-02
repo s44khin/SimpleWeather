@@ -97,8 +97,7 @@ fun TopNavigation(
                         text = title,
                         color = SimpleTheme.colors.onBackground,
                         fontSize = 18.sp,
-
-                        )
+                    )
                 }
 
                 AnimatedVisibility(

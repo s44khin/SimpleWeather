@@ -23,6 +23,8 @@ object SettingsNavigation : NavRootDestination {
 
     object List : NavDestination {
 
+        const val RESET_CONFIRM_BUTTON_KEY = "reset_confirm_button_key"
+
         override val route = "${SettingsNavigation.route}/list"
     }
 }

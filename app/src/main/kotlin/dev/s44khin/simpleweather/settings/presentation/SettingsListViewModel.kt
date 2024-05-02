@@ -1,8 +1,15 @@
 package dev.s44khin.simpleweather.settings.presentation
 
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.rounded.Autorenew
 import androidx.lifecycle.viewModelScope
 import dagger.hilt.android.lifecycle.HiltViewModel
+import dev.s44khin.simpleweather.R
+import dev.s44khin.simpleweather.common.clearable.AutoClearable
+import dev.s44khin.simpleweather.common.core.navigation.CommonNavigation
 import dev.s44khin.simpleweather.common.data.CommonRepository
+import dev.s44khin.simpleweather.common.domain.model.ConfirmationDialogButtonData
+import dev.s44khin.simpleweather.common.domain.model.ConfirmationDialogData
 import dev.s44khin.simpleweather.common.domain.model.PrimaryColor
 import dev.s44khin.simpleweather.common.domain.model.TempUnits
 import dev.s44khin.simpleweather.common.domain.model.Theme
@@ -21,21 +28,26 @@ import dev.s44khin.simpleweather.common.presentation.model.PrimaryColorVo
 import dev.s44khin.simpleweather.common.presentation.model.ThemeVo
 import dev.s44khin.simpleweather.common.util.enumValueOrDefault
 import dev.s44khin.simpleweather.core.base.BaseViewModel
+import dev.s44khin.simpleweather.core.navigation.ScreenRouter
+import dev.s44khin.simpleweather.settings.core.navigation.SettingsNavigation.List.RESET_CONFIRM_BUTTON_KEY
 import dev.s44khin.simpleweather.settings.presentation.model.TempUnitsVo
+import dev.s44khin.simpleweather.uikit.util.NativeText
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel
 class SettingsListViewModel @Inject constructor(
+    private val commonRepository: CommonRepository,
     private val resetAllSettingsUseCase: ResetSettingsUseCase,
+    private val screenRouter: ScreenRouter,
     private val setAlwaysShowLabelUseCase: SetAlwaysShowLabelUseCase,
     private val setColorUseCase: SetColorUseCase,
     private val setThemeUseCase: SetThemeUseCase,
     private val setTransparentUseCase: SetTransparentUseCase,
     private val setUnitsUseCase: SetUnitsUseCase,
     private val settingsListConverter: SettingsListConverter,
-    private val commonRepository: CommonRepository,
+    private val confirmationDialogDataInMemory: AutoClearable<ConfirmationDialogData>,
     getColorUseCase: GetColorUseCase,
     getThemeUseCase: GetThemeUseCase,
     getTransparentUseCase: GetTransparentUseCase,
@@ -114,9 +126,23 @@ class SettingsListViewModel @Inject constructor(
     }
 
     private fun onResetAllSettingsClicked() {
-        viewModelScope.launch {
-            resetAllSettingsUseCase.execute()
-        }
+//        viewModelScope.launch {
+//            resetAllSettingsUseCase.execute()
+//        }
+
+        confirmationDialogDataInMemory.value = ConfirmationDialogData(
+            title = NativeText.Resource(R.string.settings_restore),
+            confirmButtonData = ConfirmationDialogButtonData(
+                label = NativeText.Resource(R.string.dialog_confirm),
+                onClickSignal = RESET_CONFIRM_BUTTON_KEY
+            ),
+            icon = Icons.Rounded.Autorenew,
+            cancelButtonLabel = NativeText.Resource(R.string.dialog_cancel)
+        )
+
+        screenRouter.navigateTo(
+            navDestination = CommonNavigation.ConfirmationDialog
+        )
     }
 
     private fun subscribeToSettingsChanges() {
