@@ -45,7 +45,7 @@ fun SettingsListScreen() {
             scrollState = scrollState,
             rightAction = TopNavigationAction(
                 icon = Icons.Rounded.Cached,
-                onClick = {}
+                onClick = { viewModel.onAction(SettingsListAction.OnResetAllSettingsClicked) }
             ),
             onTitleClick = {
                 coroutineScope.launch {
