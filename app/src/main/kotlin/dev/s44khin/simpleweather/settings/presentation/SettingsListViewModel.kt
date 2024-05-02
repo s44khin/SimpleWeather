@@ -7,9 +7,11 @@ import dev.s44khin.simpleweather.common.domain.model.TempUnits
 import dev.s44khin.simpleweather.common.domain.model.Theme
 import dev.s44khin.simpleweather.common.domain.useCases.GetColorUseCase
 import dev.s44khin.simpleweather.common.domain.useCases.GetThemeUseCase
+import dev.s44khin.simpleweather.common.domain.useCases.GetTransparentUseCase
 import dev.s44khin.simpleweather.common.domain.useCases.GetUnitsUseCase
 import dev.s44khin.simpleweather.common.domain.useCases.SetColorUseCase
 import dev.s44khin.simpleweather.common.domain.useCases.SetThemeUseCase
+import dev.s44khin.simpleweather.common.domain.useCases.SetTransparentUseCase
 import dev.s44khin.simpleweather.common.domain.useCases.SetUnitsUseCase
 import dev.s44khin.simpleweather.common.presentation.model.PrimaryColorVo
 import dev.s44khin.simpleweather.common.presentation.model.ThemeVo
@@ -27,20 +29,24 @@ class SettingsListViewModel @Inject constructor(
     private val setUnitsUseCase: SetUnitsUseCase,
     private val setThemeUseCase: SetThemeUseCase,
     private val getThemeUseCase: GetThemeUseCase,
+    private val getTransparentUseCase: GetTransparentUseCase,
+    private val setTransparentUseCase: SetTransparentUseCase,
     private val settingsListConverter: SettingsListConverter,
 ) : BaseViewModel<SettingsListScreenState, SettingsListUiState, SettingsListAction>(
     initState = SettingsListScreenState(
         tempUnits = getUnitsUseCase.execute(),
         color = getColorUseCase.execute(),
         theme = getThemeUseCase.execute(),
+        transparent = getTransparentUseCase.execute(),
     ),
     converter = settingsListConverter::convert,
 ) {
 
     override fun onAction(action: SettingsListAction) = when (action) {
-        is SettingsListAction.OnUnitsClicked -> onUnitsClicked(action.tempUnits)
         is SettingsListAction.OnColorClicked -> onColorClicked(action.color)
         is SettingsListAction.OnThemeClicked -> onThemeClicked(action.theme)
+        is SettingsListAction.OnTransparentChanged -> onTransparentChanged()
+        is SettingsListAction.OnUnitsClicked -> onUnitsClicked(action.tempUnits)
     }
 
     private fun onUnitsClicked(tempUnits: TempUnitsVo) {
@@ -86,6 +92,16 @@ class SettingsListViewModel @Inject constructor(
 
         screenState = screenState.copy(
             theme = themeDomain
+        )
+    }
+
+    private fun onTransparentChanged() {
+        viewModelScope.launch {
+            setTransparentUseCase.execute(screenState.transparent.not())
+        }
+
+        screenState = screenState.copy(
+            transparent = screenState.transparent.not(),
         )
     }
 }

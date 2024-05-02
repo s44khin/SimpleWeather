@@ -11,4 +11,5 @@ data class SettingsListScreenState(
         name = PrimaryColorVo.CedarChest.name,
     ),
     val theme: Theme,
+    val transparent: Boolean,
 )

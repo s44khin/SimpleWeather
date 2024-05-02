@@ -25,6 +25,7 @@ class SharedPrefSettings @Inject constructor(
         const val UNITS = "units"
         const val COLOR = "color"
         const val THEME = "theme"
+        const val TRANSPARENT = "transparent"
     }
 
     private val sharedPreferences = context.getSharedPreferences(SETTINGS, Context.MODE_PRIVATE)
@@ -52,6 +53,12 @@ class SharedPrefSettings @Inject constructor(
 
     val themeFlow = _themeFlow.asStateFlow()
 
+    private val _transparentFlow = MutableStateFlow(
+        value = sharedPreferences.getBoolean(TRANSPARENT, true)
+    )
+
+    val transparentFlow = _transparentFlow.asStateFlow()
+
     suspend fun setColor(color: PrimaryColor) {
         sharedPreferences
             .edit()
@@ -68,5 +75,14 @@ class SharedPrefSettings @Inject constructor(
         )
 
         _themeFlow.emit(theme)
+    }
+
+    suspend fun setTransparent(transparent: Boolean) {
+        sharedPreferences
+            .edit()
+            .putBoolean(TRANSPARENT, transparent)
+            .apply()
+
+        _transparentFlow.emit(transparent)
     }
 }

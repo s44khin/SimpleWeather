@@ -1,5 +1,6 @@
 package dev.s44khin.simpleweather.settings.presentation.widgets
 
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
@@ -19,9 +20,12 @@ fun OtherItemCheckBox(
     label: String,
     selected: Boolean,
     modifier: Modifier = Modifier,
+    onClicked: () -> Unit,
 ) {
     Row(
-        modifier = modifier.height(48.dp),
+        modifier = modifier
+            .height(48.dp)
+            .clickable { onClicked() },
         verticalAlignment = Alignment.CenterVertically,
     ) {
         Text(
@@ -37,7 +41,7 @@ fun OtherItemCheckBox(
 
         Checkbox(
             checked = selected,
-            onCheckedChange = {},
+            onCheckedChange = { onClicked() },
             colors = CheckboxDefaults.colors(
                 checkedColor = SimpleTheme.colors.primary,
                 checkmarkColor = SimpleTheme.colors.onPrimary

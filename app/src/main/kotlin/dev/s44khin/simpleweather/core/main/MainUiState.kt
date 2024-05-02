@@ -8,4 +8,5 @@ import dev.s44khin.simpleweather.common.presentation.model.ThemeVo
 data class MainUiState(
     val color: PrimaryColorVo,
     val theme: ThemeVo,
+    val transparent: Boolean,
 )

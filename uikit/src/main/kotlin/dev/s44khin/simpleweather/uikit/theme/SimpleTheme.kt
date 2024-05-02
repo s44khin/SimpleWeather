@@ -14,6 +14,7 @@ import dev.s44khin.simpleweather.uikit.util.isDark
 fun SimpleTheme(
     primaryLightColor: Color,
     primaryDarkColor: Color,
+    transparent: Boolean,
     isDarkTheme: Boolean = isSystemInDarkTheme(),
     content: @Composable () -> Unit,
 ) {
@@ -30,12 +31,14 @@ fun SimpleTheme(
     val colors = when {
         isDarkTheme -> getDarkColors(
             primary = animatedPrimaryColor,
-            onPrimary = animatedOnPrimaryColor
+            onPrimary = animatedOnPrimaryColor,
+            transparent = transparent,
         )
 
         else -> getLightColors(
             primary = animatedPrimaryColor,
-            onPrimary = animatedOnPrimaryColor
+            onPrimary = animatedOnPrimaryColor,
+            transparent = transparent,
         )
     }
 

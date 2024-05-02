@@ -19,11 +19,17 @@ class CommonLocal @Inject constructor(
 
     val themeFlow get() = sharedPrefSettings.themeFlow
 
+    val transparentFlow get() = sharedPrefSettings.transparentFlow
+
     suspend fun setColor(color: PrimaryColor) {
         sharedPrefSettings.setColor(color)
     }
 
     suspend fun setTheme(theme: Theme) {
         sharedPrefSettings.setTheme(theme)
+    }
+
+    suspend fun setTransparent(transparent: Boolean) {
+        sharedPrefSettings.setTransparent(transparent)
     }
 }

@@ -10,4 +10,5 @@ data class SettingsListUiState(
     val tempUnits: TempUnitsVo = TempUnitsVo.Kelvin,
     val primaryColor: PrimaryColorVo = PrimaryColorVo.CedarChest,
     val theme: ThemeVo = ThemeVo.System,
+    val transparent: Boolean = true,
 )

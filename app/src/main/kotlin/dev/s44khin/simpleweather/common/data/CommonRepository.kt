@@ -20,11 +20,17 @@ class CommonRepository @Inject constructor(
 
     val themeFlow get() = local.themeFlow
 
+    val transparentFlow get() = local.transparentFlow
+
     suspend fun setColor(color: PrimaryColor) {
         local.setColor(color)
     }
 
     suspend fun setTheme(theme: Theme) {
         local.setTheme(theme)
+    }
+
+    suspend fun setTransparent(transparent: Boolean) {
+        local.setTransparent(transparent)
     }
 }

@@ -6,4 +6,5 @@ import dev.s44khin.simpleweather.common.domain.model.Theme
 data class MainScreenState(
     val color: PrimaryColor,
     val theme: Theme,
+    val transparent: Boolean,
 )

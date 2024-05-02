@@ -16,5 +16,6 @@ class MainConverter @Inject constructor() {
             string = screenState.theme.name,
             default = ThemeVo.System,
         ),
+        transparent = screenState.transparent,
     )
 }

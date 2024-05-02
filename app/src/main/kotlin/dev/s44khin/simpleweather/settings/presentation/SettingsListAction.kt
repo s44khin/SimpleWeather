@@ -6,7 +6,8 @@ import dev.s44khin.simpleweather.settings.presentation.model.TempUnitsVo
 
 sealed class SettingsListAction {
 
-    data class OnUnitsClicked(val tempUnits: TempUnitsVo) : SettingsListAction()
     data class OnColorClicked(val color: PrimaryColorVo) : SettingsListAction()
     data class OnThemeClicked(val theme: ThemeVo) : SettingsListAction()
+    data object OnTransparentChanged : SettingsListAction()
+    data class OnUnitsClicked(val tempUnits: TempUnitsVo) : SettingsListAction()
 }

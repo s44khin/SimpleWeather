@@ -23,6 +23,7 @@ internal val LocalSimpleColors = staticCompositionLocalOf {
 internal fun getLightColors(
     primary: Color = Color(0xff0277ff),
     onPrimary: Color = Color(0xffffffff),
+    transparent: Boolean = true,
 ) = SimpleColors(
     primary = primary,
     root = Color(0xffeceef0),
@@ -30,13 +31,14 @@ internal fun getLightColors(
     onBackground = Color(0xff000000),
     onBackgroundUnselected = Color(0x80000000),
     onPrimary = onPrimary,
-    backgroundTransparent = Color(0xCDFFFFFF),
+    backgroundTransparent = Color(if (transparent) 0xCDFFFFFF else 0xffffffff),
     divider = Color(0xFFDFDFDF),
 )
 
 internal fun getDarkColors(
     primary: Color = Color(0xff0277ff),
     onPrimary: Color = Color(0xffffffff),
+    transparent: Boolean = true,
 ) = SimpleColors(
     primary = primary,
     root = Color(0xff141414),
@@ -44,6 +46,6 @@ internal fun getDarkColors(
     onBackground = Color(0xffffffff),
     onBackgroundUnselected = Color(0x80FFFFFF),
     onPrimary = onPrimary,
-    backgroundTransparent = Color(0xDE282424),
+    backgroundTransparent = Color(if (transparent) 0xDE282424 else 0xff282424),
     divider = Color(0xFF131313),
 )

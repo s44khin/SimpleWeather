@@ -20,6 +20,7 @@ class SettingsListConverter @Inject constructor() {
         theme = enumValueOrDefault(
             string = screenState.theme.name,
             default = ThemeVo.System,
-        )
+        ),
+        transparent = screenState.transparent,
     )
 }

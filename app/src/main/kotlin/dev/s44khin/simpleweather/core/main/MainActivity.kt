@@ -48,6 +48,7 @@ class MainActivity : ComponentActivity() {
             SimpleTheme(
                 primaryLightColor = state.color.light,
                 primaryDarkColor = state.color.dark,
+                transparent = state.transparent,
                 isDarkTheme = when (state.theme) {
                     ThemeVo.System -> isSystemInDarkTheme()
                     ThemeVo.Dark -> true

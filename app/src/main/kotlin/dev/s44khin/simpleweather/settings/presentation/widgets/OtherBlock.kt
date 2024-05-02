@@ -22,7 +22,8 @@ fun ColumnScope.OtherBlock(
             Column {
                 OtherItemCheckBox(
                     label = "Transparent",
-                    selected = true,
+                    selected = state.transparent,
+                    onClicked = { onAction(SettingsListAction.OnTransparentChanged) }
                 )
 
                 HorizontalDivider(
