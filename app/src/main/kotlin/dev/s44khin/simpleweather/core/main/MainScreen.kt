@@ -12,6 +12,9 @@ import androidx.compose.ui.util.fastForEach
 import androidx.navigation.NavDestination.Companion.hierarchy
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.currentBackStackEntryAsState
+import com.google.accompanist.navigation.material.BottomSheetNavigator
+import com.google.accompanist.navigation.material.ExperimentalMaterialNavigationApi
+import com.google.accompanist.navigation.material.ModalBottomSheetLayout
 import dev.s44khin.simpleweather.core.navigation.SimpleNavHost
 import dev.s44khin.simpleweather.settings.core.navigation.SettingsNavigation
 import dev.s44khin.simpleweather.settings.core.navigation.settingsNavigation
@@ -25,42 +28,46 @@ import dev.s44khin.simpleweather.week.navigation.weekNavigation
 
 private val bottomNavigationItems = listOf(TodayNavigation, WeekNavigation, SettingsNavigation)
 
+@OptIn(ExperimentalMaterialNavigationApi::class)
 @Composable
 internal fun MainScreen(
     state: MainUiState,
     navHostController: NavHostController,
+    bottomSheetNavigator: BottomSheetNavigator,
     onAction: (MainAction) -> Unit,
 ) {
-    Box(
-        modifier = Modifier
-            .fillMaxSize()
-            .background(color = SimpleTheme.colors.root)
-    ) {
-        SimpleNavHost(
-            navController = navHostController,
-            startDestination = TodayNavigation
-        ) {
-            todayNavigation()
-            weekNavigation()
-            settingsNavigation()
-        }
-
-        BottomNavigation(
+    ModalBottomSheetLayout(bottomSheetNavigator = bottomSheetNavigator) {
+        Box(
             modifier = Modifier
-                .fillMaxWidth()
-                .align(Alignment.BottomCenter)
+                .fillMaxSize()
+                .background(color = SimpleTheme.colors.root)
         ) {
-            val navBackStackEntry by navHostController.currentBackStackEntryAsState()
-            val currentDestination = navBackStackEntry?.destination
+            SimpleNavHost(
+                navController = navHostController,
+                startDestination = TodayNavigation,
+            ) {
+                todayNavigation()
+                weekNavigation()
+                settingsNavigation()
+            }
 
-            bottomNavigationItems.fastForEach { item ->
-                BottomNavigationItem(
-                    selected = currentDestination?.hierarchy?.any { it.route == item.route } == true,
-                    icon = item.icon,
-                    label = item.label.resolve(),
-                    alwaysShowLabel = state.alwaysShowLabel,
-                    onClick = { onAction(MainAction.OnBottomNavigationClicked(item)) }
-                )
+            BottomNavigation(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .align(Alignment.BottomCenter)
+            ) {
+                val navBackStackEntry by navHostController.currentBackStackEntryAsState()
+                val currentDestination = navBackStackEntry?.destination
+
+                bottomNavigationItems.fastForEach { item ->
+                    BottomNavigationItem(
+                        selected = currentDestination?.hierarchy?.any { it.route == item.route } == true,
+                        icon = item.icon,
+                        label = item.label.resolve(),
+                        alwaysShowLabel = state.alwaysShowLabel,
+                        onClick = { onAction(MainAction.OnBottomNavigationClicked(item)) }
+                    )
+                }
             }
         }
     }

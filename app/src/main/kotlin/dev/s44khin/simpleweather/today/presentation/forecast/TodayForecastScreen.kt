@@ -36,7 +36,7 @@ fun TodayForecastScreen() {
             modifier = Modifier.weight(1f),
             contentAlignment = Alignment.Center,
         ) {
-            Button(onClick = { subTitle = !subTitle }) {
+            Button(onClick = { }) {
                 Text(text = "Heasda s")
             }
         }
