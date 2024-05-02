@@ -7,5 +7,5 @@ class GetUnitsUseCase @Inject constructor(
     private val repository: CommonRepository
 ) {
 
-    fun execute() = repository.units
+    fun execute() = repository.unitsFlow.value
 }

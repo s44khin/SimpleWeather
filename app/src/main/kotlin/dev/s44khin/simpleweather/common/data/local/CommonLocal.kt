@@ -9,11 +9,7 @@ class CommonLocal @Inject constructor(
     private val sharedPrefSettings: SharedPrefSettings,
 ) {
 
-    var units: TempUnits
-        get() = sharedPrefSettings.units
-        set(value) {
-            sharedPrefSettings.units = value
-        }
+    val unitsFlow get() = sharedPrefSettings.unitsFlow
 
     val colorFlow get() = sharedPrefSettings.colorFlow
 
@@ -22,6 +18,10 @@ class CommonLocal @Inject constructor(
     val transparentFlow get() = sharedPrefSettings.transparentFlow
 
     val alwaysShowLabelFlow get() = sharedPrefSettings.alwaysShowLabelFlow
+
+    suspend fun setUnits(units: TempUnits) {
+        sharedPrefSettings.setUnits(units)
+    }
 
     suspend fun setColor(color: PrimaryColor) {
         sharedPrefSettings.setColor(color)

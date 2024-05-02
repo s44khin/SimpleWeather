@@ -10,11 +10,7 @@ class CommonRepository @Inject constructor(
     private val local: CommonLocal,
 ) {
 
-    var units: TempUnits
-        get() = local.units
-        set(value) {
-            local.units = value
-        }
+    val unitsFlow get() = local.unitsFlow
 
     val colorFlow get() = local.colorFlow
 
@@ -23,6 +19,10 @@ class CommonRepository @Inject constructor(
     val transparentFlow get() = local.transparentFlow
 
     val alwaysShowLabelFlow get() = local.alwaysShowLabelFlow
+
+    suspend fun setUnits(units: TempUnits) {
+        local.setUnits(units)
+    }
 
     suspend fun setColor(color: PrimaryColor) {
         local.setColor(color)

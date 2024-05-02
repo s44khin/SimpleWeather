@@ -61,9 +61,11 @@ class SettingsListViewModel @Inject constructor(
             default = TempUnits.Kelvin,
         )
 
-        setUnitsUseCase.execute(
-            units = tempUnitsDomain,
-        )
+        viewModelScope.launch {
+            setUnitsUseCase.execute(
+                units = tempUnitsDomain,
+            )
+        }
 
         screenState = screenState.copy(
             tempUnits = tempUnitsDomain,

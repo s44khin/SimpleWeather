@@ -36,37 +36,7 @@ class MainViewModel @Inject constructor(
     val navigationCommand = screenRouter.navigationCommand
 
     init {
-        viewModelScope.launch {
-            commonRepository.colorFlow.collectLatest {
-                screenState = screenState.copy(
-                    color = it,
-                )
-            }
-        }
-
-        viewModelScope.launch {
-            commonRepository.themeFlow.collectLatest {
-                screenState = screenState.copy(
-                    theme = it
-                )
-            }
-        }
-
-        viewModelScope.launch {
-            commonRepository.transparentFlow.collectLatest {
-                screenState = screenState.copy(
-                    transparent = it
-                )
-            }
-        }
-
-        viewModelScope.launch {
-            commonRepository.alwaysShowLabelFlow.collectLatest {
-                screenState = screenState.copy(
-                    alwaysShowLabel = it
-                )
-            }
-        }
+        subscribeToSettingsChanges()
     }
 
     override fun onAction(action: MainAction) = when (action) {
@@ -75,5 +45,52 @@ class MainViewModel @Inject constructor(
 
     private fun onBottomNavigationClicked(navDestination: NavDestination) {
         screenRouter.navigateTo(navDestination)
+    }
+
+    private fun subscribeToSettingsChanges() {
+        subscribeToColor()
+        subscribeToTheme()
+        subscribeToTransparent()
+        subscribeToAlwaysShowLabel()
+    }
+
+    private fun subscribeToColor() {
+        viewModelScope.launch {
+            commonRepository.colorFlow.collect {
+                screenState = screenState.copy(
+                    color = it,
+                )
+            }
+        }
+    }
+
+    private fun subscribeToTheme() {
+        viewModelScope.launch {
+            commonRepository.themeFlow.collectLatest {
+                screenState = screenState.copy(
+                    theme = it
+                )
+            }
+        }
+    }
+
+    private fun subscribeToTransparent() {
+        viewModelScope.launch {
+            commonRepository.transparentFlow.collectLatest {
+                screenState = screenState.copy(
+                    transparent = it
+                )
+            }
+        }
+    }
+
+    private fun subscribeToAlwaysShowLabel() {
+        viewModelScope.launch {
+            commonRepository.alwaysShowLabelFlow.collectLatest {
+                screenState = screenState.copy(
+                    alwaysShowLabel = it
+                )
+            }
+        }
     }
 }

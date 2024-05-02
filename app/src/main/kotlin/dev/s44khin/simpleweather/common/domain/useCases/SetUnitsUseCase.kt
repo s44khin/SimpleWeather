@@ -8,7 +8,7 @@ class SetUnitsUseCase @Inject constructor(
     private val repository: CommonRepository,
 ) {
 
-    fun execute(units: TempUnits) {
-        repository.units = units
+    suspend fun execute(units: TempUnits) {
+        repository.setUnits(units)
     }
 }

@@ -31,9 +31,11 @@ class SharedPrefSettings @Inject constructor(
 
     private val sharedPreferences = context.getSharedPreferences(SETTINGS, Context.MODE_PRIVATE)
 
-    var units: TempUnits
-        get() = sharedPreferences.getEnum(key = UNITS, default = TempUnits.Kelvin)
-        set(value) = sharedPreferences.putEnum(key = UNITS, value = value)
+    private val _unitsFlow = MutableStateFlow(
+        value = sharedPreferences.getEnum(key = UNITS, default = TempUnits.Kelvin)
+    )
+
+    val unitsFlow = _unitsFlow.asStateFlow()
 
     private val _colorFlow = MutableStateFlow(
         value = PrimaryColor(
@@ -65,6 +67,15 @@ class SharedPrefSettings @Inject constructor(
     )
 
     val alwaysShowLabelFlow = _alwaysShowLabelFlow.asStateFlow()
+
+    suspend fun setUnits(units: TempUnits) {
+        sharedPreferences.putEnum(
+            key = UNITS,
+            value = units,
+        )
+
+        _unitsFlow.emit(units)
+    }
 
     suspend fun setColor(color: PrimaryColor) {
         sharedPreferences
