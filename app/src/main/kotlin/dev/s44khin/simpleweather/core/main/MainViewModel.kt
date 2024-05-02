@@ -4,6 +4,7 @@ import androidx.lifecycle.viewModelScope
 import dagger.hilt.android.lifecycle.HiltViewModel
 import dev.s44khin.simpleweather.common.data.CommonRepository
 import dev.s44khin.simpleweather.common.domain.useCases.GetColorUseCase
+import dev.s44khin.simpleweather.common.domain.useCases.GetThemeUseCase
 import dev.s44khin.simpleweather.core.base.BaseViewModel
 import dev.s44khin.simpleweather.core.navigation.NavDestination
 import dev.s44khin.simpleweather.core.navigation.ScreenRouter
@@ -15,11 +16,13 @@ import javax.inject.Inject
 class MainViewModel @Inject constructor(
     private val screenRouter: ScreenRouter,
     private val getColorUseCase: GetColorUseCase,
+    private val getThemeUseCase: GetThemeUseCase,
     private val mainConverter: MainConverter,
     private val commonRepository: CommonRepository,
 ) : BaseViewModel<MainScreenState, MainUiState, MainAction>(
     initState = MainScreenState(
-        color = getColorUseCase.execute()
+        color = getColorUseCase.execute(),
+        theme = getThemeUseCase.execute(),
     ),
     converter = mainConverter::convert
 ) {
@@ -31,6 +34,14 @@ class MainViewModel @Inject constructor(
             commonRepository.colorFlow.collectLatest {
                 screenState = screenState.copy(
                     color = it,
+                )
+            }
+        }
+
+        viewModelScope.launch {
+            commonRepository.themeFlow.collectLatest {
+                screenState = screenState.copy(
+                    theme = it
                 )
             }
         }

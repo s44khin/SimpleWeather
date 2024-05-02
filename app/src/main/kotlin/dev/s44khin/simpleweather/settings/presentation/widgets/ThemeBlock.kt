@@ -10,18 +10,28 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.util.fastForEach
 import dev.s44khin.simpleweather.R
 import dev.s44khin.simpleweather.common.presentation.model.ThemeVo
+import dev.s44khin.simpleweather.settings.presentation.SettingsListAction
+import dev.s44khin.simpleweather.settings.presentation.SettingsListUiState
+import dev.s44khin.simpleweather.uikit.util.clickableWithoutRipple
 import dev.s44khin.simpleweather.uikit.widgets.InfoBlock
 
 @Composable
-fun ColumnScope.ThemeBlock() {
+fun ColumnScope.ThemeBlock(
+    state: SettingsListUiState,
+    onAction: (SettingsListAction) -> Unit,
+) {
     InfoBlock(
         label = stringResource(R.string.settings_theme),
         content = {
             Row(modifier = Modifier.padding(vertical = 24.dp, horizontal = 8.dp)) {
                 ThemeVo.entries.fastForEach {
                     ThemeItem(
-                        modifier = Modifier.weight(1f),
-                        selected = it == ThemeVo.System,
+                        modifier = Modifier
+                            .weight(1f)
+                            .clickableWithoutRipple {
+                                onAction(SettingsListAction.OnThemeClicked(it))
+                            },
+                        selected = state.theme == it,
                         theme = it,
                     )
                 }

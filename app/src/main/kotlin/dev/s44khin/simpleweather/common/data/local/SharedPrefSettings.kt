@@ -5,7 +5,9 @@ import dagger.hilt.android.qualifiers.ApplicationContext
 import dagger.hilt.android.scopes.ActivityRetainedScoped
 import dev.s44khin.simpleweather.common.domain.model.PrimaryColor
 import dev.s44khin.simpleweather.common.domain.model.TempUnits
+import dev.s44khin.simpleweather.common.domain.model.Theme
 import dev.s44khin.simpleweather.common.presentation.model.PrimaryColorVo
+import dev.s44khin.simpleweather.common.util.enumValueOrDefault
 import dev.s44khin.simpleweather.common.util.getEnum
 import dev.s44khin.simpleweather.common.util.putEnum
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -22,6 +24,7 @@ class SharedPrefSettings @Inject constructor(
         const val SETTINGS = "settings"
         const val UNITS = "units"
         const val COLOR = "color"
+        const val THEME = "theme"
     }
 
     private val sharedPreferences = context.getSharedPreferences(SETTINGS, Context.MODE_PRIVATE)
@@ -40,6 +43,15 @@ class SharedPrefSettings @Inject constructor(
 
     val colorFlow = _colorFlow.asStateFlow()
 
+    private val _themeFlow = MutableStateFlow(
+        value = enumValueOrDefault(
+            string = Theme.System.name,
+            default = Theme.System,
+        )
+    )
+
+    val themeFlow = _themeFlow.asStateFlow()
+
     suspend fun setColor(color: PrimaryColor) {
         sharedPreferences
             .edit()
@@ -47,5 +59,14 @@ class SharedPrefSettings @Inject constructor(
             .apply()
 
         _colorFlow.emit(color)
+    }
+
+    suspend fun setTheme(theme: Theme) {
+        sharedPreferences.putEnum(
+            key = THEME,
+            value = theme,
+        )
+
+        _themeFlow.emit(theme)
     }
 }

@@ -33,7 +33,10 @@ fun ColumnScope.SettingsListScrollableContent(
 
     Spacer(height = 48.dp)
 
-    ThemeBlock()
+    ThemeBlock(
+        state = state,
+        onAction = onAction,
+    )
 
     Spacer(height = 48.dp)
 
