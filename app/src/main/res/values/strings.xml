@@ -4,6 +4,12 @@
     <string name="week_label">Week</string>
     <string name="settings_label">Settings</string>
     <string name="settings_units">Units</string>
+    <string name="settings_units_info">Select the units of measurement in which the temperature will be displayed</string>
+    <string name="settings_colors">Primary color</string>
+    <string name="settings_colors_info">Choose the color you want to use as an accent</string>
+    <string name="settings_other">Other</string>
+    <string name="settings_theme">Theme</string>
+    <string name="settings_theme_info">Theme</string>
     <string name="units_fahrenheit">Fahrenheit</string>
     <string name="units_fahrenheit_sample">60°F</string>
     <string name="units_celsius">Celsius</string>

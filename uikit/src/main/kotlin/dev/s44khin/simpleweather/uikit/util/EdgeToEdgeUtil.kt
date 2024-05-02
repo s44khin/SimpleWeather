@@ -1,6 +1,7 @@
 package dev.s44khin.simpleweather.uikit.util
 
 import androidx.compose.foundation.layout.WindowInsets
+import androidx.compose.foundation.layout.navigationBars
 import androidx.compose.foundation.layout.statusBars
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.platform.LocalDensity
@@ -10,4 +11,10 @@ val StatusBarHeight: Dp
     @Composable
     get() = with(LocalDensity.current) {
         WindowInsets.statusBars.getTop(LocalDensity.current).toDp()
+    }
+
+val NavigationBarHeight: Dp
+    @Composable
+    get() = with(LocalDensity.current) {
+        WindowInsets.navigationBars.getBottom(LocalDensity.current).toDp()
     }
