@@ -16,6 +16,9 @@ class ScreenRouter @Inject constructor() {
     private val _navigationCommands = MutableSharedFlow<NavigationCommand>()
     val navigationCommand = _navigationCommands.asSharedFlow()
 
+    private val _signalsFlow = MutableSharedFlow<String>()
+    val signalFlow = _signalsFlow.asSharedFlow()
+
     fun navigateTo(navDestination: NavDestination) {
         routerScope.launch {
             _navigationCommands.emit(
@@ -26,8 +29,12 @@ class ScreenRouter @Inject constructor() {
         }
     }
 
-    fun navigateBack() {
+    fun navigateBack(signal: String? = null) {
         routerScope.launch {
+            if (signal != null) {
+                _signalsFlow.emit(signal)
+            }
+
             _navigationCommands.emit(
                 value = NavigationCommand.NavigateBack
             )

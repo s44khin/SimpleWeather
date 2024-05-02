@@ -31,7 +31,9 @@ class ConfirmationDialogViewModel @Inject constructor(
     }
 
     private fun onConfirmButtonClicked() {
-
+        screenRouter.navigateBack(
+            signal = screenState.confirmButtonData?.onClickSignal
+        )
     }
 
     private fun onCancelButtonClicked() {

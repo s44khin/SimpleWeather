@@ -32,6 +32,7 @@ import dev.s44khin.simpleweather.core.navigation.ScreenRouter
 import dev.s44khin.simpleweather.settings.core.navigation.SettingsNavigation.List.RESET_CONFIRM_BUTTON_KEY
 import dev.s44khin.simpleweather.settings.presentation.model.TempUnitsVo
 import dev.s44khin.simpleweather.uikit.util.NativeText
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
 import javax.inject.Inject
@@ -66,6 +67,7 @@ class SettingsListViewModel @Inject constructor(
 
     init {
         subscribeToSettingsChanges()
+        subscribeToSignals()
     }
 
     override fun onAction(action: SettingsListAction) = when (action) {
@@ -126,10 +128,6 @@ class SettingsListViewModel @Inject constructor(
     }
 
     private fun onResetAllSettingsClicked() {
-//        viewModelScope.launch {
-//            resetAllSettingsUseCase.execute()
-//        }
-
         confirmationDialogDataInMemory.value = ConfirmationDialogData(
             title = NativeText.Resource(R.string.settings_restore),
             confirmButtonData = ConfirmationDialogButtonData(
@@ -143,6 +141,12 @@ class SettingsListViewModel @Inject constructor(
         screenRouter.navigateTo(
             navDestination = CommonNavigation.ConfirmationDialog
         )
+    }
+
+    private fun onResetAllSettingsConfirmed() {
+        viewModelScope.launch {
+            resetAllSettingsUseCase.execute()
+        }
     }
 
     private fun subscribeToSettingsChanges() {
@@ -199,6 +203,16 @@ class SettingsListViewModel @Inject constructor(
                 screenState = screenState.copy(
                     tempUnits = it
                 )
+            }
+        }
+    }
+
+    private fun subscribeToSignals() {
+        viewModelScope.launch(Dispatchers.IO) {
+            screenRouter.signalFlow.collect { signal ->
+                if (signal == RESET_CONFIRM_BUTTON_KEY) {
+                    onResetAllSettingsConfirmed()
+                }
             }
         }
     }
