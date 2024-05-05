@@ -4,41 +4,53 @@ import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.material3.Button
+import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.verticalScroll
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.rounded.Search
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.getValue
-import androidx.compose.runtime.setValue
-import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
-import dev.s44khin.simpleweather.common.util.rememberMutableStateOf
+import dev.s44khin.simpleweather.uikit.util.NavigationBarHeight
 import dev.s44khin.simpleweather.uikit.util.Spacer
+import dev.s44khin.simpleweather.uikit.util.StatusBarHeight
+import dev.s44khin.simpleweather.uikit.widgets.BottomNavigationHeight
 import dev.s44khin.simpleweather.uikit.widgets.TopNavigation
+import dev.s44khin.simpleweather.uikit.widgets.TopNavigationAction
+import dev.s44khin.simpleweather.uikit.widgets.TopNavigationHeight
 
 @Composable
 fun TodayForecastScreen() {
-    Column(modifier = Modifier.fillMaxSize()) {
+    Box(modifier = Modifier.fillMaxSize()) {
         val viewModel = hiltViewModel<TodayForecastViewModel>()
-        var subTitle by rememberMutableStateOf(value = false)
+
+        val scrollState = rememberScrollState()
 
         TopNavigation(
             modifier = Modifier.fillMaxWidth(),
             title = "Forecast",
-            subTitle = "Иркутск",
-            subTitleIsVisible = subTitle,
+            scrollState = scrollState,
+            rightAction = TopNavigationAction(
+                icon = Icons.Rounded.Search,
+                onClick = { viewModel.onAction(TodayForecastAction.OnSearchClicked) }
+            )
         )
 
-        Spacer(height = 16.dp)
-
-        Box(
-            modifier = Modifier.weight(1f),
-            contentAlignment = Alignment.Center,
+        Column(
+            modifier = Modifier
+                .fillMaxSize()
+                .verticalScroll(state = scrollState)
         ) {
-            Button(onClick = { }) {
-                Text(text = "Heasda s")
+            Spacer(height = TopNavigationHeight + StatusBarHeight + 16.dp)
+
+            repeat(100) {
+                Text(text = "$it")
+                Spacer(height = 16.dp)
             }
+
+            Spacer(height = BottomNavigationHeight + NavigationBarHeight + 16.dp)
         }
     }
 }

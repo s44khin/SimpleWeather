@@ -28,6 +28,7 @@ import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.compose.ui.zIndex
 import dev.s44khin.simpleweather.uikit.theme.SimpleTheme
 import dev.s44khin.simpleweather.uikit.util.clickableWithoutRipple
 import dev.s44khin.simpleweather.uikit.util.ifThen
@@ -38,6 +39,8 @@ data class TopNavigationAction(
 )
 
 val TopNavigationHeight = 56.dp
+
+const val TopNavigationZIndex = 4f
 
 @Composable
 fun TopNavigation(
@@ -66,6 +69,7 @@ fun TopNavigation(
             .padding(horizontal = 4.dp)
             .statusBarsPadding()
             .height(TopNavigationHeight)
+            .zIndex(TopNavigationZIndex)
     ) {
         if (leftAction != null) {
             IconButton(
