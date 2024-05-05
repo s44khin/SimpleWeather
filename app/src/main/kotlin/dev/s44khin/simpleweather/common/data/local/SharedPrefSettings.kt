@@ -7,7 +7,6 @@ import dev.s44khin.simpleweather.common.domain.model.PrimaryColor
 import dev.s44khin.simpleweather.common.domain.model.TempUnits
 import dev.s44khin.simpleweather.common.domain.model.Theme
 import dev.s44khin.simpleweather.common.presentation.model.PrimaryColorVo
-import dev.s44khin.simpleweather.common.util.enumValueOrDefault
 import dev.s44khin.simpleweather.common.util.getEnum
 import dev.s44khin.simpleweather.common.util.putEnum
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -48,10 +47,10 @@ class SharedPrefSettings @Inject constructor(
     val colorFlow = _colorFlow.asStateFlow()
 
     private val _themeFlow = MutableStateFlow(
-        value = enumValueOrDefault(
-            string = Theme.System.name,
+        value = sharedPreferences.getEnum(
+            key = THEME,
             default = Theme.System,
-        )
+        ),
     )
 
     val themeFlow = _themeFlow.asStateFlow()

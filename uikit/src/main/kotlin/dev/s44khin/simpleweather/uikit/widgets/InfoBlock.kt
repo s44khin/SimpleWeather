@@ -30,7 +30,7 @@ fun ColumnScope.InfoBlock(
             fontSize = 12.sp,
         )
 
-        Spacer(height = 8.dp)
+        Spacer(height = 6.dp)
     }
 
     Box(
@@ -46,13 +46,14 @@ fun ColumnScope.InfoBlock(
     )
 
     if (info != null) {
-        Spacer(height = 8.dp)
+        Spacer(height = 6.dp)
 
         Text(
             modifier = Modifier.padding(horizontal = 32.dp),
             text = info,
             color = SimpleTheme.colors.onBackgroundUnselected,
             fontSize = 12.sp,
+            lineHeight = 16.sp,
         )
     }
 }
