@@ -1,0 +1,3 @@
+package dev.s44khin.simpleweather.common.presentation.searchDialog
+
+object SearchDialogScreenState

@@ -1,6 +1,7 @@
 package dev.s44khin.simpleweather.today.presentation.forecast
 
 import dagger.hilt.android.lifecycle.HiltViewModel
+import dev.s44khin.simpleweather.common.core.navigation.CommonNavigation
 import dev.s44khin.simpleweather.core.base.BaseViewModel
 import dev.s44khin.simpleweather.core.navigation.ScreenRouter
 import dev.s44khin.simpleweather.today.domain.useCases.GetTodayWeatherUseCase
@@ -21,6 +22,8 @@ class TodayForecastViewModel @Inject constructor(
     }
 
     private fun onSearchClicked() {
-
+        screenRouter.navigateTo(
+            navDestination = CommonNavigation.SearchDialog
+        )
     }
 }

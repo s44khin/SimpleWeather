@@ -10,6 +10,7 @@
     <string name="dialog_undone_action">This action cannot be undone</string>
     <string name="dialog_confirm">Confirm</string>
     <string name="dialog_cancel">Cancel</string>
+    <string name="search_dialog_title">Search</string>
     <string name="settings_colors_info">Choose an accent color: top color for a light theme, bottom color for a dark one</string>
     <string name="settings_other">Other</string>
     <string name="settings_other_transparent">Transparent</string>
