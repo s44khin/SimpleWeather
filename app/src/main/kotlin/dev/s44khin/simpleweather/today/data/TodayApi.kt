@@ -5,6 +5,6 @@ import retrofit2.http.GET
 
 interface TodayApi {
 
-    @GET("2.5/weather?lat=52.17&lon=104.18")
+    @GET("data/2.5/weather?lat=52.17&lon=104.18")
     suspend fun getTodayWeather(): TodayWeatherResponse
 }

@@ -16,7 +16,7 @@ import retrofit2.converter.moshi.MoshiConverterFactory
 class NetworkModule {
 
     private companion object {
-        const val BASE_URL = "https://api.openweathermap.org/data/"
+        const val BASE_URL = "https://api.openweathermap.org/"
     }
 
     @Provides

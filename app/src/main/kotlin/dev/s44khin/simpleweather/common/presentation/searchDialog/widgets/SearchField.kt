@@ -37,7 +37,7 @@ fun SearchField(
 ) {
     BasicTextField2(
         modifier = modifier
-            .height(36.dp)
+            .height(SearchBarHeight)
             .background(
                 color = backgroundColor,
                 shape = CircleShape,

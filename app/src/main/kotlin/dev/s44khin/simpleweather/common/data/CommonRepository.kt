@@ -1,6 +1,7 @@
 package dev.s44khin.simpleweather.common.data
 
 import dev.s44khin.simpleweather.common.data.local.CommonLocal
+import dev.s44khin.simpleweather.common.data.remote.CommonRemote
 import dev.s44khin.simpleweather.common.domain.model.PrimaryColor
 import dev.s44khin.simpleweather.common.domain.model.TempUnits
 import dev.s44khin.simpleweather.common.domain.model.Theme
@@ -8,6 +9,7 @@ import javax.inject.Inject
 
 class CommonRepository @Inject constructor(
     private val local: CommonLocal,
+    private val remote: CommonRemote,
 ) {
 
     val unitsFlow get() = local.unitsFlow
@@ -39,4 +41,6 @@ class CommonRepository @Inject constructor(
     suspend fun setAlwaysShowLabel(alwaysShowLabel: Boolean) {
         local.setAlwaysShowLabel(alwaysShowLabel)
     }
+
+    suspend fun searchLocation(name: String) = remote.searchLocation(name)
 }

@@ -19,7 +19,7 @@ fun Slide(
     Spacer(
         modifier = modifier
             .background(color = color, shape = CircleShape)
-            .height(8.dp)
-            .width(48.dp)
+            .height(6.dp)
+            .width(32.dp)
     )
 }
