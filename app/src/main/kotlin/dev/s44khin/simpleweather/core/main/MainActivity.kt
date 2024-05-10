@@ -12,8 +12,6 @@ import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.compose.rememberNavController
-import com.google.accompanist.navigation.material.ExperimentalMaterialNavigationApi
-import com.google.accompanist.navigation.material.rememberBottomSheetNavigator
 import dagger.hilt.android.AndroidEntryPoint
 import dev.s44khin.simpleweather.common.presentation.model.ThemeVo
 import dev.s44khin.simpleweather.core.navigation.NavigationCommandHandler
@@ -22,14 +20,12 @@ import dev.s44khin.simpleweather.uikit.theme.SimpleTheme
 @AndroidEntryPoint
 class MainActivity : ComponentActivity() {
 
-    @OptIn(ExperimentalMaterialNavigationApi::class)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
         setContent {
             val viewModel = hiltViewModel<MainViewModel>()
-            val bottomSheetNavigator = rememberBottomSheetNavigator()
-            val navHostController = rememberNavController(bottomSheetNavigator)
+            val navHostController = rememberNavController()
             val state by viewModel.uiStateFlow.collectAsState()
 
             NavigationCommandHandler(
@@ -62,7 +58,6 @@ class MainActivity : ComponentActivity() {
                 MainScreen(
                     state = state,
                     navHostController = navHostController,
-                    bottomSheetNavigator = bottomSheetNavigator,
                     onAction = viewModel::onAction,
                 )
             }

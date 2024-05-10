@@ -10,8 +10,6 @@ import androidx.navigation.NavHostController
 import androidx.navigation.NavOptionsBuilder
 import androidx.navigation.compose.composable
 import androidx.navigation.navigation
-import com.google.accompanist.navigation.material.ExperimentalMaterialNavigationApi
-import com.google.accompanist.navigation.material.bottomSheet
 
 fun NavGraphBuilder.composable(
     destination: NavDestination,
@@ -27,14 +25,13 @@ fun NavGraphBuilder.composable(
     )
 }
 
-@OptIn(ExperimentalMaterialNavigationApi::class)
 fun NavGraphBuilder.bottomSheet(
     destination: NavDestination,
     arguments: List<NamedNavArgument> = emptyList(),
     deepLinks: List<NavDeepLink> = emptyList(),
     content: @Composable (backstackEntry: NavBackStackEntry) -> Unit
 ) {
-    bottomSheet(
+    composable(
         route = destination.route,
         arguments = arguments,
         deepLinks = deepLinks,

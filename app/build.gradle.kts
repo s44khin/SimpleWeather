@@ -65,7 +65,6 @@ dependencies {
     implementation(libs.compose.activity)
     implementation(libs.compose.viewModel)
     implementation(libs.compose.navigation)
-    implementation(libs.compose.accompanist.navigation)
 
     // Hilt
     implementation(libs.hilt)
