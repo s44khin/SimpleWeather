@@ -1,58 +1,67 @@
 package dev.s44khin.simpleweather.core.di
 
-import com.squareup.moshi.Moshi
+import android.util.Log
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
 import dev.s44khin.simpleweather.BuildConfig
-import okhttp3.OkHttpClient
-import okhttp3.logging.HttpLoggingInterceptor
-import retrofit2.Retrofit
-import retrofit2.converter.moshi.MoshiConverterFactory
+import io.ktor.client.HttpClient
+import io.ktor.client.engine.android.Android
+import io.ktor.client.plugins.contentnegotiation.ContentNegotiation
+import io.ktor.client.plugins.defaultRequest
+import io.ktor.client.plugins.logging.LogLevel
+import io.ktor.client.plugins.logging.Logger
+import io.ktor.client.plugins.logging.Logging
+import io.ktor.client.plugins.observer.ResponseObserver
+import io.ktor.http.takeFrom
+import io.ktor.serialization.kotlinx.json.json
+import kotlinx.serialization.json.Json
 
 @Module
 @InstallIn(SingletonComponent::class)
 class NetworkModule {
 
     private companion object {
-        const val BASE_URL = "https://api.openweathermap.org/"
+        const val BASE_URL = "https://api.openweathermap.org"
     }
 
     @Provides
-    fun provideHttpClientBuilder(): OkHttpClient.Builder {
-        return OkHttpClient.Builder()
-            .addInterceptor(
-                HttpLoggingInterceptor().apply {
-                    if (BuildConfig.DEBUG) {
-                        setLevel(HttpLoggingInterceptor.Level.BODY)
-                    }
+    fun provideHttpClient() = HttpClient(Android) {
+        install(ContentNegotiation) {
+            json(
+                Json {
+                    prettyPrint = true
+                    isLenient = true
+                    useAlternativeNames = true
+                    ignoreUnknownKeys = true
+                    encodeDefaults = false
                 }
             )
-            .addInterceptor { chain ->
-                var request = chain.request()
-                val url = chain.request().url
-                    .newBuilder()
-                    .addQueryParameter("appid", API_KEY)
-                    .build()
+        }
 
-                request = request.newBuilder().url(url).build()
-                chain.proceed(request)
+        defaultRequest {
+            url {
+                takeFrom(BASE_URL)
+                parameters.append("appid", API_KEY)
             }
-    }
+        }
 
-    @Provides
-    fun provideMoshiBuilder() = Moshi.Builder()
+        if (BuildConfig.DEBUG) {
+            install(Logging) {
+                logger = object : Logger {
+                    override fun log(message: String) {
+                        Log.v("KtorResponse", message)
+                    }
+                }
+                level = LogLevel.ALL
+            }
+        }
 
-    @Provides
-    fun provideRetrofit(
-        httpClientBuilder: OkHttpClient.Builder,
-        moshiBuilder: Moshi.Builder
-    ): Retrofit {
-        return Retrofit.Builder()
-            .baseUrl(BASE_URL)
-            .client(httpClientBuilder.build())
-            .addConverterFactory(MoshiConverterFactory.create(moshiBuilder.build()))
-            .build()
+        install(ResponseObserver) {
+            onResponse { response ->
+                Log.d("HTTP status:", "${response.status.value}")
+            }
+        }
     }
 }

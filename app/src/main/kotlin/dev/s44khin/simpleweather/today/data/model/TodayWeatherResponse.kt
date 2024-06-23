@@ -1,11 +1,11 @@
 package dev.s44khin.simpleweather.today.data.model
 
-import com.squareup.moshi.Json
-import com.squareup.moshi.JsonClass
+import kotlinx.serialization.SerialName
+import kotlinx.serialization.Serializable
 
-@JsonClass(generateAdapter = true)
+@Serializable
 data class TodayWeatherResponse(
 
-    @Json(name = "name")
+    @SerialName(value = "name")
     val name: String,
 )

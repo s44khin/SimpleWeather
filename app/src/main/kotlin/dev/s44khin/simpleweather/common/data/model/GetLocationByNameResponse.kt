@@ -1,36 +1,36 @@
 package dev.s44khin.simpleweather.common.data.model
 
-import com.squareup.moshi.Json
-import com.squareup.moshi.JsonClass
+import kotlinx.serialization.SerialName
+import kotlinx.serialization.Serializable
 
-@JsonClass(generateAdapter = true)
+@Serializable
 data class GetLocationByNameResponse(
 
-    @Json(name = "name")
+    @SerialName(value = "name")
     val name: String,
 
-    @Json(name = "local_names")
+    @SerialName(value = "local_names")
     val localNames: GetLocationByNameLocalNamesDto?,
 
-    @Json(name = "lat")
+    @SerialName(value = "lat")
     val lat: String,
 
-    @Json(name = "lon")
+    @SerialName(value = "lon")
     val lon: String,
 
-    @Json(name = "country")
+    @SerialName(value = "country")
     val country: String,
 
-    @Json(name = "state")
+    @SerialName(value = "state")
     val state: String?,
 )
 
-@JsonClass(generateAdapter = true)
+@Serializable
 data class GetLocationByNameLocalNamesDto(
 
-    @Json(name = "ru")
+    @SerialName(value = "ru")
     val ru: String,
 
-    @Json(name = "en")
+    @SerialName(value = "en")
     val en: String,
 )

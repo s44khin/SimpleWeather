@@ -1,15 +1,16 @@
 package dev.s44khin.simpleweather.today.data.remote
 
-import dev.s44khin.simpleweather.today.data.TodayApi
+import dev.s44khin.simpleweather.common.util.getBody
 import dev.s44khin.simpleweather.today.domain.mappers.TodayWeatherMapper
+import io.ktor.client.HttpClient
 import javax.inject.Inject
 
 class TodayRemote @Inject constructor(
-    private val todayApi: TodayApi,
+    private val client: HttpClient,
     private val todayWeatherMapper: TodayWeatherMapper,
 ) {
 
     suspend fun getTodayWeather() = todayWeatherMapper.map(
-        response = todayApi.getTodayWeather()
+        response = client.getBody("data/2.5/weather?lat=52.17&lon=104.18")
     )
 }
