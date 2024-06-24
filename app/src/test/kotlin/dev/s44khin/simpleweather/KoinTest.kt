@@ -1,6 +1,6 @@
 package dev.s44khin.simpleweather
 
-import dev.s44khin.simpleweather.core.di.appModule
+import dev.s44khin.simpleweather.di.appModule
 import io.ktor.client.HttpClientConfig
 import io.ktor.client.engine.HttpClientEngine
 import org.junit.Test
