@@ -8,9 +8,7 @@ fun <E : Enum<E>> SharedPreferences.putEnum(key: String, value: E) {
         .apply()
 }
 
-inline fun <reified E : Enum<E>> SharedPreferences.getEnum(key: String, default: E): E {
-    return enumValueOrDefault(
-        string = getString(key, default.name) ?: "",
-        default = default,
-    )
-}
+inline fun <reified E : Enum<E>> SharedPreferences.getEnum(key: String, default: E) = enumValueOrDefault(
+    string = getString(key, default.name) ?: "",
+    default = default,
+)

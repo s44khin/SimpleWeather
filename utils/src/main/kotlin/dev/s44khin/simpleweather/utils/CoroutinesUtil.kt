@@ -8,11 +8,8 @@ fun CoroutineScope.launchUiCoroutine(
     onError: (throwable: Throwable) -> Unit,
     block: suspend CoroutineScope.() -> Unit,
 ) {
-
     launch(
-        context = CoroutineExceptionHandler { _, throwable ->
-            onError(throwable)
-        },
+        context = CoroutineExceptionHandler { _, throwable -> onError(throwable) },
         block = block,
     )
 }
