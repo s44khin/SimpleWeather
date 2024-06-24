@@ -5,18 +5,11 @@ import dev.s44khin.simpleweather.common.presentation.confirmationDialog.Confirma
 import dev.s44khin.simpleweather.core.navigation.NavDestination
 import dev.s44khin.simpleweather.core.navigation.bottomSheet
 
-object CommonNavigation : NavDestination {
-
-    override val route = "common"
+object CommonNavigation {
 
     object ConfirmationDialog : NavDestination {
 
-        override val route = "${CommonNavigation.route}/confirmation_dialog"
-    }
-
-    object SearchDialog : NavDestination {
-
-        override val route = "${ConfirmationDialog.route}/search_dialog"
+        override val route = "confirmation_dialog"
     }
 }
 

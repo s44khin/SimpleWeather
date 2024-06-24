@@ -1,9 +1,9 @@
 package dev.s44khin.simpleweather.today.presentation.forecast
 
 import androidx.lifecycle.viewModelScope
-import dev.s44khin.simpleweather.common.core.navigation.CommonNavigation
 import dev.s44khin.simpleweather.core.base.BaseViewModel
 import dev.s44khin.simpleweather.core.navigation.ScreenRouter
+import dev.s44khin.simpleweather.today.core.navigation.TodayNavigation
 import dev.s44khin.simpleweather.today.domain.useCases.GetTodayWeatherUseCase
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -29,7 +29,7 @@ class TodayForecastViewModel(
 
     private fun onSearchClicked() {
         screenRouter.navigateTo(
-            navDestination = CommonNavigation.SearchDialog
+            navDestination = TodayNavigation.SearchDialog
         )
     }
 }
