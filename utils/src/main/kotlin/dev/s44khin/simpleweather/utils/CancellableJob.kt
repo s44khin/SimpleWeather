@@ -1,4 +1,4 @@
-package dev.s44khin.simpleweather.common.util
+package dev.s44khin.simpleweather.utils
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope

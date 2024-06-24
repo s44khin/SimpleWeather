@@ -2,7 +2,7 @@ package dev.s44khin.simpleweather.core.main
 
 import dev.s44khin.simpleweather.common.presentation.model.PrimaryColorVo
 import dev.s44khin.simpleweather.common.presentation.model.ThemeVo
-import dev.s44khin.simpleweather.common.util.enumValueOrDefault
+import dev.s44khin.simpleweather.utils.enumValueOrDefault
 
 class MainConverter {
 

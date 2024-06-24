@@ -1,4 +1,4 @@
-package dev.s44khin.simpleweather.common.util
+package dev.s44khin.simpleweather.utils
 
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.mutableStateOf

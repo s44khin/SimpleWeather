@@ -1,4 +1,4 @@
-package dev.s44khin.simpleweather.common.util
+package dev.s44khin.simpleweather.utils
 
 import kotlinx.coroutines.CoroutineExceptionHandler
 import kotlinx.coroutines.CoroutineScope

@@ -4,9 +4,9 @@ import android.content.Context
 import dev.s44khin.simpleweather.common.domain.model.PrimaryColor
 import dev.s44khin.simpleweather.common.domain.model.TempUnits
 import dev.s44khin.simpleweather.common.domain.model.Theme
-import dev.s44khin.simpleweather.common.util.enumValueOrDefault
-import dev.s44khin.simpleweather.common.util.getEnum
-import dev.s44khin.simpleweather.common.util.putEnum
+import dev.s44khin.simpleweather.utils.enumValueOrDefault
+import dev.s44khin.simpleweather.utils.getEnum
+import dev.s44khin.simpleweather.utils.putEnum
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
 
