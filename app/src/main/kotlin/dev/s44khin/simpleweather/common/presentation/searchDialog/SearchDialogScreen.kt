@@ -22,8 +22,9 @@ import dev.s44khin.simpleweather.uikit.widgets.DialogLayoutBox
 import org.koin.androidx.compose.koinViewModel
 
 @Composable
-fun SearchDialogScreen() = DialogLayoutBox {
-    val viewModel = koinViewModel<SearchDialogViewModel>()
+fun SearchDialogScreen(
+    viewModel: SearchDialogViewModel = koinViewModel()
+) = DialogLayoutBox {
     val state by viewModel.uiStateFlow.collectAsState()
     val scrollState = rememberScrollState()
 

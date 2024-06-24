@@ -22,10 +22,10 @@ import dev.s44khin.simpleweather.uikit.widgets.TopNavigationHeight
 import org.koin.androidx.compose.koinViewModel
 
 @Composable
-fun TodayForecastScreen() {
+fun TodayForecastScreen(
+    viewModel: TodayForecastViewModel = koinViewModel(),
+) {
     Box(modifier = Modifier.fillMaxSize()) {
-        val viewModel = koinViewModel<TodayForecastViewModel>()
-
         val scrollState = rememberScrollState()
 
         TopNavigation(

@@ -76,4 +76,8 @@ dependencies {
 
     // Project
     implementation(project(":uikit"))
+
+    // Tests
+    testImplementation(libs.testng)
+    testImplementation(libs.koin.test)
 }

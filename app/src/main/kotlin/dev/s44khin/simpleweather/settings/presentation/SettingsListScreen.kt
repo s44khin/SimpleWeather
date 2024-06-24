@@ -28,8 +28,9 @@ import kotlinx.coroutines.launch
 import org.koin.androidx.compose.koinViewModel
 
 @Composable
-fun SettingsListScreen() {
-    val viewModel = koinViewModel<SettingsListViewModel>()
+fun SettingsListScreen(
+    viewModel: SettingsListViewModel = koinViewModel()
+) {
     val state by viewModel.uiStateFlow.collectAsState()
     val coroutineScope = rememberCoroutineScope()
 
