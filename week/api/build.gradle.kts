@@ -4,7 +4,7 @@ plugins {
 }
 
 android {
-    namespace = "dev.s44khin.simpleweather.common.api"
+    namespace = "dev.s44khin.simpleweather.week.api"
     compileSdk = libs.versions.sdk.compile.get().toInt()
 
     defaultConfig {
@@ -36,10 +36,8 @@ android {
 }
 
 dependencies {
-    implementation(libs.coroutines)
-    implementation(libs.compose.foundation)
     implementation(libs.compose.icons)
-
-    implementation(project(":core:navigation:api"))
     implementation(project(":utils"))
+    implementation(project(":core:navigation:api"))
+    implementation(project(":core:resources"))
 }

@@ -8,7 +8,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.util.fastForEach
-import dev.s44khin.simpleweather.R
+import dev.s44khin.simpleweather.resources.CoreStrings
 import dev.s44khin.simpleweather.settings.presentation.model.TempUnitsVo
 import dev.s44khin.simpleweather.uikit.util.clickableWithoutRipple
 import dev.s44khin.simpleweather.uikit.widgets.InfoBlock
@@ -19,8 +19,8 @@ fun ColumnScope.UnitsBlock(
     onUnitClicked: (TempUnitsVo) -> Unit,
 ) {
     InfoBlock(
-        label = stringResource(R.string.settings_units),
-        info = stringResource(R.string.settings_units_info),
+        label = stringResource(CoreStrings.settings_units),
+        info = stringResource(CoreStrings.settings_units_info),
         content = {
             Row(modifier = Modifier.padding(vertical = 24.dp, horizontal = 8.dp)) {
                 TempUnitsVo.entries.fastForEach {

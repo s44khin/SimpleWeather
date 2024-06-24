@@ -4,7 +4,7 @@ plugins {
 }
 
 android {
-    namespace = "dev.s44khin.simpleweather.common.api"
+    namespace = "dev.s44khin.simpleweather.resources"
     compileSdk = libs.versions.sdk.compile.get().toInt()
 
     defaultConfig {
@@ -33,13 +33,4 @@ android {
     kotlinOptions {
         jvmTarget = "1.8"
     }
-}
-
-dependencies {
-    implementation(libs.coroutines)
-    implementation(libs.compose.foundation)
-    implementation(libs.compose.icons)
-
-    implementation(project(":core:navigation:api"))
-    implementation(project(":utils"))
 }

@@ -15,7 +15,7 @@ import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
-import dev.s44khin.simpleweather.R
+import dev.s44khin.simpleweather.resources.CoreStrings
 import dev.s44khin.simpleweather.settings.presentation.widgets.SettingsListScrollableContent
 import dev.s44khin.simpleweather.uikit.util.NavigationBarHeight
 import dev.s44khin.simpleweather.uikit.util.Spacer
@@ -39,7 +39,7 @@ fun SettingsListScreen(
 
         TopNavigation(
             modifier = Modifier.fillMaxWidth(),
-            title = stringResource(R.string.settings_label),
+            title = stringResource(CoreStrings.settings_label),
             scrollState = scrollState,
             rightAction = TopNavigationAction(
                 icon = Icons.Rounded.Cached,

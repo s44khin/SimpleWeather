@@ -8,8 +8,8 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.util.fastForEach
-import dev.s44khin.simpleweather.R
 import dev.s44khin.simpleweather.common.api.presentation.ThemeVo
+import dev.s44khin.simpleweather.resources.CoreStrings
 import dev.s44khin.simpleweather.settings.presentation.SettingsListAction
 import dev.s44khin.simpleweather.settings.presentation.SettingsListUiState
 import dev.s44khin.simpleweather.uikit.util.clickableWithoutRipple
@@ -21,7 +21,7 @@ fun ColumnScope.ThemeBlock(
     onAction: (SettingsListAction) -> Unit,
 ) {
     InfoBlock(
-        label = stringResource(R.string.settings_theme),
+        label = stringResource(CoreStrings.settings_theme),
         content = {
             Row(modifier = Modifier.padding(vertical = 24.dp, horizontal = 8.dp)) {
                 ThemeVo.entries.fastForEach {

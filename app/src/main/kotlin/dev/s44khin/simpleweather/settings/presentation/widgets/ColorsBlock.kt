@@ -10,8 +10,8 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.util.fastForEach
-import dev.s44khin.simpleweather.R
 import dev.s44khin.simpleweather.common.api.presentation.PrimaryColorVo
+import dev.s44khin.simpleweather.resources.CoreStrings
 import dev.s44khin.simpleweather.uikit.util.Spacer
 import dev.s44khin.simpleweather.uikit.widgets.InfoBlock
 
@@ -21,8 +21,8 @@ fun ColumnScope.ColorsBlock(
     onColorClicked: (PrimaryColorVo) -> Unit,
 ) {
     InfoBlock(
-        label = stringResource(R.string.settings_colors),
-        info = stringResource(R.string.settings_colors_info),
+        label = stringResource(CoreStrings.settings_colors),
+        info = stringResource(CoreStrings.settings_colors_info),
         content = {
             Row(
                 modifier = Modifier

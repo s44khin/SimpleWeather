@@ -5,7 +5,7 @@ import androidx.compose.foundation.layout.ColumnScope
 import androidx.compose.material3.HorizontalDivider
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.res.stringResource
-import dev.s44khin.simpleweather.R
+import dev.s44khin.simpleweather.resources.CoreStrings
 import dev.s44khin.simpleweather.settings.presentation.SettingsListAction
 import dev.s44khin.simpleweather.settings.presentation.SettingsListUiState
 import dev.s44khin.simpleweather.uikit.theme.SimpleTheme
@@ -17,11 +17,11 @@ fun ColumnScope.OtherBlock(
     onAction: (SettingsListAction) -> Unit,
 ) {
     InfoBlock(
-        label = stringResource(R.string.settings_other),
+        label = stringResource(CoreStrings.settings_other),
         content = {
             Column {
                 OtherItemCheckBox(
-                    label = stringResource(R.string.settings_other_transparent),
+                    label = stringResource(CoreStrings.settings_other_transparent),
                     selected = state.transparent,
                     onClicked = { onAction(SettingsListAction.OnTransparentChanged) }
                 )
@@ -31,7 +31,7 @@ fun ColumnScope.OtherBlock(
                 )
 
                 OtherItemCheckBox(
-                    label = stringResource(R.string.settings_other_always_show_label),
+                    label = stringResource(CoreStrings.settings_other_always_show_label),
                     selected = state.alwaysShowLabel,
                     onClicked = { onAction(SettingsListAction.OnAlwaysShowLabelClicked) }
                 )

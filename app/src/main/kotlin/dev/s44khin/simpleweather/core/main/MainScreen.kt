@@ -21,8 +21,8 @@ import dev.s44khin.simpleweather.today.core.navigation.todayNavigation
 import dev.s44khin.simpleweather.uikit.theme.SimpleTheme
 import dev.s44khin.simpleweather.uikit.widgets.BottomNavigation
 import dev.s44khin.simpleweather.uikit.widgets.BottomNavigationItem
-import dev.s44khin.simpleweather.week.navigation.WeekNavigation
-import dev.s44khin.simpleweather.week.navigation.weekNavigation
+import dev.s44khin.simpleweather.week.api.navigation.WeekNavigation
+import dev.s44khin.simpleweather.week.core.navigation.weekNavigation
 
 
 private val bottomNavigationItems = listOf(TodayNavigation, WeekNavigation, SettingsNavigation)

@@ -3,7 +3,6 @@ package dev.s44khin.simpleweather.settings.presentation
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.rounded.Autorenew
 import androidx.lifecycle.viewModelScope
-import dev.s44khin.simpleweather.R
 import dev.s44khin.simpleweather.common.api.domain.CommonRepository
 import dev.s44khin.simpleweather.common.api.domain.model.ConfirmationDialogButtonData
 import dev.s44khin.simpleweather.common.api.domain.model.ConfirmationDialogData
@@ -27,6 +26,7 @@ import dev.s44khin.simpleweather.common.api.presentation.PrimaryColorVo
 import dev.s44khin.simpleweather.common.api.presentation.ThemeVo
 import dev.s44khin.simpleweather.core.base.BaseViewModel
 import dev.s44khin.simpleweather.navigation.api.ScreenRouter
+import dev.s44khin.simpleweather.resources.CoreStrings
 import dev.s44khin.simpleweather.settings.core.navigation.SettingsNavigation.List.RESET_CONFIRM_BUTTON_KEY
 import dev.s44khin.simpleweather.settings.presentation.model.TempUnitsVo
 import dev.s44khin.simpleweather.utils.AutoClearable
@@ -130,13 +130,13 @@ class SettingsListViewModel(
 
     private fun onResetAllSettingsClicked() {
         confirmationDialogDataInMemory.value = ConfirmationDialogData(
-            title = NativeText.Resource(R.string.settings_restore),
+            title = NativeText.Resource(CoreStrings.settings_restore),
             confirmButtonData = ConfirmationDialogButtonData(
-                label = NativeText.Resource(R.string.dialog_confirm),
+                label = NativeText.Resource(CoreStrings.dialog_confirm),
                 onClickSignal = RESET_CONFIRM_BUTTON_KEY
             ),
             icon = Icons.Rounded.Autorenew,
-            cancelButtonLabel = NativeText.Resource(R.string.dialog_cancel)
+            cancelButtonLabel = NativeText.Resource(CoreStrings.dialog_cancel)
         )
 
         screenRouter.navigateTo(
