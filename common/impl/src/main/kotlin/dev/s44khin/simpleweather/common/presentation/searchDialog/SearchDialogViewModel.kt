@@ -7,7 +7,7 @@ import dev.s44khin.simpleweather.navigation.api.ScreenRouter
 import dev.s44khin.simpleweather.utils.CancellableJob
 import dev.s44khin.simpleweather.utils.launchUiCoroutine
 
-class SearchDialogViewModel(
+internal class SearchDialogViewModel(
     private val converter: SearchDialogConverter,
     private val screenRouter: ScreenRouter,
     private val searchLocationUseCase: SearchLocationUseCase,

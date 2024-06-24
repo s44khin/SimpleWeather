@@ -7,7 +7,7 @@ import dev.s44khin.simpleweather.uikit.widgets.DialogLayoutColumn
 import org.koin.androidx.compose.koinViewModel
 
 @Composable
-fun ConfirmationDialogScreen(
+internal fun ConfirmationDialogScreen(
     viewModel: ConfirmationDialogViewModel = koinViewModel(),
 ) {
     val state by viewModel.uiStateFlow.collectAsState()

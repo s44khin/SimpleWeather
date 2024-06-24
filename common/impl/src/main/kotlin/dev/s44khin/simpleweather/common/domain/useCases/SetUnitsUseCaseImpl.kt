@@ -4,7 +4,7 @@ import dev.s44khin.simpleweather.common.api.domain.CommonRepository
 import dev.s44khin.simpleweather.common.api.domain.model.TempUnits
 import dev.s44khin.simpleweather.common.api.domain.useCases.SetUnitsUseCase
 
-class SetUnitsUseCaseImpl(
+internal class SetUnitsUseCaseImpl(
     private val repository: CommonRepository,
 ) : SetUnitsUseCase {
 

@@ -1,4 +1,4 @@
-package dev.s44khin.simpleweather.common.presentation.widgets
+package dev.s44khin.simpleweather.uikit.widgets
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Spacer

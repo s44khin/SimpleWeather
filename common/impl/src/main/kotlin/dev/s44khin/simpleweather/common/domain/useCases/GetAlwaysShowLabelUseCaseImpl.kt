@@ -3,7 +3,7 @@ package dev.s44khin.simpleweather.common.domain.useCases
 import dev.s44khin.simpleweather.common.api.domain.CommonRepository
 import dev.s44khin.simpleweather.common.api.domain.useCases.GetAlwaysShowLabelUseCase
 
-class GetAlwaysShowLabelUseCaseImpl(
+internal class GetAlwaysShowLabelUseCaseImpl(
     private val repository: CommonRepository
 ) : GetAlwaysShowLabelUseCase {
 

@@ -4,7 +4,7 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 @Serializable
-data class GetLocationByNameResponse(
+internal data class GetLocationByNameResponse(
 
     @SerialName(value = "name")
     val name: String,
@@ -26,7 +26,7 @@ data class GetLocationByNameResponse(
 )
 
 @Serializable
-data class GetLocationByNameLocalNamesDto(
+internal data class GetLocationByNameLocalNamesDto(
 
     @SerialName(value = "ru")
     val ru: String,

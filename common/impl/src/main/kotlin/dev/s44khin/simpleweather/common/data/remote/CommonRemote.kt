@@ -5,7 +5,7 @@ import dev.s44khin.simpleweather.core.network.getBody
 import io.ktor.client.HttpClient
 import io.ktor.client.request.parameter
 
-class CommonRemote(
+internal class CommonRemote(
     private val client: HttpClient,
     private val searchLocationMapper: SearchLocationMapper,
 ) {

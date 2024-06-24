@@ -14,15 +14,15 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.zIndex
-import dev.s44khin.simpleweather.common.presentation.widgets.Slide
 import dev.s44khin.simpleweather.uikit.theme.SimpleTheme
 import dev.s44khin.simpleweather.uikit.util.Spacer
+import dev.s44khin.simpleweather.uikit.widgets.Slide
 import dev.s44khin.simpleweather.uikit.widgets.TopNavigationZIndex
 
 val SearchTopNavigationHeight = 66.dp
 
 @Composable
-fun SearchTopNavigation(
+internal fun SearchTopNavigation(
     query: String,
     scrollState: ScrollState? = null,
     onSearchInput: (String) -> Unit,

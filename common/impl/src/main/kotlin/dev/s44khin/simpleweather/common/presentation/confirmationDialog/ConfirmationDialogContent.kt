@@ -23,7 +23,7 @@ import dev.s44khin.simpleweather.uikit.util.Spacer
 import dev.s44khin.simpleweather.uikit.widgets.SimpleButton
 
 @Composable
-fun ColumnScope.ConfirmationDialogContent(
+internal fun ColumnScope.ConfirmationDialogContent(
     state: ConfirmationDialogUiState,
     onAction: (ConfirmationDialogAction) -> Unit,
 ) {

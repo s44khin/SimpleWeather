@@ -1,4 +1,4 @@
-package dev.s44khin.simpleweather.common.domain.model
+package dev.s44khin.simpleweather.common.api.domain.model
 
 import androidx.compose.ui.graphics.vector.ImageVector
 import dev.s44khin.simpleweather.utils.NativeText

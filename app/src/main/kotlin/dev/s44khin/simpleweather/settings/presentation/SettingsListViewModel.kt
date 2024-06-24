@@ -5,6 +5,8 @@ import androidx.compose.material.icons.rounded.Autorenew
 import androidx.lifecycle.viewModelScope
 import dev.s44khin.simpleweather.R
 import dev.s44khin.simpleweather.common.api.domain.CommonRepository
+import dev.s44khin.simpleweather.common.api.domain.model.ConfirmationDialogButtonData
+import dev.s44khin.simpleweather.common.api.domain.model.ConfirmationDialogData
 import dev.s44khin.simpleweather.common.api.domain.model.PrimaryColor
 import dev.s44khin.simpleweather.common.api.domain.model.TempUnits
 import dev.s44khin.simpleweather.common.api.domain.model.Theme
@@ -21,10 +23,8 @@ import dev.s44khin.simpleweather.common.api.domain.useCases.SetThemeUseCase
 import dev.s44khin.simpleweather.common.api.domain.useCases.SetTransparentUseCase
 import dev.s44khin.simpleweather.common.api.domain.useCases.SetUnitsUseCase
 import dev.s44khin.simpleweather.common.api.navigation.CommonNavigation
-import dev.s44khin.simpleweather.common.domain.model.ConfirmationDialogButtonData
-import dev.s44khin.simpleweather.common.domain.model.ConfirmationDialogData
-import dev.s44khin.simpleweather.common.presentation.model.PrimaryColorVo
-import dev.s44khin.simpleweather.common.presentation.model.ThemeVo
+import dev.s44khin.simpleweather.common.api.presentation.PrimaryColorVo
+import dev.s44khin.simpleweather.common.api.presentation.ThemeVo
 import dev.s44khin.simpleweather.core.base.BaseViewModel
 import dev.s44khin.simpleweather.navigation.api.ScreenRouter
 import dev.s44khin.simpleweather.settings.core.navigation.SettingsNavigation.List.RESET_CONFIRM_BUTTON_KEY

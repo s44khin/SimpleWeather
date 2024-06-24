@@ -27,7 +27,7 @@ val SearchBarHeight = 36.dp
 
 @OptIn(ExperimentalFoundationApi::class)
 @Composable
-fun SearchField(
+internal fun SearchField(
     search: String,
     hint: String,
     modifier: Modifier = Modifier,

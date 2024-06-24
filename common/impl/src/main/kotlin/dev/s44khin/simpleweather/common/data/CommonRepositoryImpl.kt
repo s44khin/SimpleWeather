@@ -7,7 +7,7 @@ import dev.s44khin.simpleweather.common.api.domain.model.Theme
 import dev.s44khin.simpleweather.common.data.local.CommonLocal
 import dev.s44khin.simpleweather.common.data.remote.CommonRemote
 
-class CommonRepositoryImpl(
+internal class CommonRepositoryImpl(
     private val local: CommonLocal,
     private val remote: CommonRemote,
 ) : CommonRepository {

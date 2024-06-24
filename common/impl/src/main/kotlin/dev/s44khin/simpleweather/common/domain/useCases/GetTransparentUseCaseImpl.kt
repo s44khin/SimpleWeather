@@ -3,7 +3,7 @@ package dev.s44khin.simpleweather.common.domain.useCases
 import dev.s44khin.simpleweather.common.api.domain.CommonRepository
 import dev.s44khin.simpleweather.common.api.domain.useCases.GetTransparentUseCase
 
-class GetTransparentUseCaseImpl(
+internal class GetTransparentUseCaseImpl(
     private val repository: CommonRepository
 ) : GetTransparentUseCase {
 

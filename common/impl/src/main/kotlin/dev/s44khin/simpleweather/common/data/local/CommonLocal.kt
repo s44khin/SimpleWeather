@@ -4,7 +4,7 @@ import dev.s44khin.simpleweather.common.api.domain.model.PrimaryColor
 import dev.s44khin.simpleweather.common.api.domain.model.TempUnits
 import dev.s44khin.simpleweather.common.api.domain.model.Theme
 
-class CommonLocal(
+internal class CommonLocal(
     private val sharedPrefSettings: SharedPrefSettings,
 ) {
 

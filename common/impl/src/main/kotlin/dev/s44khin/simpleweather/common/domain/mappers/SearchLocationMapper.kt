@@ -4,7 +4,7 @@ import dev.s44khin.simpleweather.common.api.domain.model.SearchLocation
 import dev.s44khin.simpleweather.common.api.domain.model.SearchLocationLocalNames
 import dev.s44khin.simpleweather.common.data.model.GetLocationByNameResponse
 
-class SearchLocationMapper {
+internal class SearchLocationMapper {
 
     fun map(response: List<GetLocationByNameResponse>) = response.map {
         SearchLocation(

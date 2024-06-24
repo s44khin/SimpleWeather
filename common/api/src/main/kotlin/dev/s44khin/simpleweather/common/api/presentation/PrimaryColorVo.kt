@@ -1,4 +1,4 @@
-package dev.s44khin.simpleweather.common.presentation.model
+package dev.s44khin.simpleweather.common.api.presentation
 
 import androidx.compose.ui.graphics.Color
 

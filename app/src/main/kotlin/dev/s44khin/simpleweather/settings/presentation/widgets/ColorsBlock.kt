@@ -11,7 +11,7 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.util.fastForEach
 import dev.s44khin.simpleweather.R
-import dev.s44khin.simpleweather.common.presentation.model.PrimaryColorVo
+import dev.s44khin.simpleweather.common.api.presentation.PrimaryColorVo
 import dev.s44khin.simpleweather.uikit.util.Spacer
 import dev.s44khin.simpleweather.uikit.widgets.InfoBlock
 

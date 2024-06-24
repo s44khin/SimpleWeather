@@ -4,7 +4,7 @@ import dev.s44khin.simpleweather.common.api.domain.CommonRepository
 import dev.s44khin.simpleweather.common.api.domain.model.Theme
 import dev.s44khin.simpleweather.common.api.domain.useCases.SetThemeUseCase
 
-class SetThemeUseCaseImpl(
+internal class SetThemeUseCaseImpl(
     private val repository: CommonRepository
 ) : SetThemeUseCase {
 

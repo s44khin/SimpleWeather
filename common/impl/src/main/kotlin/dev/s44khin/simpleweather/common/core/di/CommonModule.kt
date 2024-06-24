@@ -1,6 +1,7 @@
 package dev.s44khin.simpleweather.common.core.di
 
 import dev.s44khin.simpleweather.common.api.domain.CommonRepository
+import dev.s44khin.simpleweather.common.api.domain.model.ConfirmationDialogData
 import dev.s44khin.simpleweather.common.api.domain.useCases.GetAlwaysShowLabelUseCase
 import dev.s44khin.simpleweather.common.api.domain.useCases.GetColorUseCase
 import dev.s44khin.simpleweather.common.api.domain.useCases.GetThemeUseCase
@@ -19,7 +20,6 @@ import dev.s44khin.simpleweather.common.data.local.CommonLocal
 import dev.s44khin.simpleweather.common.data.local.SharedPrefSettings
 import dev.s44khin.simpleweather.common.data.remote.CommonRemote
 import dev.s44khin.simpleweather.common.domain.mappers.SearchLocationMapper
-import dev.s44khin.simpleweather.common.domain.model.ConfirmationDialogData
 import dev.s44khin.simpleweather.common.domain.useCases.GetAlwaysShowLabelUseCaseImpl
 import dev.s44khin.simpleweather.common.domain.useCases.GetColorUseCaseImpl
 import dev.s44khin.simpleweather.common.domain.useCases.GetThemeUseCaseImpl

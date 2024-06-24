@@ -4,7 +4,6 @@ import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.rounded.Today
 import androidx.navigation.NavGraphBuilder
 import dev.s44khin.simpleweather.R
-import dev.s44khin.simpleweather.common.presentation.searchDialog.SearchDialogScreen
 import dev.s44khin.simpleweather.navigation.api.NavDestination
 import dev.s44khin.simpleweather.navigation.api.NavRootDestination
 import dev.s44khin.simpleweather.navigation.api.composable
@@ -37,10 +36,6 @@ fun NavGraphBuilder.todayNavigation() {
     navigation(rootDestination = TodayNavigation) {
         composable(destination = TodayNavigation.Forecast) {
             TodayForecastScreen()
-        }
-
-        composable(destination = TodayNavigation.SearchDialog) {
-            SearchDialogScreen()
         }
     }
 }

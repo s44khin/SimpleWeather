@@ -10,7 +10,7 @@ import dev.s44khin.simpleweather.utils.putEnum
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
 
-class SharedPrefSettings(
+internal class SharedPrefSettings(
     private val context: Context,
 ) {
 

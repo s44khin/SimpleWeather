@@ -15,7 +15,7 @@ import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
-import dev.s44khin.simpleweather.common.presentation.model.ThemeVo
+import dev.s44khin.simpleweather.common.api.presentation.ThemeVo
 import dev.s44khin.simpleweather.uikit.theme.SimpleTheme
 
 @Composable

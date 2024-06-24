@@ -4,7 +4,7 @@ import dev.s44khin.simpleweather.common.api.domain.CommonRepository
 import dev.s44khin.simpleweather.common.api.domain.model.PrimaryColor
 import dev.s44khin.simpleweather.common.api.domain.useCases.SetColorUseCase
 
-class SetColorUseCaseImpl(
+internal class SetColorUseCaseImpl(
     private val repository: CommonRepository
 ) : SetColorUseCase {
 

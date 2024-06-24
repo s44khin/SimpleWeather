@@ -5,7 +5,7 @@ import androidx.compose.ui.graphics.vector.ImageVector
 import dev.s44khin.simpleweather.utils.NativeText
 
 @Immutable
-data class ConfirmationDialogUiState(
+internal data class ConfirmationDialogUiState(
     val title: NativeText? = null,
     val text: NativeText? = null,
     val icon: ImageVector? = null,
@@ -13,6 +13,6 @@ data class ConfirmationDialogUiState(
     val cancelButtonLabel: NativeText? = null,
 )
 
-data class ConfirmationDialogButtonDataVo(
+internal data class ConfirmationDialogButtonDataVo(
     val label: NativeText,
 )

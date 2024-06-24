@@ -1,10 +1,10 @@
 package dev.s44khin.simpleweather.common.presentation.confirmationDialog
 
 import androidx.compose.ui.graphics.vector.ImageVector
-import dev.s44khin.simpleweather.common.domain.model.ConfirmationDialogButtonData
+import dev.s44khin.simpleweather.common.api.domain.model.ConfirmationDialogButtonData
 import dev.s44khin.simpleweather.utils.NativeText
 
-data class ConfirmationDialogScreenState(
+internal data class ConfirmationDialogScreenState(
     val title: NativeText? = null,
     val text: NativeText? = null,
     val icon: ImageVector? = null,

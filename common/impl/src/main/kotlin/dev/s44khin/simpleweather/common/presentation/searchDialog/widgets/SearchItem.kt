@@ -17,7 +17,7 @@ import dev.s44khin.simpleweather.common.presentation.model.SearchLocationVo
 import dev.s44khin.simpleweather.uikit.theme.SimpleTheme
 
 @Composable
-fun SearchItem(
+internal fun SearchItem(
     item: SearchLocationVo,
     shape: Shape,
     modifier: Modifier = Modifier,

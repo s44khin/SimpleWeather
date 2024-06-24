@@ -39,4 +39,6 @@ dependencies {
     implementation(project(":core:navigation:api"))
     implementation(libs.coroutines)
     implementation(libs.compose.foundation)
+    implementation(libs.compose.icons)
+    implementation(project(":utils"))
 }

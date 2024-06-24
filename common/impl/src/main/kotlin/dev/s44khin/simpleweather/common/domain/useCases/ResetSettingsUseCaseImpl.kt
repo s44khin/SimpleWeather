@@ -6,7 +6,7 @@ import dev.s44khin.simpleweather.common.api.domain.model.TempUnits
 import dev.s44khin.simpleweather.common.api.domain.model.Theme
 import dev.s44khin.simpleweather.common.api.domain.useCases.ResetSettingsUseCase
 
-class ResetSettingsUseCaseImpl(
+internal class ResetSettingsUseCaseImpl(
     private val repository: CommonRepository
 ) : ResetSettingsUseCase {
 

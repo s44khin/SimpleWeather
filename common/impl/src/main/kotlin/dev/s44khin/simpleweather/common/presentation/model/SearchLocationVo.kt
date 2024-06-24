@@ -3,7 +3,7 @@ package dev.s44khin.simpleweather.common.presentation.model
 import androidx.compose.runtime.Immutable
 
 @Immutable
-data class SearchLocationVo(
+internal data class SearchLocationVo(
     val name: String,
     val localNames: SearchLocationLocalNamesVo,
     val lat: String,
@@ -13,7 +13,7 @@ data class SearchLocationVo(
 )
 
 @Immutable
-data class SearchLocationLocalNamesVo(
+internal data class SearchLocationLocalNamesVo(
     val ru: String,
     val en: String,
 )
