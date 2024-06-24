@@ -5,7 +5,7 @@ import dev.s44khin.simpleweather.common.api.presentation.ThemeVo
 import dev.s44khin.simpleweather.settings.presentation.model.TempUnitsVo
 import dev.s44khin.simpleweather.utils.enumValueOrDefault
 
-internal class SettingsListConverter {
+internal object SettingsListConverter {
 
     fun convert(screenState: SettingsListScreenState) =
         SettingsListUiState(

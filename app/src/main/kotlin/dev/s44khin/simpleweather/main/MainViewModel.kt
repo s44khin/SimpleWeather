@@ -14,7 +14,6 @@ import kotlinx.coroutines.launch
 
 class MainViewModel(
     private val commonRepository: CommonRepository,
-    private val mainConverter: MainConverter,
     private val screenRouter: ScreenRouter,
     getAlwaysShowLabelUseCase: GetAlwaysShowLabelUseCase,
     getColorUseCase: GetColorUseCase,
@@ -27,7 +26,7 @@ class MainViewModel(
         transparent = getTransparentUseCase.execute(),
         alwaysShowLabel = getAlwaysShowLabelUseCase.execute(),
     ),
-    converter = mainConverter::convert
+    converter = MainConverter::convert
 ) {
 
     val navigationCommands = screenRouter.navigationCommands

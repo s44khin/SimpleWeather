@@ -6,7 +6,6 @@ import dev.s44khin.simpleweather.navigation.api.ScreenRouter
 import dev.s44khin.simpleweather.utils.AutoClearable
 
 internal class ConfirmationDialogViewModel(
-    private val converter: ConfirmationDialogConverter,
     private val screenRouter: ScreenRouter,
     confirmationDialogDataInMemory: AutoClearable<ConfirmationDialogData>,
 ) : BaseViewModel<ConfirmationDialogScreenState, ConfirmationDialogUiState, ConfirmationDialogAction>(
@@ -19,7 +18,7 @@ internal class ConfirmationDialogViewModel(
             cancelButtonLabel = data?.cancelButtonLabel,
         )
     },
-    converter = converter::convert
+    converter = ConfirmationDialogConverter::convert
 ) {
 
     override fun onAction(action: ConfirmationDialogAction) = when (action) {

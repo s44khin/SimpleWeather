@@ -9,11 +9,11 @@ import org.koin.dsl.module
 
 val appModule = module {
     includes(
+        commonModule,
+        mainModule,
         navigationModule,
         networkModule,
-        commonModule,
-        coreModule,
+        settingsModule,
         todayModule,
-        settingsModule
     )
 }

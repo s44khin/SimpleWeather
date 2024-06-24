@@ -3,7 +3,7 @@ package dev.s44khin.simpleweather.common.presentation.searchDialog
 import dev.s44khin.simpleweather.common.presentation.model.SearchLocationLocalNamesVo
 import dev.s44khin.simpleweather.common.presentation.model.SearchLocationVo
 
-internal class SearchDialogConverter {
+internal object SearchDialogConverter {
 
     fun convert(screenState: SearchDialogScreenState) = SearchDialogUiState(
         query = screenState.query,

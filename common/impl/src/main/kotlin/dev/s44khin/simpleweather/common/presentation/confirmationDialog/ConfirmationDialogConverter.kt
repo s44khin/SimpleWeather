@@ -1,6 +1,6 @@
 package dev.s44khin.simpleweather.common.presentation.confirmationDialog
 
-internal class ConfirmationDialogConverter {
+internal object ConfirmationDialogConverter {
 
     fun convert(screenState: ConfirmationDialogScreenState) = ConfirmationDialogUiState(
         title = screenState.title,

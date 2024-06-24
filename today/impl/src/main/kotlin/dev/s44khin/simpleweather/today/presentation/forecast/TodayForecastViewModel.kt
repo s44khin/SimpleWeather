@@ -6,12 +6,11 @@ import dev.s44khin.simpleweather.today.api.navigation.TodayNavigation
 import dev.s44khin.simpleweather.today.domain.useCases.GetTodayWeatherUseCase
 
 internal class TodayForecastViewModel(
-    private val converter: TodayForecastConverter,
     private val getTodayWeatherUseCase: GetTodayWeatherUseCase,
     private val screenRouter: ScreenRouter,
 ) : BaseViewModel<TodayForecastScreenState, TodayForecastUiState, TodayForecastAction>(
     initState = TodayForecastScreenState,
-    converter = converter::convert
+    converter = TodayForecastConverter::convert
 ) {
 
     override fun onAction(action: TodayForecastAction) = when (action) {

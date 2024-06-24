@@ -8,12 +8,11 @@ import dev.s44khin.simpleweather.utils.CancellableJob
 import dev.s44khin.simpleweather.utils.launchUiCoroutine
 
 internal class SearchDialogViewModel(
-    private val converter: SearchDialogConverter,
     private val screenRouter: ScreenRouter,
     private val searchLocationUseCase: SearchLocationUseCase,
 ) : BaseViewModel<SearchDialogScreenState, SearchDialogUiState, SearchDialogAction>(
     initState = SearchDialogScreenState(),
-    converter = converter::convert
+    converter = SearchDialogConverter::convert
 ) {
 
     private val searchJob = CancellableJob {

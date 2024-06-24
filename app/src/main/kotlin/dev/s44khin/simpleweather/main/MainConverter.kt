@@ -4,7 +4,7 @@ import dev.s44khin.simpleweather.common.api.presentation.PrimaryColorVo
 import dev.s44khin.simpleweather.common.api.presentation.ThemeVo
 import dev.s44khin.simpleweather.utils.enumValueOrDefault
 
-class MainConverter {
+internal object MainConverter {
 
     fun convert(screenState: MainScreenState) = MainUiState(
         color = enumValueOrDefault(

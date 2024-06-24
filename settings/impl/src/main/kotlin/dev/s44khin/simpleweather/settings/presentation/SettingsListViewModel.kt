@@ -47,7 +47,6 @@ internal class SettingsListViewModel(
     private val setThemeUseCase: SetThemeUseCase,
     private val setTransparentUseCase: SetTransparentUseCase,
     private val setUnitsUseCase: SetUnitsUseCase,
-    private val settingsListConverter: SettingsListConverter,
     getColorUseCase: GetColorUseCase,
     getThemeUseCase: GetThemeUseCase,
     getTransparentUseCase: GetTransparentUseCase,
@@ -62,7 +61,7 @@ internal class SettingsListViewModel(
         alwaysShowLabel = getAlwaysShowLabelUseCase.execute(),
         isResetAvailable = isResetSettingsAvailableUseCase.execute(),
     ),
-    converter = settingsListConverter::convert,
+    converter = SettingsListConverter::convert,
 ) {
 
     init {
