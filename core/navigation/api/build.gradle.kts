@@ -5,7 +5,7 @@ plugins {
 }
 
 android {
-    namespace = "dev.s44khin.simpleweather.navigation"
+    namespace = "dev.s44khin.simpleweather.core.navigation.api"
     compileSdk = libs.versions.sdk.compile.get().toInt()
 
     defaultConfig {
@@ -39,10 +39,7 @@ android {
 dependencies {
     implementation(platform(libs.compose.bom))
     implementation(libs.compose.foundation)
+    implementation(libs.compose.navigation)
 
-    implementation(platform(libs.koin.bom))
-    implementation(libs.koin.android)
-    implementation(libs.koin.core)
-
-    implementation(project(":navigation:api"))
+    implementation(project(":utils"))
 }

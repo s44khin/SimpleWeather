@@ -23,5 +23,6 @@ rootProject.name = "Simple Weather"
 include(":app")
 include(":uikit")
 include(":utils")
-include(":navigation:api")
-include(":navigation:impl")
+include(":core:navigation:api")
+include(":core:navigation:impl")
+include(":core:network")

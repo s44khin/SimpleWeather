@@ -76,8 +76,8 @@ dependencies {
     // Project
     implementation(project(":uikit"))
     implementation(project(":utils"))
-    implementation(project(":navigation:api"))
-    implementation(project(":navigation:impl"))
+    implementation(project(":core:navigation:api"))
+    implementation(project(":core:navigation:impl"))
 
     // Tests
     testImplementation(libs.testng)
