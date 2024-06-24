@@ -36,8 +36,11 @@ android {
 }
 
 dependencies {
+    // Compose
     implementation(libs.compose.icons)
-    implementation(project(":utils"))
-    implementation(project(":core:navigation:api"))
+
+    // Project
+    api(project(":core:navigation:api"))
+    api(project(":utils"))
     implementation(project(":core:resources"))
 }

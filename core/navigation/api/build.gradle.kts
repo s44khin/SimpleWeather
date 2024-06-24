@@ -37,9 +37,10 @@ android {
 }
 
 dependencies {
+    // Compose
     implementation(platform(libs.compose.bom))
-    implementation(libs.compose.foundation)
     implementation(libs.compose.navigation)
 
-    implementation(project(":utils"))
+    // Project
+    api(project(":utils"))
 }

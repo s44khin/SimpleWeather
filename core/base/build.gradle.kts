@@ -36,5 +36,6 @@ android {
 }
 
 dependencies {
+    // Compose
     implementation(libs.compose.viewModel)
 }

@@ -36,10 +36,13 @@ android {
 }
 
 dependencies {
-    implementation(libs.coroutines)
-    implementation(libs.compose.foundation)
+    // Compose
     implementation(libs.compose.icons)
 
-    implementation(project(":core:navigation:api"))
-    implementation(project(":utils"))
+    // Coroutines
+    runtimeOnly(libs.coroutines)
+
+    // Project
+    api(project(":core:navigation:api"))
+    api(project(":utils"))
 }

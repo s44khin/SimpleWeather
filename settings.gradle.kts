@@ -11,6 +11,7 @@ pluginManagement {
         gradlePluginPortal()
     }
 }
+
 dependencyResolutionManagement {
     repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
     repositories {
@@ -21,18 +22,18 @@ dependencyResolutionManagement {
 
 rootProject.name = "Simple Weather"
 include(":app")
-include(":uikit")
-include(":utils")
+include(":common:api")
+include(":common:impl")
+include(":core:base")
 include(":core:navigation:api")
 include(":core:navigation:impl")
 include(":core:network")
-include(":core:base")
 include(":core:resources")
-include(":common:api")
-include(":common:impl")
-include(":week:api")
-include(":week:impl")
-include(":today:api")
-include(":today:impl")
 include(":settings:api")
 include(":settings:impl")
+include(":today:api")
+include(":today:impl")
+include(":uikit")
+include(":utils")
+include(":week:api")
+include(":week:impl")

@@ -36,13 +36,14 @@ android {
 }
 
 dependencies {
+    // Ktor
     implementation(libs.ktor.client.android)
-    implementation(libs.ktor.client.logging)
     implementation(libs.ktor.client.content.negotiation)
+    implementation(libs.ktor.client.logging)
     implementation(libs.ktor.client.serialization)
     implementation(libs.ktor.client.serialization.kotlinx.json)
 
+    // Koin
     implementation(platform(libs.koin.bom))
-    implementation(libs.koin.android)
     implementation(libs.koin.core)
 }
