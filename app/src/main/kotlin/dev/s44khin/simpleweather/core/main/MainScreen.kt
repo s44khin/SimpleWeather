@@ -16,7 +16,7 @@ import androidx.navigation.compose.currentBackStackEntryAsState
 import dev.s44khin.simpleweather.common.core.navigation.commonNavigation
 import dev.s44khin.simpleweather.settings.core.navigation.SettingsNavigation
 import dev.s44khin.simpleweather.settings.core.navigation.settingsNavigation
-import dev.s44khin.simpleweather.today.core.navigation.TodayNavigation
+import dev.s44khin.simpleweather.today.api.navigation.TodayNavigation
 import dev.s44khin.simpleweather.today.core.navigation.todayNavigation
 import dev.s44khin.simpleweather.uikit.theme.SimpleTheme
 import dev.s44khin.simpleweather.uikit.widgets.BottomNavigation
