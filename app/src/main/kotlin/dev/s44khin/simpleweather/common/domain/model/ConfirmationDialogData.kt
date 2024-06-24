@@ -1,7 +1,7 @@
 package dev.s44khin.simpleweather.common.domain.model
 
 import androidx.compose.ui.graphics.vector.ImageVector
-import dev.s44khin.simpleweather.uikit.util.NativeText
+import dev.s44khin.simpleweather.utils.NativeText
 
 data class ConfirmationDialogData(
     val title: NativeText? = null,

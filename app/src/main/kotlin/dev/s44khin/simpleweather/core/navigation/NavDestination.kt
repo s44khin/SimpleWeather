@@ -1,7 +1,7 @@
 package dev.s44khin.simpleweather.core.navigation
 
 import androidx.compose.ui.graphics.vector.ImageVector
-import dev.s44khin.simpleweather.uikit.util.NativeText
+import dev.s44khin.simpleweather.utils.NativeText
 
 interface NavDestination {
 

@@ -2,7 +2,7 @@ package dev.s44khin.simpleweather.common.presentation.confirmationDialog
 
 import androidx.compose.runtime.Immutable
 import androidx.compose.ui.graphics.vector.ImageVector
-import dev.s44khin.simpleweather.uikit.util.NativeText
+import dev.s44khin.simpleweather.utils.NativeText
 
 @Immutable
 data class ConfirmationDialogUiState(

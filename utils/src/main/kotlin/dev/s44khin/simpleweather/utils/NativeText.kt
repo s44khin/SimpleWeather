@@ -1,4 +1,4 @@
-package dev.s44khin.simpleweather.uikit.util
+package dev.s44khin.simpleweather.utils
 
 import android.content.Context
 import androidx.annotation.StringRes

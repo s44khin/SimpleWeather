@@ -10,7 +10,7 @@ import dev.s44khin.simpleweather.core.navigation.NavRootDestination
 import dev.s44khin.simpleweather.core.navigation.composable
 import dev.s44khin.simpleweather.core.navigation.navigation
 import dev.s44khin.simpleweather.today.presentation.forecast.TodayForecastScreen
-import dev.s44khin.simpleweather.uikit.util.NativeText
+import dev.s44khin.simpleweather.utils.NativeText
 
 object TodayNavigation : NavRootDestination {
 

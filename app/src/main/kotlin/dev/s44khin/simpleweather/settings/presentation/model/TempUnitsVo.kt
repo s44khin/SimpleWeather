@@ -1,7 +1,7 @@
 package dev.s44khin.simpleweather.settings.presentation.model
 
 import dev.s44khin.simpleweather.R
-import dev.s44khin.simpleweather.uikit.util.NativeText
+import dev.s44khin.simpleweather.utils.NativeText
 
 enum class TempUnitsVo(
     val label: NativeText,

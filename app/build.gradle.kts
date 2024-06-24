@@ -76,6 +76,7 @@ dependencies {
 
     // Project
     implementation(project(":uikit"))
+    implementation(project(":utils"))
 
     // Tests
     testImplementation(libs.testng)
