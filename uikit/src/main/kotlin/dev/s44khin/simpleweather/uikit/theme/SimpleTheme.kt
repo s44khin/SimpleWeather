@@ -2,7 +2,6 @@ package dev.s44khin.simpleweather.uikit.theme
 
 import androidx.compose.animation.animateColorAsState
 import androidx.compose.foundation.isSystemInDarkTheme
-import androidx.compose.material.ripple.LocalRippleTheme
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.CompositionLocalProvider
@@ -46,7 +45,6 @@ fun SimpleTheme(
     MaterialTheme {
         CompositionLocalProvider(
             LocalSimpleColors provides colors,
-            LocalRippleTheme provides SimpleRippleTheme,
             content = content,
         )
     }

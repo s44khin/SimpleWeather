@@ -1,8 +1,6 @@
 package dev.s44khin.simpleweather.common.presentation.confirmationDialog
 
-import javax.inject.Inject
-
-class ConfirmationDialogConverter @Inject constructor() {
+class ConfirmationDialogConverter {
 
     fun convert(screenState: ConfirmationDialogScreenState) = ConfirmationDialogUiState(
         title = screenState.title,

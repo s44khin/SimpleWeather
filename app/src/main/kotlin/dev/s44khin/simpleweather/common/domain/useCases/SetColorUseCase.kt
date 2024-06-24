@@ -2,9 +2,8 @@ package dev.s44khin.simpleweather.common.domain.useCases
 
 import dev.s44khin.simpleweather.common.data.CommonRepository
 import dev.s44khin.simpleweather.common.domain.model.PrimaryColor
-import javax.inject.Inject
 
-class SetColorUseCase @Inject constructor(
+class SetColorUseCase(
     private val repository: CommonRepository
 ) {
 

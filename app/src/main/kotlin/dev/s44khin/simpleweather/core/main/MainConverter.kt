@@ -3,9 +3,8 @@ package dev.s44khin.simpleweather.core.main
 import dev.s44khin.simpleweather.common.presentation.model.PrimaryColorVo
 import dev.s44khin.simpleweather.common.presentation.model.ThemeVo
 import dev.s44khin.simpleweather.common.util.enumValueOrDefault
-import javax.inject.Inject
 
-class MainConverter @Inject constructor() {
+class MainConverter {
 
     fun convert(screenState: MainScreenState) = MainUiState(
         color = enumValueOrDefault(

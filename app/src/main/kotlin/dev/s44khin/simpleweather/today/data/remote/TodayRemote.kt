@@ -3,9 +3,8 @@ package dev.s44khin.simpleweather.today.data.remote
 import dev.s44khin.simpleweather.common.util.getBody
 import dev.s44khin.simpleweather.today.domain.mappers.TodayWeatherMapper
 import io.ktor.client.HttpClient
-import javax.inject.Inject
 
-class TodayRemote @Inject constructor(
+class TodayRemote(
     private val client: HttpClient,
     private val todayWeatherMapper: TodayWeatherMapper,
 ) {

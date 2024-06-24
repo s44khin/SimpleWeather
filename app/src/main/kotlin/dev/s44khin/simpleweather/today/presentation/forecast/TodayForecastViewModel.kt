@@ -1,17 +1,14 @@
 package dev.s44khin.simpleweather.today.presentation.forecast
 
 import androidx.lifecycle.viewModelScope
-import dagger.hilt.android.lifecycle.HiltViewModel
 import dev.s44khin.simpleweather.common.core.navigation.CommonNavigation
 import dev.s44khin.simpleweather.core.base.BaseViewModel
 import dev.s44khin.simpleweather.core.navigation.ScreenRouter
 import dev.s44khin.simpleweather.today.domain.useCases.GetTodayWeatherUseCase
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
-import javax.inject.Inject
 
-@HiltViewModel
-class TodayForecastViewModel @Inject constructor(
+class TodayForecastViewModel(
     private val converter: TodayForecastConverter,
     private val getTodayWeatherUseCase: GetTodayWeatherUseCase,
     private val screenRouter: ScreenRouter,

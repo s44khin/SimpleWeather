@@ -1,7 +1,6 @@
 package dev.s44khin.simpleweather.core.main
 
 import androidx.lifecycle.viewModelScope
-import dagger.hilt.android.lifecycle.HiltViewModel
 import dev.s44khin.simpleweather.common.data.CommonRepository
 import dev.s44khin.simpleweather.common.domain.useCases.GetAlwaysShowLabelUseCase
 import dev.s44khin.simpleweather.common.domain.useCases.GetColorUseCase
@@ -12,10 +11,8 @@ import dev.s44khin.simpleweather.core.navigation.NavDestination
 import dev.s44khin.simpleweather.core.navigation.ScreenRouter
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
-import javax.inject.Inject
 
-@HiltViewModel
-class MainViewModel @Inject constructor(
+class MainViewModel(
     private val commonRepository: CommonRepository,
     private val mainConverter: MainConverter,
     private val screenRouter: ScreenRouter,

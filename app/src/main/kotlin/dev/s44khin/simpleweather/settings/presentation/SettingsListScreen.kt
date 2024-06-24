@@ -15,7 +15,6 @@ import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
-import androidx.hilt.navigation.compose.hiltViewModel
 import dev.s44khin.simpleweather.R
 import dev.s44khin.simpleweather.settings.presentation.widgets.SettingsListScrollableContent
 import dev.s44khin.simpleweather.uikit.util.NavigationBarHeight
@@ -26,10 +25,11 @@ import dev.s44khin.simpleweather.uikit.widgets.TopNavigation
 import dev.s44khin.simpleweather.uikit.widgets.TopNavigationAction
 import dev.s44khin.simpleweather.uikit.widgets.TopNavigationHeight
 import kotlinx.coroutines.launch
+import org.koin.androidx.compose.koinViewModel
 
 @Composable
 fun SettingsListScreen() {
-    val viewModel = hiltViewModel<SettingsListViewModel>()
+    val viewModel = koinViewModel<SettingsListViewModel>()
     val state by viewModel.uiStateFlow.collectAsState()
     val coroutineScope = rememberCoroutineScope()
 

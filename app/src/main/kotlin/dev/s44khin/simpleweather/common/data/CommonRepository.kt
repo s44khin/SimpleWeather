@@ -5,9 +5,8 @@ import dev.s44khin.simpleweather.common.data.remote.CommonRemote
 import dev.s44khin.simpleweather.common.domain.model.PrimaryColor
 import dev.s44khin.simpleweather.common.domain.model.TempUnits
 import dev.s44khin.simpleweather.common.domain.model.Theme
-import javax.inject.Inject
 
-class CommonRepository @Inject constructor(
+class CommonRepository(
     private val local: CommonLocal,
     private val remote: CommonRemote,
 ) {

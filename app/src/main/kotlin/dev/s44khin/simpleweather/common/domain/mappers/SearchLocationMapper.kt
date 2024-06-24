@@ -3,9 +3,8 @@ package dev.s44khin.simpleweather.common.domain.mappers
 import dev.s44khin.simpleweather.common.data.model.GetLocationByNameResponse
 import dev.s44khin.simpleweather.common.domain.model.SearchLocation
 import dev.s44khin.simpleweather.common.domain.model.SearchLocationLocalNames
-import javax.inject.Inject
 
-class SearchLocationMapper @Inject constructor() {
+class SearchLocationMapper {
 
     fun map(response: List<GetLocationByNameResponse>) = response.map {
         SearchLocation(

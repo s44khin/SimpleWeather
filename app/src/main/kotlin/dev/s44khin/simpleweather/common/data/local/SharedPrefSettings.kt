@@ -1,8 +1,6 @@
 package dev.s44khin.simpleweather.common.data.local
 
 import android.content.Context
-import dagger.hilt.android.qualifiers.ApplicationContext
-import dagger.hilt.android.scopes.ActivityRetainedScoped
 import dev.s44khin.simpleweather.common.domain.model.PrimaryColor
 import dev.s44khin.simpleweather.common.domain.model.TempUnits
 import dev.s44khin.simpleweather.common.domain.model.Theme
@@ -11,11 +9,8 @@ import dev.s44khin.simpleweather.common.util.getEnum
 import dev.s44khin.simpleweather.common.util.putEnum
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
-import javax.inject.Inject
 
-@ActivityRetainedScoped
-class SharedPrefSettings @Inject constructor(
-    @ApplicationContext
+class SharedPrefSettings(
     private val context: Context,
 ) {
 

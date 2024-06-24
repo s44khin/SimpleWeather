@@ -3,7 +3,6 @@ package dev.s44khin.simpleweather.settings.presentation
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.rounded.Autorenew
 import androidx.lifecycle.viewModelScope
-import dagger.hilt.android.lifecycle.HiltViewModel
 import dev.s44khin.simpleweather.R
 import dev.s44khin.simpleweather.common.clearable.AutoClearable
 import dev.s44khin.simpleweather.common.core.navigation.CommonNavigation
@@ -35,10 +34,8 @@ import dev.s44khin.simpleweather.uikit.util.NativeText
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
-import javax.inject.Inject
 
-@HiltViewModel
-class SettingsListViewModel @Inject constructor(
+class SettingsListViewModel(
     private val commonRepository: CommonRepository,
     private val resetAllSettingsUseCase: ResetSettingsUseCase,
     private val screenRouter: ScreenRouter,

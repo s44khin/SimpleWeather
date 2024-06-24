@@ -3,9 +3,8 @@ package dev.s44khin.simpleweather.common.data.local
 import dev.s44khin.simpleweather.common.domain.model.PrimaryColor
 import dev.s44khin.simpleweather.common.domain.model.TempUnits
 import dev.s44khin.simpleweather.common.domain.model.Theme
-import javax.inject.Inject
 
-class CommonLocal @Inject constructor(
+class CommonLocal(
     private val sharedPrefSettings: SharedPrefSettings,
 ) {
 

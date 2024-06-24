@@ -1,9 +1,8 @@
 package dev.s44khin.simpleweather.today.domain
 
 import dev.s44khin.simpleweather.today.data.remote.TodayRemote
-import javax.inject.Inject
 
-class TodayRepository @Inject constructor(
+class TodayRepository(
     private val todayRemote: TodayRemote,
 ) {
 

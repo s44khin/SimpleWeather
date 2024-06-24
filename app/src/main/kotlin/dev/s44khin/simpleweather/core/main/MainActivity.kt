@@ -10,21 +10,19 @@ import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
-import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.compose.rememberNavController
-import dagger.hilt.android.AndroidEntryPoint
 import dev.s44khin.simpleweather.common.presentation.model.ThemeVo
 import dev.s44khin.simpleweather.core.navigation.NavigationCommandHandler
 import dev.s44khin.simpleweather.uikit.theme.SimpleTheme
+import org.koin.androidx.compose.koinViewModel
 
-@AndroidEntryPoint
 class MainActivity : ComponentActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
         setContent {
-            val viewModel = hiltViewModel<MainViewModel>()
+            val viewModel = koinViewModel<MainViewModel>()
             val navHostController = rememberNavController()
             val state by viewModel.uiStateFlow.collectAsState()
 

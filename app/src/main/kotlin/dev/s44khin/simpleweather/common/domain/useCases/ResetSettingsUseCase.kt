@@ -5,9 +5,8 @@ import dev.s44khin.simpleweather.common.domain.model.PrimaryColor
 import dev.s44khin.simpleweather.common.domain.model.TempUnits
 import dev.s44khin.simpleweather.common.domain.model.Theme
 import dev.s44khin.simpleweather.common.presentation.model.PrimaryColorVo
-import javax.inject.Inject
 
-class ResetSettingsUseCase @Inject constructor(
+class ResetSettingsUseCase(
     private val repository: CommonRepository
 ) {
 

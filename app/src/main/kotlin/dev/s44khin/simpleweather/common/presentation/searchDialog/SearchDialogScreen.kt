@@ -14,16 +14,16 @@ import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.util.fastForEachIndexed
-import androidx.hilt.navigation.compose.hiltViewModel
 import dev.s44khin.simpleweather.common.presentation.searchDialog.widgets.SearchItem
 import dev.s44khin.simpleweather.common.presentation.searchDialog.widgets.SearchTopNavigation
 import dev.s44khin.simpleweather.common.presentation.searchDialog.widgets.SearchTopNavigationHeight
 import dev.s44khin.simpleweather.uikit.util.Spacer
 import dev.s44khin.simpleweather.uikit.widgets.DialogLayoutBox
+import org.koin.androidx.compose.koinViewModel
 
 @Composable
 fun SearchDialogScreen() = DialogLayoutBox {
-    val viewModel = hiltViewModel<SearchDialogViewModel>()
+    val viewModel = koinViewModel<SearchDialogViewModel>()
     val state by viewModel.uiStateFlow.collectAsState()
     val scrollState = rememberScrollState()
 

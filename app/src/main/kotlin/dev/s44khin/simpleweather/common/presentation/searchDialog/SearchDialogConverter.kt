@@ -2,9 +2,8 @@ package dev.s44khin.simpleweather.common.presentation.searchDialog
 
 import dev.s44khin.simpleweather.common.presentation.model.SearchLocationLocalNamesVo
 import dev.s44khin.simpleweather.common.presentation.model.SearchLocationVo
-import javax.inject.Inject
 
-class SearchDialogConverter @Inject constructor() {
+class SearchDialogConverter {
 
     fun convert(screenState: SearchDialogScreenState) = SearchDialogUiState(
         query = screenState.query,

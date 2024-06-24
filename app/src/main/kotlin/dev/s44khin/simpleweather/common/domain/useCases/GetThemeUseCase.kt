@@ -1,9 +1,8 @@
 package dev.s44khin.simpleweather.common.domain.useCases
 
 import dev.s44khin.simpleweather.common.data.CommonRepository
-import javax.inject.Inject
 
-class GetThemeUseCase @Inject constructor(
+class GetThemeUseCase(
     private val repository: CommonRepository
 ) {
 

@@ -1,8 +1,6 @@
 package dev.s44khin.simpleweather.today.presentation.forecast
 
-import javax.inject.Inject
-
-class TodayForecastConverter @Inject constructor() {
+class TodayForecastConverter {
 
     fun convert(screenState: TodayForecastScreenState) = TodayForecastUiState
 }

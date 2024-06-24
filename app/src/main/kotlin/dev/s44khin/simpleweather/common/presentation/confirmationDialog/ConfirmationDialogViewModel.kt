@@ -1,14 +1,11 @@
 package dev.s44khin.simpleweather.common.presentation.confirmationDialog
 
-import dagger.hilt.android.lifecycle.HiltViewModel
 import dev.s44khin.simpleweather.common.clearable.AutoClearable
 import dev.s44khin.simpleweather.common.domain.model.ConfirmationDialogData
 import dev.s44khin.simpleweather.core.base.BaseViewModel
 import dev.s44khin.simpleweather.core.navigation.ScreenRouter
-import javax.inject.Inject
 
-@HiltViewModel
-class ConfirmationDialogViewModel @Inject constructor(
+class ConfirmationDialogViewModel(
     private val converter: ConfirmationDialogConverter,
     private val screenRouter: ScreenRouter,
     confirmationDialogDataInMemory: AutoClearable<ConfirmationDialogData>,

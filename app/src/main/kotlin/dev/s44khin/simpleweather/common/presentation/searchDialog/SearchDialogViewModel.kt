@@ -1,16 +1,13 @@
 package dev.s44khin.simpleweather.common.presentation.searchDialog
 
 import androidx.lifecycle.viewModelScope
-import dagger.hilt.android.lifecycle.HiltViewModel
 import dev.s44khin.simpleweather.common.domain.useCases.SearchLocationUseCase
 import dev.s44khin.simpleweather.common.util.CancellableJob
 import dev.s44khin.simpleweather.common.util.launchUiCoroutine
 import dev.s44khin.simpleweather.core.base.BaseViewModel
 import dev.s44khin.simpleweather.core.navigation.ScreenRouter
-import javax.inject.Inject
 
-@HiltViewModel
-class SearchDialogViewModel @Inject constructor(
+class SearchDialogViewModel(
     private val converter: SearchDialogConverter,
     private val screenRouter: ScreenRouter,
     private val searchLocationUseCase: SearchLocationUseCase,

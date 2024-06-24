@@ -12,7 +12,6 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
-import androidx.hilt.navigation.compose.hiltViewModel
 import dev.s44khin.simpleweather.uikit.util.NavigationBarHeight
 import dev.s44khin.simpleweather.uikit.util.Spacer
 import dev.s44khin.simpleweather.uikit.util.StatusBarHeight
@@ -20,11 +19,12 @@ import dev.s44khin.simpleweather.uikit.widgets.BottomNavigationHeight
 import dev.s44khin.simpleweather.uikit.widgets.TopNavigation
 import dev.s44khin.simpleweather.uikit.widgets.TopNavigationAction
 import dev.s44khin.simpleweather.uikit.widgets.TopNavigationHeight
+import org.koin.androidx.compose.koinViewModel
 
 @Composable
 fun TodayForecastScreen() {
     Box(modifier = Modifier.fillMaxSize()) {
-        val viewModel = hiltViewModel<TodayForecastViewModel>()
+        val viewModel = koinViewModel<TodayForecastViewModel>()
 
         val scrollState = rememberScrollState()
 
