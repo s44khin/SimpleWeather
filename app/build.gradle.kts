@@ -78,6 +78,7 @@ dependencies {
     implementation(project(":utils"))
     implementation(project(":core:navigation:api"))
     implementation(project(":core:navigation:impl"))
+    implementation(project(":core:network"))
 
     // Tests
     testImplementation(libs.testng)

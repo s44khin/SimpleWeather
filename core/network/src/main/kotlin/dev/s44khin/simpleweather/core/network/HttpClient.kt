@@ -1,7 +1,6 @@
-package dev.s44khin.simpleweather.core.di
+package dev.s44khin.simpleweather.core.network
 
 import android.util.Log
-import dev.s44khin.simpleweather.BuildConfig
 import io.ktor.client.HttpClient
 import io.ktor.client.engine.android.Android
 import io.ktor.client.plugins.contentnegotiation.ContentNegotiation
@@ -13,15 +12,10 @@ import io.ktor.client.plugins.observer.ResponseObserver
 import io.ktor.http.takeFrom
 import io.ktor.serialization.kotlinx.json.json
 import kotlinx.serialization.json.Json
-import org.koin.dsl.module
-
-val networkModule = module {
-    single { createHttpClient() }
-}
 
 private const val BASE_URL = "https://api.openweathermap.org"
 
-private fun createHttpClient() = HttpClient(Android) {
+internal fun createHttpClient() = HttpClient(Android) {
     install(ContentNegotiation) {
         json(
             Json {
@@ -41,15 +35,13 @@ private fun createHttpClient() = HttpClient(Android) {
         }
     }
 
-    if (BuildConfig.DEBUG) {
-        install(Logging) {
-            logger = object : Logger {
-                override fun log(message: String) {
-                    Log.v("KtorResponse", message)
-                }
+    install(Logging) {
+        logger = object : Logger {
+            override fun log(message: String) {
+                Log.v("KtorResponse", message)
             }
-            level = LogLevel.ALL
         }
+        level = LogLevel.ALL
     }
 
     install(ResponseObserver) {
