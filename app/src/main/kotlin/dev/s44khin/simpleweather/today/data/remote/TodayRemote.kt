@@ -1,6 +1,6 @@
 package dev.s44khin.simpleweather.today.data.remote
 
-import dev.s44khin.simpleweather.common.util.getBody
+import dev.s44khin.simpleweather.core.network.getBody
 import dev.s44khin.simpleweather.today.domain.mappers.TodayWeatherMapper
 import io.ktor.client.HttpClient
 

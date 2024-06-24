@@ -1,11 +1,11 @@
 package dev.s44khin.simpleweather.core.main
 
 import androidx.lifecycle.viewModelScope
-import dev.s44khin.simpleweather.common.data.CommonRepository
-import dev.s44khin.simpleweather.common.domain.useCases.GetAlwaysShowLabelUseCase
-import dev.s44khin.simpleweather.common.domain.useCases.GetColorUseCase
-import dev.s44khin.simpleweather.common.domain.useCases.GetThemeUseCase
-import dev.s44khin.simpleweather.common.domain.useCases.GetTransparentUseCase
+import dev.s44khin.simpleweather.common.api.domain.CommonRepository
+import dev.s44khin.simpleweather.common.api.domain.useCases.GetAlwaysShowLabelUseCase
+import dev.s44khin.simpleweather.common.api.domain.useCases.GetColorUseCase
+import dev.s44khin.simpleweather.common.api.domain.useCases.GetThemeUseCase
+import dev.s44khin.simpleweather.common.api.domain.useCases.GetTransparentUseCase
 import dev.s44khin.simpleweather.core.base.BaseViewModel
 import dev.s44khin.simpleweather.navigation.api.ScreenRouter
 import kotlinx.coroutines.flow.collectLatest
