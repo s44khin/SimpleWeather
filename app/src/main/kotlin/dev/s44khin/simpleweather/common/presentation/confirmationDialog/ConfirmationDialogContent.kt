@@ -18,9 +18,7 @@ import androidx.compose.ui.draw.rotate
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import dev.s44khin.simpleweather.common.presentation.widgets.Slide
 import dev.s44khin.simpleweather.uikit.theme.SimpleTheme
-import dev.s44khin.simpleweather.uikit.util.NavigationBarHeight
 import dev.s44khin.simpleweather.uikit.util.Spacer
 import dev.s44khin.simpleweather.uikit.widgets.SimpleButton
 
@@ -29,11 +27,7 @@ fun ColumnScope.ConfirmationDialogContent(
     state: ConfirmationDialogUiState,
     onAction: (ConfirmationDialogAction) -> Unit,
 ) {
-    Spacer(height = 8.dp)
-
-    Slide(modifier = Modifier.align(Alignment.CenterHorizontally))
-
-    Spacer(height = 8.dp)
+    Spacer(height = 16.dp)
 
     if (state.title != null) {
         Text(
@@ -112,5 +106,5 @@ fun ColumnScope.ConfirmationDialogContent(
         )
     }
 
-    Spacer(height = NavigationBarHeight + 16.dp)
+    Spacer(height = 16.dp)
 }

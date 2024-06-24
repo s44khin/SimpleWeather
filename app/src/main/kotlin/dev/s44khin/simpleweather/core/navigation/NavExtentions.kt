@@ -9,6 +9,7 @@ import androidx.navigation.NavGraphBuilder
 import androidx.navigation.NavHostController
 import androidx.navigation.NavOptionsBuilder
 import androidx.navigation.compose.composable
+import androidx.navigation.compose.dialog
 import androidx.navigation.navigation
 
 fun NavGraphBuilder.composable(
@@ -31,7 +32,7 @@ fun NavGraphBuilder.bottomSheet(
     deepLinks: List<NavDeepLink> = emptyList(),
     content: @Composable (backstackEntry: NavBackStackEntry) -> Unit
 ) {
-    composable(
+    dialog(
         route = destination.route,
         arguments = arguments,
         deepLinks = deepLinks,

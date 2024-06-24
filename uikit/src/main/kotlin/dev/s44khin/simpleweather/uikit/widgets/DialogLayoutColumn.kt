@@ -22,7 +22,7 @@ import dev.s44khin.simpleweather.uikit.theme.SimpleTheme
 fun DialogLayoutColumn(
     modifier: Modifier = Modifier,
     backgroundColor: Color = SimpleTheme.colors.root,
-    shape: Shape = RoundedCornerShape(topStart = 16.dp, topEnd = 16.dp),
+    shape: Shape = RoundedCornerShape(16.dp),
     verticalArrangement: Arrangement.Vertical = Arrangement.Top,
     horizontalAlignment: Alignment.Horizontal = Alignment.Start,
     content: @Composable ColumnScope.() -> Unit,
