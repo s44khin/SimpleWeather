@@ -1,6 +1,6 @@
 package dev.s44khin.simpleweather.common.core.di
 
-import dev.s44khin.simpleweather.common.clearable.AutoClearable
+import dev.s44khin.simpleweather.utils.AutoClearable
 import dev.s44khin.simpleweather.common.data.CommonRepository
 import dev.s44khin.simpleweather.common.data.local.CommonLocal
 import dev.s44khin.simpleweather.common.data.local.SharedPrefSettings

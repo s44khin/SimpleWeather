@@ -4,7 +4,7 @@ import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.rounded.Autorenew
 import androidx.lifecycle.viewModelScope
 import dev.s44khin.simpleweather.R
-import dev.s44khin.simpleweather.common.clearable.AutoClearable
+import dev.s44khin.simpleweather.utils.AutoClearable
 import dev.s44khin.simpleweather.common.core.navigation.CommonNavigation
 import dev.s44khin.simpleweather.common.data.CommonRepository
 import dev.s44khin.simpleweather.common.domain.model.ConfirmationDialogButtonData
