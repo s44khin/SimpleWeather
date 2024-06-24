@@ -64,7 +64,6 @@ dependencies {
     // Koin
     implementation(platform(libs.koin.bom))
     implementation(libs.koin.android)
-    implementation(libs.koin.core)
     implementation(libs.koin.compose)
 
     // Network
@@ -77,6 +76,8 @@ dependencies {
     // Project
     implementation(project(":uikit"))
     implementation(project(":utils"))
+    implementation(project(":navigation:api"))
+    implementation(project(":navigation:impl"))
 
     // Tests
     testImplementation(libs.testng)

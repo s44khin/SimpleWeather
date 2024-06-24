@@ -4,14 +4,12 @@ import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.rounded.ViewWeek
 import androidx.navigation.NavGraphBuilder
 import dev.s44khin.simpleweather.R
-import dev.s44khin.simpleweather.core.navigation.NavDestination
-import dev.s44khin.simpleweather.core.navigation.NavRootDestination
-import dev.s44khin.simpleweather.core.navigation.composable
-import dev.s44khin.simpleweather.core.navigation.navigation
+import dev.s44khin.simpleweather.navigation.api.composable
+import dev.s44khin.simpleweather.navigation.api.navigation
 import dev.s44khin.simpleweather.utils.NativeText
 import dev.s44khin.simpleweather.week.presentation.forecast.WeekForecastScreen
 
-object WeekNavigation : NavRootDestination {
+object WeekNavigation : dev.s44khin.simpleweather.navigation.api.NavRootDestination {
 
     override val route = "week"
 
@@ -21,7 +19,7 @@ object WeekNavigation : NavRootDestination {
 
     override val startDestination = Forecast
 
-    object Forecast : NavDestination {
+    object Forecast : dev.s44khin.simpleweather.navigation.api.NavDestination {
 
         override val route = "${WeekNavigation.route}/forecast"
     }

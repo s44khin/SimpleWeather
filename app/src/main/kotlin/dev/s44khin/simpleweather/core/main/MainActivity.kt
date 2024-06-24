@@ -12,7 +12,6 @@ import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.navigation.compose.rememberNavController
 import dev.s44khin.simpleweather.common.presentation.model.ThemeVo
-import dev.s44khin.simpleweather.core.navigation.NavigationCommandHandler
 import dev.s44khin.simpleweather.uikit.theme.SimpleTheme
 import org.koin.androidx.compose.koinViewModel
 
@@ -28,7 +27,7 @@ class MainActivity : ComponentActivity() {
 
             NavigationCommandHandler(
                 navController = navHostController,
-                commands = viewModel.navigationCommand,
+                commands = viewModel.navigationCommands,
             )
 
             LaunchedEffect(state.theme) {

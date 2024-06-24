@@ -2,12 +2,11 @@ package dev.s44khin.simpleweather.common.core.navigation
 
 import androidx.navigation.NavGraphBuilder
 import dev.s44khin.simpleweather.common.presentation.confirmationDialog.ConfirmationDialogScreen
-import dev.s44khin.simpleweather.core.navigation.NavDestination
-import dev.s44khin.simpleweather.core.navigation.bottomSheet
+import dev.s44khin.simpleweather.navigation.api.bottomSheet
 
 object CommonNavigation {
 
-    object ConfirmationDialog : NavDestination {
+    object ConfirmationDialog : dev.s44khin.simpleweather.navigation.api.NavDestination {
 
         override val route = "confirmation_dialog"
     }

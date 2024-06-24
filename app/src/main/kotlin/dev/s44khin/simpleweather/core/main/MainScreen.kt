@@ -11,9 +11,9 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.util.fastForEach
 import androidx.navigation.NavDestination.Companion.hierarchy
 import androidx.navigation.NavHostController
+import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.currentBackStackEntryAsState
 import dev.s44khin.simpleweather.common.core.navigation.commonNavigation
-import dev.s44khin.simpleweather.core.navigation.SimpleNavHost
 import dev.s44khin.simpleweather.settings.core.navigation.SettingsNavigation
 import dev.s44khin.simpleweather.settings.core.navigation.settingsNavigation
 import dev.s44khin.simpleweather.today.core.navigation.TodayNavigation
@@ -38,9 +38,9 @@ internal fun MainScreen(
             .fillMaxSize()
             .background(color = SimpleTheme.colors.root)
     ) {
-        SimpleNavHost(
+        NavHost(
             navController = navHostController,
-            startDestination = TodayNavigation,
+            startDestination = TodayNavigation.route,
         ) {
             commonNavigation()
             todayNavigation()

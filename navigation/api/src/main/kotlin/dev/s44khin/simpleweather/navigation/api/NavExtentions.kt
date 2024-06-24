@@ -1,4 +1,4 @@
-package dev.s44khin.simpleweather.core.navigation
+package dev.s44khin.simpleweather.navigation.api
 
 import androidx.compose.animation.AnimatedContentScope
 import androidx.compose.runtime.Composable

@@ -2,7 +2,7 @@ package dev.s44khin.simpleweather.today.presentation.forecast
 
 import androidx.lifecycle.viewModelScope
 import dev.s44khin.simpleweather.core.base.BaseViewModel
-import dev.s44khin.simpleweather.core.navigation.ScreenRouter
+import dev.s44khin.simpleweather.navigation.api.ScreenRouter
 import dev.s44khin.simpleweather.today.core.navigation.TodayNavigation
 import dev.s44khin.simpleweather.today.domain.useCases.GetTodayWeatherUseCase
 import kotlinx.coroutines.Dispatchers

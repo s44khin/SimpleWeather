@@ -3,7 +3,7 @@ package dev.s44khin.simpleweather.common.presentation.confirmationDialog
 import dev.s44khin.simpleweather.common.clearable.AutoClearable
 import dev.s44khin.simpleweather.common.domain.model.ConfirmationDialogData
 import dev.s44khin.simpleweather.core.base.BaseViewModel
-import dev.s44khin.simpleweather.core.navigation.ScreenRouter
+import dev.s44khin.simpleweather.navigation.api.ScreenRouter
 
 class ConfirmationDialogViewModel(
     private val converter: ConfirmationDialogConverter,

@@ -1,9 +1,12 @@
-package dev.s44khin.simpleweather.core.navigation
+package dev.s44khin.simpleweather.core.main
 
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.navigation.NavGraph.Companion.findStartDestination
 import androidx.navigation.NavHostController
+import dev.s44khin.simpleweather.navigation.api.NavRootDestination
+import dev.s44khin.simpleweather.navigation.api.NavigationCommand
+import dev.s44khin.simpleweather.navigation.api.navigate
 import kotlinx.coroutines.flow.SharedFlow
 
 @Composable

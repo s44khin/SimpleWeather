@@ -28,7 +28,7 @@ import dev.s44khin.simpleweather.common.presentation.model.PrimaryColorVo
 import dev.s44khin.simpleweather.common.presentation.model.ThemeVo
 import dev.s44khin.simpleweather.common.util.enumValueOrDefault
 import dev.s44khin.simpleweather.core.base.BaseViewModel
-import dev.s44khin.simpleweather.core.navigation.ScreenRouter
+import dev.s44khin.simpleweather.navigation.api.ScreenRouter
 import dev.s44khin.simpleweather.settings.core.navigation.SettingsNavigation.List.RESET_CONFIRM_BUTTON_KEY
 import dev.s44khin.simpleweather.settings.presentation.model.TempUnitsVo
 import dev.s44khin.simpleweather.utils.NativeText
@@ -215,7 +215,7 @@ class SettingsListViewModel(
 
     private fun subscribeToSignals() {
         viewModelScope.launch(Dispatchers.IO) {
-            screenRouter.signalFlow.collect { signal ->
+            screenRouter.signalsFlow.collect { signal ->
                 if (signal == RESET_CONFIRM_BUTTON_KEY) {
                     onResetAllSettingsConfirmed()
                 }

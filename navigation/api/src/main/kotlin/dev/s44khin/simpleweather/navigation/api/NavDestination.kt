@@ -1,4 +1,4 @@
-package dev.s44khin.simpleweather.core.navigation
+package dev.s44khin.simpleweather.navigation.api
 
 import androidx.compose.ui.graphics.vector.ImageVector
 import dev.s44khin.simpleweather.utils.NativeText

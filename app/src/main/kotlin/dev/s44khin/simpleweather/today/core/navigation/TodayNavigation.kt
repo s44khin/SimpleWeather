@@ -5,14 +5,12 @@ import androidx.compose.material.icons.rounded.Today
 import androidx.navigation.NavGraphBuilder
 import dev.s44khin.simpleweather.R
 import dev.s44khin.simpleweather.common.presentation.searchDialog.SearchDialogScreen
-import dev.s44khin.simpleweather.core.navigation.NavDestination
-import dev.s44khin.simpleweather.core.navigation.NavRootDestination
-import dev.s44khin.simpleweather.core.navigation.composable
-import dev.s44khin.simpleweather.core.navigation.navigation
+import dev.s44khin.simpleweather.navigation.api.composable
+import dev.s44khin.simpleweather.navigation.api.navigation
 import dev.s44khin.simpleweather.today.presentation.forecast.TodayForecastScreen
 import dev.s44khin.simpleweather.utils.NativeText
 
-object TodayNavigation : NavRootDestination {
+object TodayNavigation : dev.s44khin.simpleweather.navigation.api.NavRootDestination {
 
     override val route = "today"
 
@@ -22,12 +20,12 @@ object TodayNavigation : NavRootDestination {
 
     override val startDestination = Forecast
 
-    object Forecast : NavDestination {
+    object Forecast : dev.s44khin.simpleweather.navigation.api.NavDestination {
 
         override val route = "${TodayNavigation.route}/forecast"
     }
 
-    object SearchDialog : NavDestination {
+    object SearchDialog : dev.s44khin.simpleweather.navigation.api.NavDestination {
 
         override val route = "${TodayNavigation.route}/search_dialog"
     }
