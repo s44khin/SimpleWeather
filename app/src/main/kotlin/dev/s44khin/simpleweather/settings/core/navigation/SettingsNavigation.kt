@@ -4,12 +4,14 @@ import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.rounded.Settings
 import androidx.navigation.NavGraphBuilder
 import dev.s44khin.simpleweather.R
+import dev.s44khin.simpleweather.navigation.api.NavDestination
+import dev.s44khin.simpleweather.navigation.api.NavRootDestination
 import dev.s44khin.simpleweather.navigation.api.composable
 import dev.s44khin.simpleweather.navigation.api.navigation
 import dev.s44khin.simpleweather.settings.presentation.SettingsListScreen
 import dev.s44khin.simpleweather.utils.NativeText
 
-object SettingsNavigation : dev.s44khin.simpleweather.navigation.api.NavRootDestination {
+object SettingsNavigation : NavRootDestination {
 
     override val route = "settings"
 
@@ -19,7 +21,7 @@ object SettingsNavigation : dev.s44khin.simpleweather.navigation.api.NavRootDest
 
     override val startDestination = List
 
-    object List : dev.s44khin.simpleweather.navigation.api.NavDestination {
+    object List : NavDestination {
 
         const val RESET_CONFIRM_BUTTON_KEY = "reset_confirm_button_key"
 

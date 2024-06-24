@@ -7,6 +7,7 @@ import dev.s44khin.simpleweather.common.api.domain.useCases.GetColorUseCase
 import dev.s44khin.simpleweather.common.api.domain.useCases.GetThemeUseCase
 import dev.s44khin.simpleweather.common.api.domain.useCases.GetTransparentUseCase
 import dev.s44khin.simpleweather.core.base.BaseViewModel
+import dev.s44khin.simpleweather.navigation.api.NavDestination
 import dev.s44khin.simpleweather.navigation.api.ScreenRouter
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
@@ -39,7 +40,7 @@ class MainViewModel(
         is MainAction.OnBottomNavigationClicked -> onBottomNavigationClicked(action.navDestination)
     }
 
-    private fun onBottomNavigationClicked(navDestination: dev.s44khin.simpleweather.navigation.api.NavDestination) {
+    private fun onBottomNavigationClicked(navDestination: NavDestination) {
         screenRouter.navigateTo(navDestination)
     }
 
