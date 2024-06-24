@@ -22,5 +22,6 @@ class SettingsListConverter {
         ),
         transparent = screenState.transparent,
         alwaysShowLabel = screenState.alwaysShowLabel,
+        isResetAvailable = screenState.isResetAvailable,
     )
 }

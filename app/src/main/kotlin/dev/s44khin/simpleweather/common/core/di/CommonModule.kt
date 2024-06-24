@@ -12,6 +12,7 @@ import dev.s44khin.simpleweather.common.domain.useCases.GetColorUseCase
 import dev.s44khin.simpleweather.common.domain.useCases.GetThemeUseCase
 import dev.s44khin.simpleweather.common.domain.useCases.GetTransparentUseCase
 import dev.s44khin.simpleweather.common.domain.useCases.GetUnitsUseCase
+import dev.s44khin.simpleweather.common.domain.useCases.IsResetSettingsAvailableUseCase
 import dev.s44khin.simpleweather.common.domain.useCases.ResetSettingsUseCase
 import dev.s44khin.simpleweather.common.domain.useCases.SearchLocationUseCase
 import dev.s44khin.simpleweather.common.domain.useCases.SetAlwaysShowLabelUseCase
@@ -60,4 +61,5 @@ val commonModule = module {
     factoryOf(::SetThemeUseCase)
     factoryOf(::SetTransparentUseCase)
     factoryOf(::SetUnitsUseCase)
+    factoryOf(::IsResetSettingsAvailableUseCase)
 }

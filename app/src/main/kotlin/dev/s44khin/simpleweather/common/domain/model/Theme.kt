@@ -1,5 +1,13 @@
 package dev.s44khin.simpleweather.common.domain.model
 
 enum class Theme {
-    System, Dark, Light
+    System, Dark, Light;
+
+    val isDefault get() = this == System
+
+    val isNotDefault get() = isDefault.not()
+
+    companion object {
+        val Default = System
+    }
 }

@@ -4,7 +4,7 @@ import android.content.Context
 import dev.s44khin.simpleweather.common.domain.model.PrimaryColor
 import dev.s44khin.simpleweather.common.domain.model.TempUnits
 import dev.s44khin.simpleweather.common.domain.model.Theme
-import dev.s44khin.simpleweather.common.presentation.model.PrimaryColorVo
+import dev.s44khin.simpleweather.common.util.enumValueOrDefault
 import dev.s44khin.simpleweather.common.util.getEnum
 import dev.s44khin.simpleweather.common.util.putEnum
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -32,10 +32,11 @@ class SharedPrefSettings(
     val unitsFlow = _unitsFlow.asStateFlow()
 
     private val _colorFlow = MutableStateFlow(
-        value = PrimaryColor(
-            name = sharedPreferences.getString(
-                COLOR, PrimaryColorVo.CedarChest.name
-            ) ?: PrimaryColorVo.CedarChest.name
+        value = enumValueOrDefault(
+            string = sharedPreferences.getString(
+                COLOR, PrimaryColor.CedarChest.name
+            ) ?: PrimaryColor.CedarChest.name,
+            default = PrimaryColor.CedarChest
         )
     )
 

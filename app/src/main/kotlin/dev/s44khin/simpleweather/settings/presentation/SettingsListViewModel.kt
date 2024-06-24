@@ -17,6 +17,7 @@ import dev.s44khin.simpleweather.common.domain.useCases.GetColorUseCase
 import dev.s44khin.simpleweather.common.domain.useCases.GetThemeUseCase
 import dev.s44khin.simpleweather.common.domain.useCases.GetTransparentUseCase
 import dev.s44khin.simpleweather.common.domain.useCases.GetUnitsUseCase
+import dev.s44khin.simpleweather.common.domain.useCases.IsResetSettingsAvailableUseCase
 import dev.s44khin.simpleweather.common.domain.useCases.ResetSettingsUseCase
 import dev.s44khin.simpleweather.common.domain.useCases.SetAlwaysShowLabelUseCase
 import dev.s44khin.simpleweather.common.domain.useCases.SetColorUseCase
@@ -36,7 +37,9 @@ import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
 
 class SettingsListViewModel(
+    private val isResetSettingsAvailableUseCase: IsResetSettingsAvailableUseCase,
     private val commonRepository: CommonRepository,
+    private val confirmationDialogDataInMemory: AutoClearable<ConfirmationDialogData>,
     private val resetAllSettingsUseCase: ResetSettingsUseCase,
     private val screenRouter: ScreenRouter,
     private val setAlwaysShowLabelUseCase: SetAlwaysShowLabelUseCase,
@@ -45,7 +48,6 @@ class SettingsListViewModel(
     private val setTransparentUseCase: SetTransparentUseCase,
     private val setUnitsUseCase: SetUnitsUseCase,
     private val settingsListConverter: SettingsListConverter,
-    private val confirmationDialogDataInMemory: AutoClearable<ConfirmationDialogData>,
     getColorUseCase: GetColorUseCase,
     getThemeUseCase: GetThemeUseCase,
     getTransparentUseCase: GetTransparentUseCase,
@@ -58,6 +60,7 @@ class SettingsListViewModel(
         theme = getThemeUseCase.execute(),
         transparent = getTransparentUseCase.execute(),
         alwaysShowLabel = getAlwaysShowLabelUseCase.execute(),
+        isResetAvailable = isResetSettingsAvailableUseCase.execute(),
     ),
     converter = settingsListConverter::convert,
 ) {
@@ -90,8 +93,9 @@ class SettingsListViewModel(
     }
 
     private fun onColorClicked(color: PrimaryColorVo) {
-        val colorDomain = PrimaryColor(
-            name = color.name,
+        val colorDomain = enumValueOrDefault(
+            string = color.name,
+            default = PrimaryColor.CedarChest
         )
 
         viewModelScope.launch {
@@ -159,6 +163,7 @@ class SettingsListViewModel(
             commonRepository.colorFlow.collect {
                 screenState = screenState.copy(
                     color = it,
+                    isResetAvailable = isResetSettingsAvailableUseCase.execute(),
                 )
             }
         }
@@ -168,7 +173,8 @@ class SettingsListViewModel(
         viewModelScope.launch {
             commonRepository.themeFlow.collectLatest {
                 screenState = screenState.copy(
-                    theme = it
+                    theme = it,
+                    isResetAvailable = isResetSettingsAvailableUseCase.execute(),
                 )
             }
         }
@@ -178,7 +184,8 @@ class SettingsListViewModel(
         viewModelScope.launch {
             commonRepository.transparentFlow.collectLatest {
                 screenState = screenState.copy(
-                    transparent = it
+                    transparent = it,
+                    isResetAvailable = isResetSettingsAvailableUseCase.execute(),
                 )
             }
         }
@@ -188,7 +195,8 @@ class SettingsListViewModel(
         viewModelScope.launch {
             commonRepository.alwaysShowLabelFlow.collectLatest {
                 screenState = screenState.copy(
-                    alwaysShowLabel = it
+                    alwaysShowLabel = it,
+                    isResetAvailable = isResetSettingsAvailableUseCase.execute(),
                 )
             }
         }
@@ -198,7 +206,8 @@ class SettingsListViewModel(
         viewModelScope.launch {
             commonRepository.unitsFlow.collectLatest {
                 screenState = screenState.copy(
-                    tempUnits = it
+                    tempUnits = it,
+                    isResetAvailable = isResetSettingsAvailableUseCase.execute(),
                 )
             }
         }

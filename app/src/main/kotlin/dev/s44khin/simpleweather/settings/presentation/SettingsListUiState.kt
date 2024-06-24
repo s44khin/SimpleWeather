@@ -12,4 +12,5 @@ data class SettingsListUiState(
     val theme: ThemeVo = ThemeVo.System,
     val transparent: Boolean = true,
     val alwaysShowLabel: Boolean = true,
+    val isResetAvailable: Boolean = false,
 )

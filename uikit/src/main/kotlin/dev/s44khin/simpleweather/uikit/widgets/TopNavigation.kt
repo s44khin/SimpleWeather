@@ -35,6 +35,7 @@ import dev.s44khin.simpleweather.uikit.util.ifThen
 
 data class TopNavigationAction(
     val icon: ImageVector,
+    val isVisible: Boolean = true,
     val onClick: () -> Unit,
 )
 
@@ -72,15 +73,19 @@ fun TopNavigation(
             .zIndex(TopNavigationZIndex)
     ) {
         if (leftAction != null) {
-            IconButton(
+            AnimatedVisibility(
                 modifier = Modifier.align(alignment = Alignment.CenterStart),
-                onClick = leftAction.onClick
+                visible = leftAction.isVisible,
+                enter = fadeIn() + scaleIn(),
+                exit = fadeOut() + scaleOut(),
             ) {
-                Icon(
-                    imageVector = leftAction.icon,
-                    contentDescription = leftAction.icon.name,
-                    tint = SimpleTheme.colors.onBackground
-                )
+                IconButton(onClick = leftAction.onClick) {
+                    Icon(
+                        imageVector = leftAction.icon,
+                        contentDescription = leftAction.icon.name,
+                        tint = SimpleTheme.colors.onBackground
+                    )
+                }
             }
         }
 
@@ -120,15 +125,19 @@ fun TopNavigation(
         }
 
         if (rightAction != null) {
-            IconButton(
+            AnimatedVisibility(
                 modifier = Modifier.align(alignment = Alignment.CenterEnd),
-                onClick = rightAction.onClick
+                visible = rightAction.isVisible,
+                enter = fadeIn() + scaleIn(),
+                exit = fadeOut() + scaleOut(),
             ) {
-                Icon(
-                    imageVector = rightAction.icon,
-                    contentDescription = rightAction.icon.name,
-                    tint = SimpleTheme.colors.onBackground
-                )
+                IconButton(onClick = rightAction.onClick) {
+                    Icon(
+                        imageVector = rightAction.icon,
+                        contentDescription = rightAction.icon.name,
+                        tint = SimpleTheme.colors.onBackground
+                    )
+                }
             }
         }
     }
