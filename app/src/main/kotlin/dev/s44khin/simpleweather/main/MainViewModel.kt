@@ -12,7 +12,7 @@ import dev.s44khin.simpleweather.navigation.api.ScreenRouter
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
 
-class MainViewModel(
+internal class MainViewModel(
     private val commonRepository: CommonRepository,
     private val screenRouter: ScreenRouter,
     getAlwaysShowLabelUseCase: GetAlwaysShowLabelUseCase,

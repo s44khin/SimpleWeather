@@ -7,7 +7,7 @@ import dev.s44khin.simpleweather.settings.core.di.settingsModule
 import dev.s44khin.simpleweather.today.core.di.todayModule
 import org.koin.dsl.module
 
-val appModule = module {
+internal val appModule = module {
     includes(
         commonModule,
         mainModule,

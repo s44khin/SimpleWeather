@@ -10,7 +10,7 @@ import dev.s44khin.simpleweather.navigation.api.navigate
 import kotlinx.coroutines.flow.SharedFlow
 
 @Composable
-fun NavigationCommandHandler(
+internal fun NavigationCommandHandler(
     navController: NavHostController,
     commands: SharedFlow<NavigationCommand>,
 ) {

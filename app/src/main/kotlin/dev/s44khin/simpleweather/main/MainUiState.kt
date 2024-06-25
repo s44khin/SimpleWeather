@@ -5,7 +5,7 @@ import dev.s44khin.simpleweather.common.api.presentation.PrimaryColorVo
 import dev.s44khin.simpleweather.common.api.presentation.ThemeVo
 
 @Immutable
-data class MainUiState(
+internal data class MainUiState(
     val color: PrimaryColorVo,
     val theme: ThemeVo,
     val transparent: Boolean,
