@@ -39,7 +39,7 @@ data class TopNavigationAction(
     val onClick: () -> Unit,
 )
 
-val TopNavigationHeight = 56.dp
+val TopNavigationHeight = 64.dp
 
 const val TopNavigationZIndex = 4f
 
@@ -106,6 +106,7 @@ fun TopNavigation(
                         text = title,
                         color = SimpleTheme.colors.onBackground,
                         fontSize = 18.sp,
+                        lineHeight = 10.sp
                     )
                 }
 
@@ -119,6 +120,7 @@ fun TopNavigation(
                         fontSize = 12.sp,
                         color = SimpleTheme.colors.onBackgroundUnselected,
                         fontWeight = FontWeight.Bold,
+                        lineHeight = 10.sp
                     )
                 }
             }

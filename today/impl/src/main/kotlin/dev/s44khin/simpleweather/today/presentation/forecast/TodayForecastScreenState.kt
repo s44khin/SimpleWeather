@@ -1,3 +1,5 @@
 package dev.s44khin.simpleweather.today.presentation.forecast
 
-internal object TodayForecastScreenState
+internal data class TodayForecastScreenState(
+    val locationName: String? = null,
+)

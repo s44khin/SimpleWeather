@@ -15,6 +15,7 @@ abstract class BaseViewModel<SCREEN_STATE : Any, UI_STATE : Any, ACTION>(
     final override val screenStateFlow = MutableStateFlow(initState)
     final override var screenState: SCREEN_STATE
         get() = screenStateFlow.value
+        @Synchronized
         set(value) {
             screenStateFlow.value = value
         }

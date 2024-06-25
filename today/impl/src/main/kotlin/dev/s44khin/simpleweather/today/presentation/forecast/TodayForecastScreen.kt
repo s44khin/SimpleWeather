@@ -10,6 +10,8 @@ import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.rounded.Search
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.collectAsState
+import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import dev.s44khin.simpleweather.uikit.util.NavigationBarHeight
@@ -25,12 +27,16 @@ import org.koin.androidx.compose.koinViewModel
 internal fun TodayForecastScreen(
     viewModel: TodayForecastViewModel = koinViewModel(),
 ) {
+    val state by viewModel.uiStateFlow.collectAsState()
+
     Box(modifier = Modifier.fillMaxSize()) {
         val scrollState = rememberScrollState()
 
         TopNavigation(
             modifier = Modifier.fillMaxWidth(),
             title = "Forecast",
+            subTitle = state.locationName,
+            subTitleIsVisible = state.locationName != null,
             scrollState = scrollState,
             rightAction = TopNavigationAction(
                 icon = Icons.Rounded.Search,
