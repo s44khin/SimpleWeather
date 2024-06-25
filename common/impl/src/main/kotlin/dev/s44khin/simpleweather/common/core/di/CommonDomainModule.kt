@@ -2,6 +2,7 @@ package dev.s44khin.simpleweather.common.core.di
 
 import dev.s44khin.simpleweather.common.api.domain.useCases.GetAlwaysShowLabelUseCase
 import dev.s44khin.simpleweather.common.api.domain.useCases.GetColorUseCase
+import dev.s44khin.simpleweather.common.api.domain.useCases.GetForecastUseCase
 import dev.s44khin.simpleweather.common.api.domain.useCases.GetThemeUseCase
 import dev.s44khin.simpleweather.common.api.domain.useCases.GetTransparentUseCase
 import dev.s44khin.simpleweather.common.api.domain.useCases.GetUnitsUseCase
@@ -15,6 +16,7 @@ import dev.s44khin.simpleweather.common.api.domain.useCases.SetTransparentUseCas
 import dev.s44khin.simpleweather.common.api.domain.useCases.SetUnitsUseCase
 import dev.s44khin.simpleweather.common.domain.useCases.GetAlwaysShowLabelUseCaseImpl
 import dev.s44khin.simpleweather.common.domain.useCases.GetColorUseCaseImpl
+import dev.s44khin.simpleweather.common.domain.useCases.GetForecastUseCaseImpl
 import dev.s44khin.simpleweather.common.domain.useCases.GetThemeUseCaseImpl
 import dev.s44khin.simpleweather.common.domain.useCases.GetTransparentUseCaseImpl
 import dev.s44khin.simpleweather.common.domain.useCases.GetUnitsUseCaseImpl
@@ -42,4 +44,5 @@ internal val commonDomainModule = module {
     factory<SetThemeUseCase> { SetThemeUseCaseImpl(get()) }
     factory<SetTransparentUseCase> { SetTransparentUseCaseImpl(get()) }
     factory<SetUnitsUseCase> { SetUnitsUseCaseImpl(get()) }
+    factory<GetForecastUseCase> { GetForecastUseCaseImpl(get()) }
 }

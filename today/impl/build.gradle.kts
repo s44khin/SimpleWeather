@@ -45,6 +45,7 @@ dependencies {
     // Compose
     implementation(platform(libs.compose.bom))
     implementation(libs.compose.foundation)
+    implementation(libs.compose.material)
     implementation(libs.compose.material3)
     implementation(libs.compose.navigation)
     implementation(libs.compose.ui)
@@ -61,6 +62,7 @@ dependencies {
     implementation(libs.koin.compose)
 
     // Project
+    implementation(project(":common:api"))
     implementation(project(":core:base"))
     implementation(project(":core:navigation:api"))
     implementation(project(":core:network"))

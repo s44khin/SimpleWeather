@@ -43,4 +43,8 @@ internal class CommonRepositoryImpl(
     }
 
     override suspend fun searchLocation(name: String) = remote.searchLocation(name)
+
+    override suspend fun getAllWeather(tempUnits: TempUnits) = remote.getForecast(
+        tempUnits = tempUnits,
+    )
 }

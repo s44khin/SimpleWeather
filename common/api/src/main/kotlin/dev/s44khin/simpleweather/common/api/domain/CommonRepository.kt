@@ -1,5 +1,6 @@
 package dev.s44khin.simpleweather.common.api.domain
 
+import dev.s44khin.simpleweather.common.api.domain.model.Forecast
 import dev.s44khin.simpleweather.common.api.domain.model.PrimaryColor
 import dev.s44khin.simpleweather.common.api.domain.model.SearchLocation
 import dev.s44khin.simpleweather.common.api.domain.model.TempUnits
@@ -29,4 +30,6 @@ interface CommonRepository {
     suspend fun setAlwaysShowLabel(alwaysShowLabel: Boolean)
 
     suspend fun searchLocation(name: String): List<SearchLocation>
+
+    suspend fun getAllWeather(tempUnits: TempUnits): Forecast
 }

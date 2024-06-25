@@ -40,7 +40,7 @@ internal fun SettingsListScreen(
         TopNavigation(
             modifier = Modifier.fillMaxWidth(),
             title = stringResource(CoreStrings.settings_label),
-            scrollState = scrollState,
+            scrollableState = scrollState,
             rightAction = TopNavigationAction(
                 icon = Icons.Rounded.Cached,
                 isVisible = state.isResetAvailable,

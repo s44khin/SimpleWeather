@@ -1,4 +1,4 @@
-package dev.s44khin.simpleweather.common.domain.mappers
+package dev.s44khin.simpleweather.common.data.mappers
 
 import dev.s44khin.simpleweather.common.api.domain.model.SearchLocation
 import dev.s44khin.simpleweather.common.api.domain.model.SearchLocationLocalNames

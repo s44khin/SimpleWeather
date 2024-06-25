@@ -9,8 +9,8 @@ import androidx.compose.animation.fadeIn
 import androidx.compose.animation.fadeOut
 import androidx.compose.animation.scaleIn
 import androidx.compose.animation.scaleOut
-import androidx.compose.foundation.ScrollState
 import androidx.compose.foundation.background
+import androidx.compose.foundation.gestures.ScrollableState
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -19,15 +19,14 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.statusBarsPadding
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.vector.ImageVector
-import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
-import androidx.compose.ui.unit.sp
 import androidx.compose.ui.zIndex
 import dev.s44khin.simpleweather.uikit.theme.SimpleTheme
 import dev.s44khin.simpleweather.uikit.util.clickableWithoutRipple
@@ -51,11 +50,11 @@ fun TopNavigation(
     subTitleIsVisible: Boolean = false,
     leftAction: TopNavigationAction? = null,
     rightAction: TopNavigationAction? = null,
-    scrollState: ScrollState? = null,
+    scrollableState: ScrollableState? = null,
     onTitleClick: (() -> Unit)? = null,
 ) {
     val animatedColor by animateColorAsState(
-        targetValue = if (scrollState?.value in 0..50) {
+        targetValue = if (scrollableState?.canScrollBackward == false) {
             SimpleTheme.colors.root
         } else {
             SimpleTheme.colors.backgroundTransparent
@@ -105,8 +104,7 @@ fun TopNavigation(
                     Text(
                         text = title,
                         color = SimpleTheme.colors.onBackground,
-                        fontSize = 18.sp,
-                        lineHeight = 10.sp
+                        style = MaterialTheme.typography.titleLarge,
                     )
                 }
 
@@ -117,10 +115,8 @@ fun TopNavigation(
                 ) {
                     Text(
                         text = subTitle ?: "",
-                        fontSize = 12.sp,
                         color = SimpleTheme.colors.onBackgroundUnselected,
-                        fontWeight = FontWeight.Bold,
-                        lineHeight = 10.sp
+                        style = MaterialTheme.typography.labelMedium
                     )
                 }
             }
