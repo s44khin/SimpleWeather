@@ -22,6 +22,7 @@ import androidx.compose.ui.unit.dp
 import dev.s44khin.simpleweather.uikit.theme.SimpleTheme
 
 internal fun LazyGridScope.squareBox(
+    modifier: Modifier = Modifier,
     key: Any? = null,
     contentType: Any? = null,
     contentPadding: PaddingValues = PaddingValues(),
@@ -32,7 +33,7 @@ internal fun LazyGridScope.squareBox(
         contentType = contentType,
     ) {
         Box(
-            modifier = Modifier
+            modifier = modifier
                 .animateItemPlacement()
                 .aspectRatio(1f)
                 .background(
@@ -47,6 +48,7 @@ internal fun LazyGridScope.squareBox(
 }
 
 internal fun LazyGridScope.squareColumn(
+    modifier: Modifier = Modifier,
     key: Any? = null,
     contentType: Any? = null,
     contentPadding: PaddingValues = PaddingValues(),
@@ -57,7 +59,7 @@ internal fun LazyGridScope.squareColumn(
         contentType = contentType,
     ) {
         Column(
-            modifier = Modifier
+            modifier = modifier
                 .animateItemPlacement()
                 .aspectRatio(1f)
                 .background(
@@ -72,6 +74,7 @@ internal fun LazyGridScope.squareColumn(
 }
 
 internal fun LazyGridScope.squareRow(
+    modifier: Modifier = Modifier,
     key: Any? = null,
     contentType: Any? = null,
     contentPadding: PaddingValues = PaddingValues(),
@@ -82,7 +85,7 @@ internal fun LazyGridScope.squareRow(
         contentType = contentType,
     ) {
         Row(
-            modifier = Modifier
+            modifier = modifier
                 .animateItemPlacement()
                 .aspectRatio(1f)
                 .background(

@@ -23,6 +23,7 @@ import androidx.compose.ui.unit.dp
 import dev.s44khin.simpleweather.uikit.theme.SimpleTheme
 
 internal fun LazyGridScope.rectangleBox(
+    modifier: Modifier = Modifier,
     key: Any? = null,
     contentType: Any? = null,
     contentPadding: PaddingValues = PaddingValues(),
@@ -34,7 +35,7 @@ internal fun LazyGridScope.rectangleBox(
         span = { GridItemSpan(maxLineSpan) },
     ) {
         Box(
-            modifier = Modifier
+            modifier = modifier
                 .aspectRatio(2f)
                 .background(
                     color = SimpleTheme.colors.background,
@@ -49,6 +50,7 @@ internal fun LazyGridScope.rectangleBox(
 }
 
 internal fun LazyGridScope.rectangleColumn(
+    modifier: Modifier = Modifier,
     key: Any? = null,
     contentType: Any? = null,
     contentPadding: PaddingValues = PaddingValues(),
@@ -60,7 +62,7 @@ internal fun LazyGridScope.rectangleColumn(
         span = { GridItemSpan(maxLineSpan) },
     ) {
         Column(
-            modifier = Modifier
+            modifier = modifier
                 .aspectRatio(2f)
                 .background(
                     color = SimpleTheme.colors.background,
@@ -75,6 +77,7 @@ internal fun LazyGridScope.rectangleColumn(
 }
 
 internal fun LazyGridScope.rectangleRow(
+    modifier: Modifier = Modifier,
     key: Any? = null,
     contentType: Any? = null,
     contentPadding: PaddingValues = PaddingValues(),
@@ -86,7 +89,7 @@ internal fun LazyGridScope.rectangleRow(
         span = { GridItemSpan(maxLineSpan) },
     ) {
         Row(
-            modifier = Modifier
+            modifier = modifier
                 .aspectRatio(2f)
                 .background(
                     color = SimpleTheme.colors.background,
