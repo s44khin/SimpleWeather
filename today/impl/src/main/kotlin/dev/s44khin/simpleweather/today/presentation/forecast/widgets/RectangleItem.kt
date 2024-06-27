@@ -18,6 +18,7 @@ import androidx.compose.foundation.lazy.grid.LazyGridScope
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.clip
 import androidx.compose.ui.unit.dp
 import dev.s44khin.simpleweather.uikit.theme.SimpleTheme
 
@@ -37,8 +38,9 @@ internal fun LazyGridScope.rectangleBox(
                 .aspectRatio(2f)
                 .background(
                     color = SimpleTheme.colors.background,
-                    shape = RoundedCornerShape(12.dp)
+                    shape = RoundedCornerShape(16.dp)
                 )
+                .clip(RoundedCornerShape(16.dp))
                 .padding(contentPadding)
                 .animateItemPlacement(),
             content = content,
@@ -62,8 +64,9 @@ internal fun LazyGridScope.rectangleColumn(
                 .aspectRatio(2f)
                 .background(
                     color = SimpleTheme.colors.background,
-                    shape = RoundedCornerShape(12.dp)
+                    shape = RoundedCornerShape(16.dp)
                 )
+                .clip(RoundedCornerShape(16.dp))
                 .padding(contentPadding)
                 .animateItemPlacement(),
             content = content,
@@ -87,8 +90,9 @@ internal fun LazyGridScope.rectangleRow(
                 .aspectRatio(2f)
                 .background(
                     color = SimpleTheme.colors.background,
-                    shape = RoundedCornerShape(12.dp)
+                    shape = RoundedCornerShape(16.dp)
                 )
+                .clip(RoundedCornerShape(16.dp))
                 .padding(contentPadding)
                 .animateItemPlacement(),
             content = content,

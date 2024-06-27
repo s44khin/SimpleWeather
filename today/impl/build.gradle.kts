@@ -66,6 +66,7 @@ dependencies {
     implementation(project(":core:base"))
     implementation(project(":core:navigation:api"))
     implementation(project(":core:network"))
+    implementation(project(":core:resources"))
     implementation(project(":today:api"))
     implementation(project(":uikit"))
 }

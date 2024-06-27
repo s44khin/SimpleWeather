@@ -12,6 +12,7 @@ internal object TodayForecastConverter {
             ForecastCurrentVo(
                 temp = it.temp,
                 feelsLike = it.feelsLike,
+                iconId = it.iconId,
                 weather = ForecastCurrentWeatherVo(
                     main = it.weather.main,
                     description = it.weather.description,

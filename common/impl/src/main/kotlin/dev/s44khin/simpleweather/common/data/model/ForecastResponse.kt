@@ -34,4 +34,7 @@ internal data class ForecastCurrentWeather(
 
     @SerialName(value = "description")
     val description: String,
+
+    @SerialName(value = "icon")
+    val icon: String,
 )

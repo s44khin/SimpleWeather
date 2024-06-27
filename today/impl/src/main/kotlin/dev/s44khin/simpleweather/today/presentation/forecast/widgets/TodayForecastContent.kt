@@ -13,6 +13,10 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import dev.s44khin.simpleweather.today.presentation.forecast.TodayForecastUiState
 
+private enum class TodayForecastKeys {
+    CurrentForecast
+}
+
 @Composable
 internal fun TodayForecastContent(
     uiState: TodayForecastUiState,
@@ -35,13 +39,11 @@ internal fun TodayForecastContent(
         userScrollEnabled = userScrollEnabled
     ) {
         if (uiState.current != null) {
-            squareColumn(contentPadding = PaddingValues(16.dp)) {
+            squareBox(key = TodayForecastKeys.CurrentForecast) {
                 CurrentForecast(
                     current = uiState.current
                 )
             }
         }
-
-        rectangleBox { }
     }
 }

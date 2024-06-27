@@ -19,6 +19,7 @@ internal class ForecastMapper {
                 value = response.current.feelsLike,
                 units = tempUnits,
             ),
+            iconId = response.current.weather[0].icon,
             weather = response.current.weather[0].let {
                 ForecastCurrentWeather(
                     main = it.main,

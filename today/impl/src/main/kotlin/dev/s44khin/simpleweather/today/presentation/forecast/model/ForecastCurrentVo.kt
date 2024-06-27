@@ -6,6 +6,7 @@ import androidx.compose.runtime.Immutable
 internal data class ForecastCurrentVo(
     val temp: String,
     val feelsLike: String,
+    val iconId: String,
     val weather: ForecastCurrentWeatherVo,
 )
 

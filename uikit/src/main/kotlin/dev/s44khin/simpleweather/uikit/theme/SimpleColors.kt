@@ -14,6 +14,8 @@ data class SimpleColors(
     val onBackgroundUnselected: Color,
     val onPrimary: Color,
     val divider: Color,
+    val firtsWave: Color,
+    val secondWave: Color,
 )
 
 internal val LocalSimpleColors = staticCompositionLocalOf {
@@ -33,6 +35,8 @@ internal fun getLightColors(
     onPrimary = onPrimary,
     backgroundTransparent = Color(if (transparent) 0xCDFFFFFF else 0xffffffff),
     divider = Color(0xFFDFDFDF),
+    firtsWave = Color(0xFF5995FF),
+    secondWave = Color(0xFF3E77FF),
 )
 
 internal fun getDarkColors(
@@ -48,4 +52,6 @@ internal fun getDarkColors(
     onPrimary = onPrimary,
     backgroundTransparent = Color(if (transparent) 0xDE282424 else 0xff282424),
     divider = Color(0xFF131313),
+    firtsWave = Color(0xff0a3ecd),
+    secondWave = Color(0xff0961ff),
 )
