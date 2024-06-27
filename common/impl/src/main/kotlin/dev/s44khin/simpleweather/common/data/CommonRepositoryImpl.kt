@@ -2,8 +2,8 @@ package dev.s44khin.simpleweather.common.data
 
 import dev.s44khin.simpleweather.common.api.domain.CommonRepository
 import dev.s44khin.simpleweather.common.api.domain.model.PrimaryColor
-import dev.s44khin.simpleweather.common.api.domain.model.TempUnits
 import dev.s44khin.simpleweather.common.api.domain.model.Theme
+import dev.s44khin.simpleweather.common.api.domain.model.Units
 import dev.s44khin.simpleweather.common.data.local.CommonLocal
 import dev.s44khin.simpleweather.common.data.remote.CommonRemote
 
@@ -22,7 +22,7 @@ internal class CommonRepositoryImpl(
 
     override val alwaysShowLabelFlow get() = local.alwaysShowLabelFlow
 
-    override suspend fun setUnits(units: TempUnits) {
+    override suspend fun setUnits(units: Units) {
         local.setUnits(units)
     }
 
@@ -44,7 +44,7 @@ internal class CommonRepositoryImpl(
 
     override suspend fun searchLocation(name: String) = remote.searchLocation(name)
 
-    override suspend fun getAllWeather(tempUnits: TempUnits) = remote.getForecast(
+    override suspend fun getAllWeather(tempUnits: Units) = remote.getForecast(
         tempUnits = tempUnits,
     )
 }

@@ -19,7 +19,7 @@ internal fun ColumnScope.SettingsListScrollableContent(
     Spacer(height = 32.dp)
 
     UnitsBlock(
-        selectedUnit = state.tempUnits,
+        selectedUnit = state.units,
         onUnitClicked = { onAction(SettingsListAction.OnUnitsClicked(it)) }
     )
 

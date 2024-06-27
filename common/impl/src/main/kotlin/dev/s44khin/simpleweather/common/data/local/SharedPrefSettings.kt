@@ -2,8 +2,8 @@ package dev.s44khin.simpleweather.common.data.local
 
 import android.content.Context
 import dev.s44khin.simpleweather.common.api.domain.model.PrimaryColor
-import dev.s44khin.simpleweather.common.api.domain.model.TempUnits
 import dev.s44khin.simpleweather.common.api.domain.model.Theme
+import dev.s44khin.simpleweather.common.api.domain.model.Units
 import dev.s44khin.simpleweather.utils.enumValueOrDefault
 import dev.s44khin.simpleweather.utils.getEnum
 import dev.s44khin.simpleweather.utils.putEnum
@@ -26,7 +26,7 @@ internal class SharedPrefSettings(
     private val sharedPreferences = context.getSharedPreferences(SETTINGS, Context.MODE_PRIVATE)
 
     private val _unitsFlow = MutableStateFlow(
-        value = sharedPreferences.getEnum(key = UNITS, default = TempUnits.Kelvin)
+        value = sharedPreferences.getEnum(key = UNITS, default = Units.Default)
     )
 
     val unitsFlow = _unitsFlow.asStateFlow()
@@ -63,7 +63,7 @@ internal class SharedPrefSettings(
 
     val alwaysShowLabelFlow = _alwaysShowLabelFlow.asStateFlow()
 
-    suspend fun setUnits(units: TempUnits) {
+    suspend fun setUnits(units: Units) {
         sharedPreferences.putEnum(
             key = UNITS,
             value = units,

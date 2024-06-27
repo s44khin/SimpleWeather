@@ -1,6 +1,6 @@
 package dev.s44khin.simpleweather.common.data.remote
 
-import dev.s44khin.simpleweather.common.api.domain.model.TempUnits
+import dev.s44khin.simpleweather.common.api.domain.model.Units
 import dev.s44khin.simpleweather.common.data.mappers.ForecastMapper
 import dev.s44khin.simpleweather.common.data.mappers.SearchLocationMapper
 import dev.s44khin.simpleweather.core.network.getBody
@@ -20,12 +20,11 @@ internal class CommonRemote(
         }
     )
 
-    suspend fun getForecast(tempUnits: TempUnits) = forecastMapper.map(
+    suspend fun getForecast(tempUnits: Units) = forecastMapper.map(
         response = client.getBody("data/3.0/onecall") {
             parameter(key = "lat", value = "52.17")
             parameter(key = "lon", value = "104.18")
-            parameter(key = "units", value = tempUnits.unitName)
+            parameter(key = "units", value = tempUnits.name)
         },
-        tempUnits = tempUnits,
     )
 }

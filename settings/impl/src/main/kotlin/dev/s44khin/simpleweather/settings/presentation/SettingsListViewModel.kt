@@ -7,8 +7,8 @@ import dev.s44khin.simpleweather.common.api.domain.CommonRepository
 import dev.s44khin.simpleweather.common.api.domain.model.ConfirmationDialogButtonData
 import dev.s44khin.simpleweather.common.api.domain.model.ConfirmationDialogData
 import dev.s44khin.simpleweather.common.api.domain.model.PrimaryColor
-import dev.s44khin.simpleweather.common.api.domain.model.TempUnits
 import dev.s44khin.simpleweather.common.api.domain.model.Theme
+import dev.s44khin.simpleweather.common.api.domain.model.Units
 import dev.s44khin.simpleweather.common.api.domain.useCases.GetAlwaysShowLabelUseCase
 import dev.s44khin.simpleweather.common.api.domain.useCases.GetColorUseCase
 import dev.s44khin.simpleweather.common.api.domain.useCases.GetThemeUseCase
@@ -24,11 +24,11 @@ import dev.s44khin.simpleweather.common.api.domain.useCases.SetUnitsUseCase
 import dev.s44khin.simpleweather.common.api.navigation.CommonNavigation
 import dev.s44khin.simpleweather.common.api.presentation.model.PrimaryColorVo
 import dev.s44khin.simpleweather.common.api.presentation.model.ThemeVo
+import dev.s44khin.simpleweather.common.api.presentation.model.UnitsVo
 import dev.s44khin.simpleweather.core.base.BaseViewModel
 import dev.s44khin.simpleweather.navigation.api.ScreenRouter
 import dev.s44khin.simpleweather.resources.CoreStrings
 import dev.s44khin.simpleweather.settings.api.navigation.SettingsNavigation.List.RESET_CONFIRM_BUTTON_KEY
-import dev.s44khin.simpleweather.settings.presentation.model.TempUnitsVo
 import dev.s44khin.simpleweather.utils.AutoClearable
 import dev.s44khin.simpleweather.utils.NativeText
 import dev.s44khin.simpleweather.utils.enumValueOrDefault
@@ -54,7 +54,7 @@ internal class SettingsListViewModel(
     getAlwaysShowLabelUseCase: GetAlwaysShowLabelUseCase,
 ) : BaseViewModel<SettingsListScreenState, SettingsListUiState, SettingsListAction>(
     initState = SettingsListScreenState(
-        tempUnits = getUnitsUseCase.execute(),
+        units = getUnitsUseCase.execute(),
         color = getColorUseCase.execute(),
         theme = getThemeUseCase.execute(),
         transparent = getTransparentUseCase.execute(),
@@ -75,13 +75,13 @@ internal class SettingsListViewModel(
         is SettingsListAction.OnResetAllSettingsClicked -> onResetAllSettingsClicked()
         is SettingsListAction.OnThemeClicked -> onThemeClicked(action.theme)
         is SettingsListAction.OnTransparentChanged -> onTransparentChanged()
-        is SettingsListAction.OnUnitsClicked -> onUnitsClicked(action.tempUnits)
+        is SettingsListAction.OnUnitsClicked -> onUnitsClicked(action.units)
     }
 
-    private fun onUnitsClicked(tempUnits: TempUnitsVo) {
+    private fun onUnitsClicked(units: UnitsVo) {
         val tempUnitsDomain = enumValueOrDefault(
-            string = tempUnits.name,
-            default = TempUnits.Kelvin,
+            string = units.name,
+            default = Units.Default,
         )
 
         viewModelScope.launch {
@@ -205,7 +205,7 @@ internal class SettingsListViewModel(
         viewModelScope.launch {
             commonRepository.unitsFlow.collectLatest {
                 screenState = screenState.copy(
-                    tempUnits = it,
+                    units = it,
                     isResetAvailable = isResetSettingsAvailableUseCase.execute(),
                 )
             }

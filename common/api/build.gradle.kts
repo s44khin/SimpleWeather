@@ -45,4 +45,5 @@ dependencies {
     // Project
     api(project(":core:navigation:api"))
     api(project(":utils"))
+    api(project(":core:resources"))
 }

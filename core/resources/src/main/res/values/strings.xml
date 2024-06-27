@@ -20,11 +20,14 @@
     <string name="temperature_min_max">Min: %s Max: %s</string>
     <string name="today_label">Today</string>
     <string name="units_celsius">Celsius</string>
-    <string name="units_celsius_sample">16°C</string>
+    <string name="units_celsius_sample">16°</string>
+    <string name="units_celsius_pin">°</string>
     <string name="units_fahrenheit">Fahrenheit</string>
-    <string name="units_fahrenheit_sample">60°F</string>
+    <string name="units_fahrenheit_sample">60°</string>
+    <string name="units_fahrenheit_pin">°</string>
     <string name="units_kelvin">Kelvin</string>
     <string name="units_kelvin_sample">289K</string>
+    <string name="units_kelvin_pin">K</string>
     <string name="week_label">Week</string>
     <string name="humidity">Humidity</string>
     <string name="pressure">Pressure</string>

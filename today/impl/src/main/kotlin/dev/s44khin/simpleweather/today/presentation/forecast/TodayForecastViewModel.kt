@@ -4,6 +4,7 @@ import androidx.lifecycle.viewModelScope
 import dev.s44khin.simpleweather.common.api.domain.model.Forecast
 import dev.s44khin.simpleweather.common.api.domain.model.ScreenMode
 import dev.s44khin.simpleweather.common.api.domain.useCases.GetForecastUseCase
+import dev.s44khin.simpleweather.common.api.domain.useCases.GetUnitsUseCase
 import dev.s44khin.simpleweather.core.base.BaseViewModel
 import dev.s44khin.simpleweather.navigation.api.ScreenRouter
 import dev.s44khin.simpleweather.today.api.navigation.TodayNavigation
@@ -11,9 +12,12 @@ import dev.s44khin.simpleweather.utils.launchUiCoroutine
 
 internal class TodayForecastViewModel(
     private val getForecastUseCase: GetForecastUseCase,
+    private val getUnitsUseCase: GetUnitsUseCase,
     private val screenRouter: ScreenRouter,
 ) : BaseViewModel<TodayForecastScreenState, TodayForecastUiState, TodayForecastAction>(
-    initState = TodayForecastScreenState(),
+    initState = TodayForecastScreenState(
+        units = getUnitsUseCase.execute()
+    ),
     converter = TodayForecastConverter::convert
 ) {
 
@@ -47,6 +51,7 @@ internal class TodayForecastViewModel(
                 isRefreshing = false,
                 current = result.current,
                 mode = ScreenMode.Content,
+                units = getUnitsUseCase.execute()
             )
 
             onSuccess(result)

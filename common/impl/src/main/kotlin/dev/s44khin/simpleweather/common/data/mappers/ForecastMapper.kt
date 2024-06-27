@@ -7,33 +7,28 @@ import dev.s44khin.simpleweather.common.api.domain.model.ForecastCurrentUvi
 import dev.s44khin.simpleweather.common.api.domain.model.ForecastCurrentUviType
 import dev.s44khin.simpleweather.common.api.domain.model.ForecastCurrentWeather
 import dev.s44khin.simpleweather.common.api.domain.model.ForecustCurrentWind
-import dev.s44khin.simpleweather.common.api.domain.model.TempUnits
 import dev.s44khin.simpleweather.common.data.model.ForecastResponse
 import kotlin.math.roundToInt
 
 internal class ForecastMapper {
 
-    fun map(response: ForecastResponse, tempUnits: TempUnits) = Forecast(
+    fun map(response: ForecastResponse) = Forecast(
         timezone = response.timezone,
         current = ForecastCurrent(
             temp = formatTemp(
                 value = response.current.temp,
-                units = tempUnits,
             ),
             feelsLike = formatTemp(
                 value = response.current.feelsLike,
-                units = tempUnits,
             ),
             min = response.daily.getOrNull(0)?.let {
                 formatTemp(
                     value = it.temp.min,
-                    units = tempUnits,
                 )
             },
             max = response.daily.getOrNull(0)?.let {
                 formatTemp(
                     value = it.temp.max,
-                    units = tempUnits,
                 )
             },
             pressure = ForecastCurrentPressure(
@@ -60,8 +55,8 @@ internal class ForecastMapper {
         )
     )
 
-    private fun formatTemp(value: String, units: TempUnits): String {
-        return (value.toDoubleOrNull()?.toInt()?.toString() ?: "NoN") + units.symbol
+    private fun formatTemp(value: String): String {
+        return (value.toDoubleOrNull()?.toInt()?.toString() ?: "NoN")
     }
 
     private fun pressureIsLow(value: Int) = value < 1013

@@ -22,6 +22,7 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
+import dev.s44khin.simpleweather.common.api.presentation.model.UnitsVo
 import dev.s44khin.simpleweather.resources.CoreStrings
 import dev.s44khin.simpleweather.resources.rawfromIconId
 import dev.s44khin.simpleweather.today.presentation.forecast.model.ForecastCurrentVo
@@ -31,6 +32,7 @@ import dev.s44khin.simpleweather.uikit.widgets.LottieIcon
 @Composable
 internal fun BoxScope.CurrentForecast(
     current: ForecastCurrentVo,
+    units: UnitsVo
 ) {
     Row(
         modifier = Modifier.fillMaxWidth(),
@@ -39,7 +41,7 @@ internal fun BoxScope.CurrentForecast(
     ) {
         Text(
             modifier = Modifier.padding(start = 16.dp),
-            text = current.temp,
+            text = current.temp + units.tempPin.resolve(),
             style = MaterialTheme.typography.displayMedium,
             color = SimpleTheme.colors.onBackground
         )
@@ -68,7 +70,7 @@ internal fun BoxScope.CurrentForecast(
         )
 
         Text(
-            text = stringResource(CoreStrings.temperature_feels_like, current.feelsLike),
+            text = stringResource(CoreStrings.temperature_feels_like, current.feelsLike + units.tempPin.resolve()),
             style = MaterialTheme.typography.bodyMedium,
             color = SimpleTheme.colors.onBackgroundUnselected,
             maxLines = 1,
@@ -82,7 +84,11 @@ internal fun BoxScope.CurrentForecast(
         ) {
             if (current.min != null && current.max != null) {
                 Text(
-                    text = stringResource(CoreStrings.temperature_min_max, current.min, current.max),
+                    text = stringResource(
+                        CoreStrings.temperature_min_max,
+                        current.min + units.tempPin.resolve(),
+                        current.max + units.tempPin.resolve()
+                    ),
                     style = MaterialTheme.typography.bodyMedium,
                     color = SimpleTheme.colors.onBackgroundUnselected,
                     maxLines = 1,

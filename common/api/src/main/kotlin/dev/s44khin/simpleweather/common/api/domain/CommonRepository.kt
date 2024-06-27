@@ -3,13 +3,13 @@ package dev.s44khin.simpleweather.common.api.domain
 import dev.s44khin.simpleweather.common.api.domain.model.Forecast
 import dev.s44khin.simpleweather.common.api.domain.model.PrimaryColor
 import dev.s44khin.simpleweather.common.api.domain.model.SearchLocation
-import dev.s44khin.simpleweather.common.api.domain.model.TempUnits
 import dev.s44khin.simpleweather.common.api.domain.model.Theme
+import dev.s44khin.simpleweather.common.api.domain.model.Units
 import kotlinx.coroutines.flow.StateFlow
 
 interface CommonRepository {
 
-    val unitsFlow: StateFlow<TempUnits>
+    val unitsFlow: StateFlow<Units>
 
     val colorFlow: StateFlow<PrimaryColor>
 
@@ -19,7 +19,7 @@ interface CommonRepository {
 
     val alwaysShowLabelFlow: StateFlow<Boolean>
 
-    suspend fun setUnits(units: TempUnits)
+    suspend fun setUnits(units: Units)
 
     suspend fun setColor(color: PrimaryColor)
 
@@ -31,5 +31,5 @@ interface CommonRepository {
 
     suspend fun searchLocation(name: String): List<SearchLocation>
 
-    suspend fun getAllWeather(tempUnits: TempUnits): Forecast
+    suspend fun getAllWeather(tempUnits: Units): Forecast
 }

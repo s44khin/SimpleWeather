@@ -43,7 +43,8 @@ internal fun TodayForecastContent(
         if (uiState.current != null) {
             squareBox(key = TodayForecastKeys.CurrentForecast) {
                 CurrentForecast(
-                    current = uiState.current
+                    current = uiState.current,
+                    units = uiState.units,
                 )
             }
 

@@ -1,8 +1,8 @@
 package dev.s44khin.simpleweather.common.data.local
 
 import dev.s44khin.simpleweather.common.api.domain.model.PrimaryColor
-import dev.s44khin.simpleweather.common.api.domain.model.TempUnits
 import dev.s44khin.simpleweather.common.api.domain.model.Theme
+import dev.s44khin.simpleweather.common.api.domain.model.Units
 
 internal class CommonLocal(
     private val sharedPrefSettings: SharedPrefSettings,
@@ -18,7 +18,7 @@ internal class CommonLocal(
 
     val alwaysShowLabelFlow get() = sharedPrefSettings.alwaysShowLabelFlow
 
-    suspend fun setUnits(units: TempUnits) {
+    suspend fun setUnits(units: Units) {
         sharedPrefSettings.setUnits(units)
     }
 
