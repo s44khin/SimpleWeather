@@ -8,6 +8,8 @@ data class Forecast(
 data class ForecastCurrent(
     val temp: String,
     val feelsLike: String,
+    val min: String?,
+    val max: String?,
     val iconId: String,
     val weather: ForecastCurrentWeather,
 )

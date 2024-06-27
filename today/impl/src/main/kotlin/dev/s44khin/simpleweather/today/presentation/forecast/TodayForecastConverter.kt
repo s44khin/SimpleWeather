@@ -14,6 +14,8 @@ internal object TodayForecastConverter {
             ForecastCurrentVo(
                 temp = it.temp,
                 feelsLike = it.feelsLike,
+                min = it.min,
+                max = it.max,
                 iconId = it.iconId,
                 weather = ForecastCurrentWeatherVo(
                     main = it.weather.main,

@@ -11,6 +11,9 @@ internal data class ForecastResponse(
 
     @SerialName(value = "current")
     val current: ForecastCurrentDto,
+
+    @SerialName(value = "daily")
+    val daily: List<ForecastDailyItemDto>,
 )
 
 @Serializable
@@ -23,11 +26,11 @@ internal data class ForecastCurrentDto(
     val feelsLike: String,
 
     @SerialName(value = "weather")
-    val weather: List<ForecastCurrentWeather>,
+    val weather: List<ForecastCurrentWeatherDto>,
 )
 
 @Serializable
-internal data class ForecastCurrentWeather(
+internal data class ForecastCurrentWeatherDto(
 
     @SerialName(value = "main")
     val main: String,
@@ -37,4 +40,21 @@ internal data class ForecastCurrentWeather(
 
     @SerialName(value = "icon")
     val icon: String,
+)
+
+@Serializable
+internal data class ForecastDailyItemDto(
+
+    @SerialName(value = "temp")
+    val temp: ForecastTempDto,
+)
+
+@Serializable
+internal data class ForecastTempDto(
+
+    @SerialName(value = "min")
+    val min: String,
+
+    @SerialName(value = "max")
+    val max: String,
 )

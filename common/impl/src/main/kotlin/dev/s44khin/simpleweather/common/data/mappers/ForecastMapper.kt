@@ -19,6 +19,18 @@ internal class ForecastMapper {
                 value = response.current.feelsLike,
                 units = tempUnits,
             ),
+            min = response.daily.getOrNull(0)?.let {
+                formatTemp(
+                    value = it.temp.min,
+                    units = tempUnits,
+                )
+            },
+            max = response.daily.getOrNull(0)?.let {
+                formatTemp(
+                    value = it.temp.max,
+                    units = tempUnits,
+                )
+            },
             iconId = response.current.weather[0].icon,
             weather = response.current.weather[0].let {
                 ForecastCurrentWeather(

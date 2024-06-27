@@ -24,4 +24,7 @@
     <string name="units_celsius_sample">16°C</string>
     <string name="units_kelvin">Kelvin</string>
     <string name="units_kelvin_sample">289K</string>
+    <string name="temperature_feels_like">Feels like: %s</string>
+    <string name="temperature_min">Min: %s</string>
+    <string name="temperature_max">Max: %s</string>
 </resources>
