@@ -259,7 +259,8 @@ private fun Compass(
             topLeft = Offset(
                 x = center.x - labelResult.size.width / 2f,
                 y = center.y - labelResult.size.height / 2f,
-            )
+            ),
+            color = onBackground
         )
     }
 }
