@@ -9,12 +9,13 @@ import androidx.compose.foundation.lazy.grid.LazyGridState
 import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
 import androidx.compose.foundation.lazy.grid.rememberLazyGridState
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import dev.s44khin.simpleweather.today.presentation.forecast.TodayForecastUiState
 
 private enum class TodayForecastKeys {
-    CurrentForecast, Humidity, Pressure
+    CurrentForecast, Humidity, Pressure, UVIndex, Hourly
 }
 
 @Composable
@@ -51,12 +52,28 @@ internal fun TodayForecastContent(
                 )
             }
 
+            rectangleBox(key = TodayForecastKeys.Hourly) {
+
+            }
+
             squareBox(
                 key = TodayForecastKeys.Pressure,
                 contentPadding = PaddingValues(16.dp)
             ) {
                 Pressure(
                     current = uiState.current
+                )
+            }
+
+            squareColumn(
+                key = TodayForecastKeys.UVIndex,
+                contentPadding = PaddingValues(16.dp),
+                verticalArrangement = Arrangement.SpaceBetween,
+                horizontalAlignment = Alignment.CenterHorizontally,
+                borderColor = { uiState.current.uvi.type.border },
+            ) {
+                UvIndex(
+                    uvindex = uiState.current.uvi
                 )
             }
         }

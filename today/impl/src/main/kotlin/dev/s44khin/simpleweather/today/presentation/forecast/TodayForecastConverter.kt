@@ -2,8 +2,11 @@ package dev.s44khin.simpleweather.today.presentation.forecast
 
 import dev.s44khin.simpleweather.common.api.presentation.model.toScreenModeVo
 import dev.s44khin.simpleweather.today.presentation.forecast.model.ForecastCurrentPressureVo
+import dev.s44khin.simpleweather.today.presentation.forecast.model.ForecastCurrentUviTypeVo
+import dev.s44khin.simpleweather.today.presentation.forecast.model.ForecastCurrentUviVo
 import dev.s44khin.simpleweather.today.presentation.forecast.model.ForecastCurrentVo
 import dev.s44khin.simpleweather.today.presentation.forecast.model.ForecastCurrentWeatherVo
+import dev.s44khin.simpleweather.utils.enumValueOrDefault
 
 internal object TodayForecastConverter {
 
@@ -22,6 +25,13 @@ internal object TodayForecastConverter {
                 pressure = ForecastCurrentPressureVo(
                     value = it.pressure.value,
                     isLow = it.pressure.isLow,
+                ),
+                uvi = ForecastCurrentUviVo(
+                    value = screenState.current.uvi.value,
+                    type = enumValueOrDefault(
+                        string = screenState.current.uvi.type.name,
+                        default = ForecastCurrentUviTypeVo.Low,
+                    )
                 ),
                 weather = ForecastCurrentWeatherVo(
                     main = it.weather.main,

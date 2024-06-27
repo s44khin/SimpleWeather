@@ -12,6 +12,7 @@ data class ForecastCurrent(
     val max: String?,
     val humidity: String,
     val pressure: ForecastCurrentPressure,
+    val uvi: ForecastCurrentUvi,
     val iconId: String,
     val weather: ForecastCurrentWeather,
 )
@@ -25,3 +26,12 @@ data class ForecastCurrentPressure(
     val value: Int,
     val isLow: Boolean,
 )
+
+data class ForecastCurrentUvi(
+    val value: Float,
+    val type: ForecastCurrentUviType,
+)
+
+enum class ForecastCurrentUviType {
+    Low, Moderate, High, VeryHigh, Extreme;
+}

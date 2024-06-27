@@ -45,6 +45,7 @@ fun SimpleTheme(
     MaterialTheme {
         CompositionLocalProvider(
             LocalSimpleColors provides colors,
+            LocalStaticeColors provides StaticColors(),
             content = content,
         )
     }
@@ -56,4 +57,9 @@ object SimpleTheme {
         @Composable
         @ReadOnlyComposable
         get() = LocalSimpleColors.current
+
+    val staticColors: StaticColors
+        @Composable
+        @ReadOnlyComposable
+        get() = LocalStaticeColors.current
 }

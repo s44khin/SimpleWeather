@@ -16,10 +16,23 @@ data class SimpleColors(
     val divider: Color,
     val firtsWave: Color,
     val secondWave: Color,
+    val pointColor: Color,
+    val pointBorderColor: Color,
+)
+
+@Immutable
+data class StaticColors(
+    val uviOrange: Color = Color(0xffff8d02),
+    val uviRed: Color = Color(0xffff3c00),
+    val uviViolet: Color = Color(0xff9936d4),
 )
 
 internal val LocalSimpleColors = staticCompositionLocalOf {
     getLightColors()
+}
+
+internal val LocalStaticeColors = staticCompositionLocalOf {
+    StaticColors()
 }
 
 internal fun getLightColors(
@@ -37,6 +50,8 @@ internal fun getLightColors(
     divider = Color(0xFFDFDFDF),
     firtsWave = Color(0xFF5995FF),
     secondWave = Color(0xFF3E77FF),
+    pointColor = Color.White,
+    pointBorderColor = Color.Black,
 )
 
 internal fun getDarkColors(
@@ -54,4 +69,6 @@ internal fun getDarkColors(
     divider = Color(0xFF131313),
     firtsWave = Color(0xff0a3ecd),
     secondWave = Color(0xff0961ff),
+    pointColor = Color.Black,
+    pointBorderColor = Color.White,
 )

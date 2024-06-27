@@ -33,6 +33,9 @@ internal data class ForecastCurrentDto(
 
     @SerialName(value = "pressure")
     val pressure: Int,
+
+    @SerialName(value = "uvi")
+    val uvi: Float,
 )
 
 @Serializable
