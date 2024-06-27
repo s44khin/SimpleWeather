@@ -131,6 +131,8 @@ internal fun LazyGridScope.squareRow(
     contentType: Any? = null,
     contentPadding: PaddingValues = PaddingValues(),
     borderColor: @Composable (() -> Color?)? = null,
+    horizontalArrangement: Arrangement.Horizontal = Arrangement.Start,
+    verticalAlignment: Alignment.Vertical = Alignment.Top,
     content: @Composable RowScope.() -> Unit,
 ) {
     item(
@@ -164,6 +166,8 @@ internal fun LazyGridScope.squareRow(
                     )
                 }
                 .padding(contentPadding),
+            horizontalArrangement = horizontalArrangement,
+            verticalAlignment = verticalAlignment,
             content = content,
         )
     }

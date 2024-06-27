@@ -4,6 +4,7 @@ import androidx.compose.foundation.gestures.FlingBehavior
 import androidx.compose.foundation.gestures.ScrollableDefaults
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.PaddingValues
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.lazy.grid.GridCells
 import androidx.compose.foundation.lazy.grid.LazyGridState
 import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
@@ -15,7 +16,7 @@ import androidx.compose.ui.unit.dp
 import dev.s44khin.simpleweather.today.presentation.forecast.TodayForecastUiState
 
 private enum class TodayForecastKeys {
-    CurrentForecast, Humidity, Pressure, UVIndex, Hourly
+    CurrentForecast, Humidity, Pressure, UVIndex, Hourly, Wind
 }
 
 @Composable
@@ -52,8 +53,11 @@ internal fun TodayForecastContent(
                 )
             }
 
-            rectangleBox(key = TodayForecastKeys.Hourly) {
-
+            rectangleColumn(
+                key = TodayForecastKeys.Hourly,
+                contentPadding = PaddingValues(vertical = 8.dp)
+            ) {
+                HourlyForecast()
             }
 
             squareBox(
@@ -74,6 +78,18 @@ internal fun TodayForecastContent(
             ) {
                 UvIndex(
                     uvindex = uiState.current.uvi
+                )
+            }
+
+            rectangleColumn(
+                modifier = Modifier.fillMaxWidth(),
+                key = TodayForecastKeys.Wind,
+                contentPadding = PaddingValues(16.dp),
+                horizontalAlignment = Alignment.CenterHorizontally,
+                verticalArrangement = Arrangement.spacedBy(8.dp)
+            ) {
+                CurrentWind(
+                    wind = uiState.current.wind
                 )
             }
         }

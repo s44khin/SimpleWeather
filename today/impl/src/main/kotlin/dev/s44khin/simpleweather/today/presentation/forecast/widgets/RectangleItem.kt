@@ -19,7 +19,6 @@ import androidx.compose.foundation.layout.ColumnScope
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.RowScope
-import androidx.compose.foundation.layout.aspectRatio
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.grid.GridItemSpan
 import androidx.compose.foundation.lazy.grid.LazyGridScope
@@ -60,7 +59,6 @@ internal fun LazyGridScope.rectangleBox(
         Box(
             modifier = modifier
                 .animateItemPlacement()
-                .aspectRatio(2f)
                 .background(
                     color = SimpleTheme.colors.background,
                     shape = RoundedCornerShape(16.dp)
@@ -107,7 +105,6 @@ internal fun LazyGridScope.rectangleColumn(
         Column(
             modifier = modifier
                 .animateItemPlacement()
-                .aspectRatio(2f)
                 .background(
                     color = SimpleTheme.colors.background,
                     shape = RoundedCornerShape(16.dp)
@@ -134,6 +131,8 @@ internal fun LazyGridScope.rectangleRow(
     contentType: Any? = null,
     contentPadding: PaddingValues = PaddingValues(),
     borderColor: @Composable (() -> Color?)? = null,
+    horizontalArrangement: Arrangement.Horizontal = Arrangement.Start,
+    verticalAlignment: Alignment.Vertical = Alignment.Top,
     content: @Composable RowScope.() -> Unit,
 ) {
     item(
@@ -154,7 +153,6 @@ internal fun LazyGridScope.rectangleRow(
         Row(
             modifier = modifier
                 .animateItemPlacement()
-                .aspectRatio(2f)
                 .background(
                     color = SimpleTheme.colors.background,
                     shape = RoundedCornerShape(16.dp)
@@ -168,6 +166,8 @@ internal fun LazyGridScope.rectangleRow(
                     )
                 }
                 .padding(contentPadding),
+            horizontalArrangement = horizontalArrangement,
+            verticalAlignment = verticalAlignment,
             content = content,
         )
     }

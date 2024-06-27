@@ -36,6 +36,15 @@ internal data class ForecastCurrentDto(
 
     @SerialName(value = "uvi")
     val uvi: Float,
+
+    @SerialName(value = "wind_speed")
+    val windSpeed: Float,
+
+    @SerialName(value = "wind_deg")
+    val windDegree: Float,
+
+    @SerialName(value = "wind_gust")
+    val windGust: Float? = null,
 )
 
 @Serializable

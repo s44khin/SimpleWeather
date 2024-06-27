@@ -15,6 +15,7 @@ data class ForecastCurrent(
     val uvi: ForecastCurrentUvi,
     val iconId: String,
     val weather: ForecastCurrentWeather,
+    val wind: ForecustCurrentWind,
 )
 
 data class ForecastCurrentWeather(
@@ -35,3 +36,9 @@ data class ForecastCurrentUvi(
 enum class ForecastCurrentUviType {
     Low, Moderate, High, VeryHigh, Extreme;
 }
+
+data class ForecustCurrentWind(
+    val speed: Int,
+    val degree: Float,
+    val gust: Int,
+)

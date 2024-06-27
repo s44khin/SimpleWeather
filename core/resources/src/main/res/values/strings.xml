@@ -35,4 +35,13 @@
     <string name="uvindex_high">High</string>
     <string name="uvindex_very_high">Very high</string>
     <string name="uvindex_extreme">Extreme</string>
+    <string name="wind_north">N</string>
+    <string name="wind_south">S</string>
+    <string name="wind_west">W</string>
+    <string name="wind_east">E</string>
+    <string name="wind_north_east">NE</string>
+    <string name="wind_east_south">ES</string>
+    <string name="wind_south_west">SW</string>
+    <string name="wind_west_north">WN</string>
+    <string name="wind">Wind</string>
 </resources>
