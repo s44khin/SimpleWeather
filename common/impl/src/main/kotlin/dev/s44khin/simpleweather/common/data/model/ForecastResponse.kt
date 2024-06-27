@@ -27,6 +27,9 @@ internal data class ForecastCurrentDto(
 
     @SerialName(value = "weather")
     val weather: List<ForecastCurrentWeatherDto>,
+
+    @SerialName(value = "humidity")
+    val humidity: String,
 )
 
 @Serializable

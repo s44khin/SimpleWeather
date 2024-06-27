@@ -17,6 +17,7 @@ internal object TodayForecastConverter {
                 min = it.min,
                 max = it.max,
                 iconId = it.iconId,
+                humidity = it.humidity,
                 weather = ForecastCurrentWeatherVo(
                     main = it.weather.main,
                     description = it.weather.description,

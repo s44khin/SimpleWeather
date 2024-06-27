@@ -10,6 +10,7 @@ data class ForecastCurrent(
     val feelsLike: String,
     val min: String?,
     val max: String?,
+    val humidity: String,
     val iconId: String,
     val weather: ForecastCurrentWeather,
 )

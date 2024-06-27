@@ -7,7 +7,6 @@ import androidx.compose.animation.core.infiniteRepeatable
 import androidx.compose.animation.core.rememberInfiniteTransition
 import androidx.compose.animation.core.tween
 import androidx.compose.foundation.Canvas
-import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
@@ -20,6 +19,7 @@ import kotlin.math.sin
 
 @Composable
 fun WaterAnimation(
+    modifier: Modifier = Modifier,
     waveHeightRatio: Float = 0.5f,
     waveAmplitude: Float = 20f,
     frontWaveColor: Color = SimpleTheme.colors.firtsWave,
@@ -47,7 +47,7 @@ fun WaterAnimation(
         )
     )
 
-    Canvas(modifier = Modifier.fillMaxSize()) {
+    Canvas(modifier) {
         val width = size.width
         val height = size.height
         val waterLevel = height * (1 - finalWaveHeightRatio) // Уровень воды на основе соотношения высоты воды

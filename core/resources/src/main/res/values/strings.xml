@@ -1,30 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">Simple Weather</string>
-    <string name="today_label">Today</string>
-    <string name="week_label">Week</string>
-    <string name="settings_label">Settings</string>
-    <string name="settings_units">Units</string>
-    <string name="settings_units_info">Select the units of measurement in which the temperature will be displayed</string>
-    <string name="settings_colors">Primary color</string>
-    <string name="settings_restore">Restore the default settings?</string>
-    <string name="dialog_undone_action">This action cannot be undone</string>
-    <string name="dialog_confirm">Confirm</string>
     <string name="dialog_cancel">Cancel</string>
+    <string name="dialog_confirm">Confirm</string>
+    <string name="dialog_undone_action">This action cannot be undone</string>
     <string name="search_dialog_title">Search</string>
+    <string name="settings_colors">Primary color</string>
     <string name="settings_colors_info">Choose an accent color: top color for a light theme, bottom color for a dark one</string>
+    <string name="settings_label">Settings</string>
     <string name="settings_other">Other</string>
-    <string name="settings_other_transparent">Transparent</string>
     <string name="settings_other_always_show_label">Always show label</string>
+    <string name="settings_other_transparent">Transparent</string>
+    <string name="settings_restore">Restore the default settings?</string>
     <string name="settings_theme">Theme</string>
     <string name="settings_theme_info">Theme</string>
-    <string name="units_fahrenheit">Fahrenheit</string>
-    <string name="units_fahrenheit_sample">60°F</string>
+    <string name="settings_units">Units</string>
+    <string name="settings_units_info">Select the units of measurement in which the temperature will be displayed</string>
+    <string name="temperature_feels_like">Feels like: %s</string>
+    <string name="temperature_max">Max: %s</string>
+    <string name="temperature_min">Min: %s</string>
+    <string name="today_label">Today</string>
     <string name="units_celsius">Celsius</string>
     <string name="units_celsius_sample">16°C</string>
+    <string name="units_fahrenheit">Fahrenheit</string>
+    <string name="units_fahrenheit_sample">60°F</string>
     <string name="units_kelvin">Kelvin</string>
     <string name="units_kelvin_sample">289K</string>
-    <string name="temperature_feels_like">Feels like: %s</string>
-    <string name="temperature_min">Min: %s</string>
-    <string name="temperature_max">Max: %s</string>
+    <string name="week_label">Week</string>
+    <string name="humidity">Humidity</string>
 </resources>

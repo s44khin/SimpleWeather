@@ -31,6 +31,7 @@ internal class ForecastMapper {
                     units = tempUnits,
                 )
             },
+            humidity = response.current.humidity,
             iconId = response.current.weather[0].icon,
             weather = response.current.weather[0].let {
                 ForecastCurrentWeather(
