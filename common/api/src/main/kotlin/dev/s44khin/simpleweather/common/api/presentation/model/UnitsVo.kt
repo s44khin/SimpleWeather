@@ -9,24 +9,28 @@ enum class UnitsVo(
     val tempLabel: NativeText,
     val tempSample: NativeText,
     val tempPin: NativeText,
+    val speedPin: NativeText,
 ) {
 
     Default(
         tempLabel = NativeText.Resource(CoreStrings.units_kelvin),
         tempSample = NativeText.Resource(CoreStrings.units_kelvin_sample),
-        tempPin = NativeText.Resource(CoreStrings.units_kelvin_pin)
+        tempPin = NativeText.Resource(CoreStrings.units_kelvin_pin),
+        speedPin = NativeText.Resource(CoreStrings.units_default_speed),
     ),
 
     Metric(
         tempLabel = NativeText.Resource(CoreStrings.units_celsius),
         tempSample = NativeText.Resource(CoreStrings.units_celsius_sample),
-        tempPin = NativeText.Resource(CoreStrings.units_celsius_pin)
+        tempPin = NativeText.Resource(CoreStrings.units_celsius_pin),
+        speedPin = NativeText.Resource(CoreStrings.units_metric_speed),
     ),
 
     Imperial(
         tempLabel = NativeText.Resource(CoreStrings.units_fahrenheit),
         tempSample = NativeText.Resource(CoreStrings.units_fahrenheit_sample),
-        tempPin = NativeText.Resource(CoreStrings.units_fahrenheit_pin)
+        tempPin = NativeText.Resource(CoreStrings.units_fahrenheit_pin),
+        speedPin = NativeText.Resource(CoreStrings.units_imperial_speed),
     );
 
     val isDefault get() = this == Default

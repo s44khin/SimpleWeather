@@ -90,7 +90,8 @@ internal fun TodayForecastContent(
                 verticalArrangement = Arrangement.spacedBy(8.dp)
             ) {
                 CurrentWind(
-                    wind = uiState.current.wind
+                    wind = uiState.current.wind,
+                    units = uiState.units,
                 )
             }
         }

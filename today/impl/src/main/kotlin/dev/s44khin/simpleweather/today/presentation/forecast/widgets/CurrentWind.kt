@@ -28,6 +28,7 @@ import androidx.compose.ui.text.drawText
 import androidx.compose.ui.text.rememberTextMeasurer
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
+import dev.s44khin.simpleweather.common.api.presentation.model.UnitsVo
 import dev.s44khin.simpleweather.resources.CoreStrings
 import dev.s44khin.simpleweather.today.presentation.forecast.model.ForecustCurrentWindVo
 import dev.s44khin.simpleweather.uikit.theme.SimpleTheme
@@ -36,7 +37,10 @@ import kotlin.math.cos
 import kotlin.math.sin
 
 @Composable
-internal fun ColumnScope.CurrentWind(wind: ForecustCurrentWindVo) {
+internal fun ColumnScope.CurrentWind(
+    wind: ForecustCurrentWindVo,
+    units: UnitsVo,
+) {
     Row(verticalAlignment = Alignment.CenterVertically) {
         Column(
             modifier = Modifier.weight(0.45f),
@@ -53,13 +57,13 @@ internal fun ColumnScope.CurrentWind(wind: ForecustCurrentWindVo) {
 
                 Column {
                     Text(
-                        text = "M/s",
+                        text = units.speedPin.resolve(),
                         style = MaterialTheme.typography.bodySmall,
                         color = SimpleTheme.colors.onBackgroundUnselected
                     )
 
                     Text(
-                        text = "Speed",
+                        text = stringResource(CoreStrings.wind_speed),
                         style = MaterialTheme.typography.bodyMedium,
                         color = SimpleTheme.colors.onBackground,
                     )
@@ -82,13 +86,13 @@ internal fun ColumnScope.CurrentWind(wind: ForecustCurrentWindVo) {
 
                 Column {
                     Text(
-                        text = "M/s",
+                        text = units.speedPin.resolve(),
                         style = MaterialTheme.typography.bodySmall,
                         color = SimpleTheme.colors.onBackgroundUnselected
                     )
 
                     Text(
-                        text = "Gust",
+                        text = stringResource(CoreStrings.wind_gust),
                         style = MaterialTheme.typography.bodyMedium,
                         color = SimpleTheme.colors.onBackground,
                     )

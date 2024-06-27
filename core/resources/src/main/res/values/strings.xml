@@ -28,6 +28,9 @@
     <string name="units_kelvin">Kelvin</string>
     <string name="units_kelvin_sample">289K</string>
     <string name="units_kelvin_pin">K</string>
+    <string name="units_default_speed">m/s</string>
+    <string name="units_metric_speed">m/s</string>
+    <string name="units_imperial_speed">m/h</string>
     <string name="week_label">Week</string>
     <string name="humidity">Humidity</string>
     <string name="pressure">Pressure</string>
@@ -47,4 +50,6 @@
     <string name="wind_south_west">SW</string>
     <string name="wind_west_north">WN</string>
     <string name="wind">Wind</string>
+    <string name="wind_speed">Speed</string>
+    <string name="wind_gust">Gust</string>
 </resources>
