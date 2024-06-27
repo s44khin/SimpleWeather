@@ -1,8 +1,8 @@
 package dev.s44khin.simpleweather.main
 
 import androidx.compose.runtime.Immutable
-import dev.s44khin.simpleweather.common.api.presentation.PrimaryColorVo
-import dev.s44khin.simpleweather.common.api.presentation.ThemeVo
+import dev.s44khin.simpleweather.common.api.presentation.model.PrimaryColorVo
+import dev.s44khin.simpleweather.common.api.presentation.model.ThemeVo
 
 @Immutable
 internal data class MainUiState(

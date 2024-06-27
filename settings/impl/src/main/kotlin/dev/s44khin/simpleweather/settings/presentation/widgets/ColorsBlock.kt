@@ -10,7 +10,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.util.fastForEach
-import dev.s44khin.simpleweather.common.api.presentation.PrimaryColorVo
+import dev.s44khin.simpleweather.common.api.presentation.model.PrimaryColorVo
 import dev.s44khin.simpleweather.resources.CoreStrings
 import dev.s44khin.simpleweather.uikit.util.Spacer
 import dev.s44khin.simpleweather.uikit.widgets.InfoBlock

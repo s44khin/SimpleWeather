@@ -2,6 +2,7 @@ package dev.s44khin.simpleweather.today.presentation.forecast
 
 import androidx.lifecycle.viewModelScope
 import dev.s44khin.simpleweather.common.api.domain.model.Forecast
+import dev.s44khin.simpleweather.common.api.domain.model.ScreenMode
 import dev.s44khin.simpleweather.common.api.domain.useCases.GetForecastUseCase
 import dev.s44khin.simpleweather.core.base.BaseViewModel
 import dev.s44khin.simpleweather.navigation.api.ScreenRouter
@@ -17,7 +18,7 @@ internal class TodayForecastViewModel(
 ) {
 
     init {
-        getWether()
+        getWeatherFullscreen()
     }
 
     override fun onAction(action: TodayForecastAction) = when (action) {
@@ -45,17 +46,21 @@ internal class TodayForecastViewModel(
                 locationName = result.timezone,
                 isRefreshing = false,
                 current = result.current,
+                mode = ScreenMode.Content,
             )
 
             onSuccess(result)
         }
     }
 
-    private fun onPullToRefresh() {
-        screenState = screenState.copy(
-            isRefreshing = true
-        )
+    private fun getWeatherFullscreen() {
+        screenState = screenState.toLoading()
+        getWether()
+    }
 
+
+    private fun onPullToRefresh() {
+        screenState = screenState.toP2R()
         getWether()
     }
 }

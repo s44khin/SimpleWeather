@@ -15,7 +15,7 @@ import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.unit.dp
-import dev.s44khin.simpleweather.common.api.presentation.PrimaryColorVo
+import dev.s44khin.simpleweather.common.api.presentation.model.PrimaryColorVo
 import dev.s44khin.simpleweather.uikit.theme.SimpleTheme
 import dev.s44khin.simpleweather.uikit.util.clickableWithoutRipple
 import dev.s44khin.simpleweather.uikit.util.ifThen

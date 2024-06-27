@@ -22,8 +22,8 @@ import dev.s44khin.simpleweather.common.api.domain.useCases.SetThemeUseCase
 import dev.s44khin.simpleweather.common.api.domain.useCases.SetTransparentUseCase
 import dev.s44khin.simpleweather.common.api.domain.useCases.SetUnitsUseCase
 import dev.s44khin.simpleweather.common.api.navigation.CommonNavigation
-import dev.s44khin.simpleweather.common.api.presentation.PrimaryColorVo
-import dev.s44khin.simpleweather.common.api.presentation.ThemeVo
+import dev.s44khin.simpleweather.common.api.presentation.model.PrimaryColorVo
+import dev.s44khin.simpleweather.common.api.presentation.model.ThemeVo
 import dev.s44khin.simpleweather.core.base.BaseViewModel
 import dev.s44khin.simpleweather.navigation.api.ScreenRouter
 import dev.s44khin.simpleweather.resources.CoreStrings

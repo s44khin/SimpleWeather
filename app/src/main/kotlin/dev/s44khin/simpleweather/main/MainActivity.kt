@@ -11,7 +11,7 @@ import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.navigation.compose.rememberNavController
-import dev.s44khin.simpleweather.common.api.presentation.ThemeVo
+import dev.s44khin.simpleweather.common.api.presentation.model.ThemeVo
 import dev.s44khin.simpleweather.uikit.theme.SimpleTheme
 import org.koin.androidx.compose.koinViewModel
 

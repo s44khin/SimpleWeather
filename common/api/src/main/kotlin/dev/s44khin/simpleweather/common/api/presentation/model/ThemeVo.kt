@@ -1,4 +1,4 @@
-package dev.s44khin.simpleweather.common.api.presentation
+package dev.s44khin.simpleweather.common.api.presentation.model
 
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.rounded.AutoAwesome
