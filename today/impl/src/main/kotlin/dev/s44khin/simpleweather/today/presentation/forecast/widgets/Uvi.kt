@@ -85,8 +85,8 @@ private fun UVIndexLine(uviValue: Float) {
 
         val pointX = lineWidth * (uviValue / 11f)
 
-        val pointRadius = 8f.dp.toPx()
-        val point2Radius = 4f.dp.toPx()
+        val pointRadius = 6.5.dp.toPx()
+        val point2Radius = 4.dp.toPx()
 
         drawCircle(
             color = pointBorderColor,

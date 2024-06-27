@@ -38,7 +38,7 @@ internal fun LazyGridScope.squareBox(
     key: Any? = null,
     contentType: Any? = null,
     contentPadding: PaddingValues = PaddingValues(),
-    borderColor: Color? = null,
+    borderColor: @Composable (() -> Color?)? = null,
     content: @Composable BoxScope.() -> Unit,
 ) {
     item(
@@ -64,11 +64,11 @@ internal fun LazyGridScope.squareBox(
                     shape = RoundedCornerShape(16.dp)
                 )
                 .clip(RoundedCornerShape(16.dp))
-                .ifThen(borderColor != null) {
+                .ifThen(borderColor?.invoke() != null) {
                     border(
                         width = (animatedBorderWidth / 100f).dp,
                         shape = RoundedCornerShape(16.dp),
-                        color = borderColor!!,
+                        color = borderColor?.invoke() ?: Color.White,
                     )
                 }
                 .padding(contentPadding),
@@ -110,7 +110,7 @@ internal fun LazyGridScope.squareColumn(
                     shape = RoundedCornerShape(16.dp)
                 )
                 .clip(RoundedCornerShape(16.dp))
-                .ifThen(borderColor != null) {
+                .ifThen(borderColor?.invoke() != null) {
                     border(
                         width = (animatedBorderWidth / 100f).dp,
                         shape = RoundedCornerShape(16.dp),
@@ -130,7 +130,7 @@ internal fun LazyGridScope.squareRow(
     key: Any? = null,
     contentType: Any? = null,
     contentPadding: PaddingValues = PaddingValues(),
-    borderColor: Color? = null,
+    borderColor: @Composable (() -> Color?)? = null,
     content: @Composable RowScope.() -> Unit,
 ) {
     item(
@@ -156,11 +156,11 @@ internal fun LazyGridScope.squareRow(
                     shape = RoundedCornerShape(16.dp)
                 )
                 .clip(RoundedCornerShape(16.dp))
-                .ifThen(borderColor != null) {
+                .ifThen(borderColor?.invoke() != null) {
                     border(
                         width = (animatedBorderWidth / 100f).dp,
                         shape = RoundedCornerShape(16.dp),
-                        color = borderColor!!,
+                        color = borderColor?.invoke() ?: Color.White,
                     )
                 }
                 .padding(contentPadding),

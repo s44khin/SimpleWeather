@@ -39,7 +39,7 @@ internal fun LazyGridScope.rectangleBox(
     key: Any? = null,
     contentType: Any? = null,
     contentPadding: PaddingValues = PaddingValues(),
-    borderColor: Color? = null,
+    borderColor: @Composable (() -> Color?)? = null,
     content: @Composable BoxScope.() -> Unit,
 ) {
     item(
@@ -66,11 +66,11 @@ internal fun LazyGridScope.rectangleBox(
                     shape = RoundedCornerShape(16.dp)
                 )
                 .clip(RoundedCornerShape(16.dp))
-                .ifThen(borderColor != null) {
+                .ifThen(borderColor?.invoke() != null) {
                     border(
                         width = (animatedBorderWidth / 100f).dp,
                         shape = RoundedCornerShape(16.dp),
-                        color = borderColor!!,
+                        color = borderColor?.invoke() ?: Color.White,
                     )
                 }
                 .padding(contentPadding),
@@ -84,7 +84,7 @@ internal fun LazyGridScope.rectangleColumn(
     key: Any? = null,
     contentType: Any? = null,
     contentPadding: PaddingValues = PaddingValues(),
-    borderColor: Color? = null,
+    borderColor: @Composable (() -> Color?)? = null,
     verticalArrangement: Arrangement.Vertical = Arrangement.Top,
     horizontalAlignment: Alignment.Horizontal = Alignment.Start,
     content: @Composable ColumnScope.() -> Unit,
@@ -113,11 +113,11 @@ internal fun LazyGridScope.rectangleColumn(
                     shape = RoundedCornerShape(16.dp)
                 )
                 .clip(RoundedCornerShape(16.dp))
-                .ifThen(borderColor != null) {
+                .ifThen(borderColor?.invoke() != null) {
                     border(
                         width = (animatedBorderWidth / 100f).dp,
                         shape = RoundedCornerShape(16.dp),
-                        color = borderColor!!,
+                        color = borderColor?.invoke() ?: Color.White,
                     )
                 }
                 .padding(contentPadding),
@@ -133,7 +133,7 @@ internal fun LazyGridScope.rectangleRow(
     key: Any? = null,
     contentType: Any? = null,
     contentPadding: PaddingValues = PaddingValues(),
-    borderColor: Color? = null,
+    borderColor: @Composable (() -> Color?)? = null,
     content: @Composable RowScope.() -> Unit,
 ) {
     item(
@@ -160,11 +160,11 @@ internal fun LazyGridScope.rectangleRow(
                     shape = RoundedCornerShape(16.dp)
                 )
                 .clip(RoundedCornerShape(16.dp))
-                .ifThen(borderColor != null) {
+                .ifThen(borderColor?.invoke() != null) {
                     border(
                         width = (animatedBorderWidth / 100f).dp,
                         shape = RoundedCornerShape(16.dp),
-                        color = borderColor!!,
+                        color = borderColor?.invoke() ?: Color.White,
                     )
                 }
                 .padding(contentPadding),
