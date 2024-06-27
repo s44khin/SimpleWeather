@@ -11,6 +11,7 @@ data class ForecastCurrent(
     val min: String?,
     val max: String?,
     val humidity: String,
+    val pressure: ForecastCurrentPressure,
     val iconId: String,
     val weather: ForecastCurrentWeather,
 )
@@ -18,4 +19,9 @@ data class ForecastCurrent(
 data class ForecastCurrentWeather(
     val main: String,
     val description: String,
+)
+
+data class ForecastCurrentPressure(
+    val value: Int,
+    val isLow: Boolean,
 )

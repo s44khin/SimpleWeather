@@ -22,7 +22,7 @@ internal fun BoxScope.Humidity(
 ) {
     WaterAnimation(
         modifier = Modifier.fillMaxSize(),
-        waveHeightRatio = current.humidity.toFloat()
+        waveHeightRatio = current.humidity.toFloat() / 100f
     )
 
     Text(

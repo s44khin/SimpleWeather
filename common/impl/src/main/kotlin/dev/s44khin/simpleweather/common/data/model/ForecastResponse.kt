@@ -30,6 +30,9 @@ internal data class ForecastCurrentDto(
 
     @SerialName(value = "humidity")
     val humidity: String,
+
+    @SerialName(value = "pressure")
+    val pressure: Int,
 )
 
 @Serializable

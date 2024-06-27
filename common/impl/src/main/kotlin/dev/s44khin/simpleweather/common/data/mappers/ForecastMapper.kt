@@ -2,6 +2,7 @@ package dev.s44khin.simpleweather.common.data.mappers
 
 import dev.s44khin.simpleweather.common.api.domain.model.Forecast
 import dev.s44khin.simpleweather.common.api.domain.model.ForecastCurrent
+import dev.s44khin.simpleweather.common.api.domain.model.ForecastCurrentPressure
 import dev.s44khin.simpleweather.common.api.domain.model.ForecastCurrentWeather
 import dev.s44khin.simpleweather.common.api.domain.model.TempUnits
 import dev.s44khin.simpleweather.common.data.model.ForecastResponse
@@ -31,6 +32,10 @@ internal class ForecastMapper {
                     units = tempUnits,
                 )
             },
+            pressure = ForecastCurrentPressure(
+                value = response.current.pressure,
+                isLow = pressureIsLow(response.current.pressure)
+            ),
             humidity = response.current.humidity,
             iconId = response.current.weather[0].icon,
             weather = response.current.weather[0].let {
@@ -45,4 +50,6 @@ internal class ForecastMapper {
     private fun formatTemp(value: String, units: TempUnits): String {
         return (value.toDoubleOrNull()?.toInt()?.toString() ?: "NoN") + units.symbol
     }
+
+    private fun pressureIsLow(value: Int) = value < 1013
 }

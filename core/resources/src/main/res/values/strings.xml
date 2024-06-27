@@ -28,4 +28,6 @@
     <string name="units_kelvin_sample">289K</string>
     <string name="week_label">Week</string>
     <string name="humidity">Humidity</string>
+    <string name="pressure">Pressure</string>
+    <string name="pressure_hPa">hPa</string>
 </resources>
