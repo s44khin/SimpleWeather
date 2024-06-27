@@ -7,6 +7,7 @@ import androidx.compose.ui.res.stringResource
 import dev.s44khin.simpleweather.resources.CoreRaw
 import dev.s44khin.simpleweather.resources.CoreStrings
 import dev.s44khin.simpleweather.uikit.theme.SimpleTheme
+import kotlin.math.roundToInt
 
 @Immutable
 internal data class ForecastCurrentVo(
@@ -20,6 +21,7 @@ internal data class ForecastCurrentVo(
     val iconId: String,
     val weather: ForecastCurrentWeatherVo,
     val wind: ForecustCurrentWindVo,
+    val precipitation: ForecastPrecipitationVo
 )
 
 @Immutable
@@ -87,4 +89,26 @@ internal data class ForecustCurrentWindVo(
                 else -> CoreStrings.wind_west_north
             }
         )
+}
+
+@Immutable
+internal data class ForecastPrecipitationVo(
+    val pop: Int,
+    val rain: Float?,
+    val snow: Float?,
+) {
+    val label: String?
+        @Composable
+        get() = when {
+            rain.isValid() && snow.isValid() -> stringResource(CoreStrings.precipitation_rain_snow)
+            rain.isValid() -> stringResource(CoreStrings.precipitation_rain)
+            snow.isValid() -> stringResource(CoreStrings.precipitation_snow)
+            else -> null
+        }
+
+    val value = (rain?.roundToInt() ?: snow?.roundToInt())?.toString() ?: ""
+
+    val showRain = rain.isValid()
+
+    private fun Float?.isValid() = this != null && this != 0.0f
 }

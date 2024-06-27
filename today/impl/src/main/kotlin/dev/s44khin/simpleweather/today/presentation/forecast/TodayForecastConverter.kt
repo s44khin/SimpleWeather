@@ -7,6 +7,7 @@ import dev.s44khin.simpleweather.today.presentation.forecast.model.ForecastCurre
 import dev.s44khin.simpleweather.today.presentation.forecast.model.ForecastCurrentUviVo
 import dev.s44khin.simpleweather.today.presentation.forecast.model.ForecastCurrentVo
 import dev.s44khin.simpleweather.today.presentation.forecast.model.ForecastCurrentWeatherVo
+import dev.s44khin.simpleweather.today.presentation.forecast.model.ForecastPrecipitationVo
 import dev.s44khin.simpleweather.today.presentation.forecast.model.ForecustCurrentWindVo
 import dev.s44khin.simpleweather.utils.enumValueOrDefault
 
@@ -44,6 +45,11 @@ internal object TodayForecastConverter {
                     speed = it.wind.speed,
                     gust = it.wind.gust,
                     degree = it.wind.degree,
+                ),
+                precipitation = ForecastPrecipitationVo(
+                    pop = screenState.current.precipitation.pop,
+                    rain = screenState.current.precipitation.rain,
+                    snow = screenState.current.precipitation.snow,
                 )
             )
         }

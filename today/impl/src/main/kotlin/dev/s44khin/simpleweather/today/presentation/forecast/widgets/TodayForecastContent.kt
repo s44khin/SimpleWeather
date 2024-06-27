@@ -16,7 +16,7 @@ import androidx.compose.ui.unit.dp
 import dev.s44khin.simpleweather.today.presentation.forecast.TodayForecastUiState
 
 private enum class TodayForecastKeys {
-    CurrentForecast, Humidity, Pressure, UVIndex, Hourly, Wind
+    CurrentForecast, Humidity, Pressure, UVIndex, Hourly, Wind, Precipitation
 }
 
 @Composable
@@ -48,9 +48,9 @@ internal fun TodayForecastContent(
                 )
             }
 
-            squareBox(key = TodayForecastKeys.Humidity) {
-                Humidity(
-                    current = uiState.current
+            squareBox(key = TodayForecastKeys.Precipitation) {
+                CurrentPrecipitation(
+                    precipitation = uiState.current.precipitation
                 )
             }
 
@@ -80,6 +80,16 @@ internal fun TodayForecastContent(
                 UvIndex(
                     uvindex = uiState.current.uvi
                 )
+            }
+
+            squareBox(key = TodayForecastKeys.Humidity) {
+                Humidity(
+                    current = uiState.current
+                )
+            }
+
+            squareBox {
+
             }
 
             rectangleColumn(

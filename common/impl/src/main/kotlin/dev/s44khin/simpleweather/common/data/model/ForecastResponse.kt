@@ -14,6 +14,9 @@ internal data class ForecastResponse(
 
     @SerialName(value = "daily")
     val daily: List<ForecastDailyItemDto>,
+
+    @SerialName(value = "hourly")
+    val hourly: List<ForecastHourlyItemDto>,
 )
 
 @Serializable
@@ -75,4 +78,24 @@ internal data class ForecastTempDto(
 
     @SerialName(value = "max")
     val max: String,
+)
+
+@Serializable
+internal data class ForecastHourlyItemDto(
+
+    @SerialName(value = "pop")
+    val pop: Float,
+
+    @SerialName(value = "rain")
+    val rain: ForecastHourlyRainSnow? = null,
+
+    @SerialName(value = "snow")
+    val snow: ForecastHourlyRainSnow? = null,
+)
+
+@Serializable
+internal data class ForecastHourlyRainSnow(
+
+    @SerialName(value = "1h")
+    val value: Float? = null,
 )

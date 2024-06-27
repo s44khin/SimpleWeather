@@ -6,6 +6,7 @@ import dev.s44khin.simpleweather.common.api.domain.model.ForecastCurrentPressure
 import dev.s44khin.simpleweather.common.api.domain.model.ForecastCurrentUvi
 import dev.s44khin.simpleweather.common.api.domain.model.ForecastCurrentUviType
 import dev.s44khin.simpleweather.common.api.domain.model.ForecastCurrentWeather
+import dev.s44khin.simpleweather.common.api.domain.model.ForecastPrecipitation
 import dev.s44khin.simpleweather.common.api.domain.model.ForecustCurrentWind
 import dev.s44khin.simpleweather.common.data.model.ForecastResponse
 import kotlin.math.roundToInt
@@ -51,6 +52,11 @@ internal class ForecastMapper {
                 speed = response.current.windSpeed.roundToInt(),
                 degree = response.current.windDegree,
                 gust = response.current.windGust?.roundToInt() ?: 0,
+            ),
+            precipitation = ForecastPrecipitation(
+                pop = ((response.hourly.getOrNull(0)?.pop ?: 0f) * 100).roundToInt(),
+                rain = response.hourly.getOrNull(0)?.rain?.value ?: 0f,
+                snow = response.hourly.getOrNull(0)?.snow?.value ?: 0f,
             )
         )
     )

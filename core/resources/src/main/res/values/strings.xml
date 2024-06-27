@@ -52,4 +52,9 @@
     <string name="wind">Wind</string>
     <string name="wind_speed">Speed</string>
     <string name="wind_gust">Gust</string>
+    <string name="precipitation">Precipitation</string>
+    <string name="precipitation_mm">mm</string>
+    <string name="precipitation_snow">Snow</string>
+    <string name="precipitation_rain">Rain</string>
+    <string name="precipitation_rain_snow">Rain and snow</string>
 </resources>

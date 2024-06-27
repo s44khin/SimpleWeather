@@ -16,6 +16,7 @@ data class ForecastCurrent(
     val iconId: String,
     val weather: ForecastCurrentWeather,
     val wind: ForecustCurrentWind,
+    val precipitation: ForecastPrecipitation,
 )
 
 data class ForecastCurrentWeather(
@@ -41,4 +42,10 @@ data class ForecustCurrentWind(
     val speed: Int,
     val degree: Float,
     val gust: Int,
+)
+
+data class ForecastPrecipitation(
+    val pop: Int,
+    val rain: Float?,
+    val snow: Float?,
 )
