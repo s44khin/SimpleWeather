@@ -17,8 +17,7 @@
     <string name="settings_units">Units</string>
     <string name="settings_units_info">Select the units of measurement in which the temperature will be displayed</string>
     <string name="temperature_feels_like">Feels like: %s</string>
-    <string name="temperature_max">Max: %s</string>
-    <string name="temperature_min">Min: %s</string>
+    <string name="temperature_min_max">Min: %s Max: %s</string>
     <string name="today_label">Today</string>
     <string name="units_celsius">Celsius</string>
     <string name="units_celsius_sample">16°C</string>

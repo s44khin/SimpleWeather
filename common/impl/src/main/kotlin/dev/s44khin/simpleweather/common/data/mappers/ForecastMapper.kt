@@ -41,7 +41,7 @@ internal class ForecastMapper {
             weather = response.current.weather[0].let {
                 ForecastCurrentWeather(
                     main = it.main,
-                    description = it.description,
+                    description = it.description.replaceFirstChar { it.uppercaseChar() },
                 )
             }
         )

@@ -19,6 +19,8 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import dev.s44khin.simpleweather.resources.CoreStrings
 import dev.s44khin.simpleweather.resources.rawfromIconId
@@ -54,38 +56,37 @@ internal fun BoxScope.CurrentForecast(
             .animateContentSize()
             .align(Alignment.BottomStart)
             .padding(16.dp),
-        verticalArrangement = Arrangement.spacedBy(1.dp),
+        verticalArrangement = Arrangement.spacedBy(2.dp),
     ) {
         Text(
-            text = stringResource(CoreStrings.temperature_feels_like, current.feelsLike),
-            style = MaterialTheme.typography.bodyLarge,
+            text = current.weather.description,
+            style = MaterialTheme.typography.bodyMedium,
             color = SimpleTheme.colors.onBackgroundUnselected,
+            fontWeight = FontWeight.Bold,
+            maxLines = 2,
+            overflow = TextOverflow.Ellipsis,
+        )
+
+        Text(
+            text = stringResource(CoreStrings.temperature_feels_like, current.feelsLike),
+            style = MaterialTheme.typography.bodyMedium,
+            color = SimpleTheme.colors.onBackgroundUnselected,
+            maxLines = 1,
+            overflow = TextOverflow.Ellipsis,
         )
 
         AnimatedVisibility(
             enter = fadeIn() + scaleIn(),
             exit = fadeOut() + scaleOut(),
-            visible = current.min != null
+            visible = current.min != null && current.max != null
         ) {
-            if (current.min != null) {
+            if (current.min != null && current.max != null) {
                 Text(
-                    text = stringResource(CoreStrings.temperature_min, current.min),
-                    style = MaterialTheme.typography.bodyLarge,
+                    text = stringResource(CoreStrings.temperature_min_max, current.min, current.max),
+                    style = MaterialTheme.typography.bodyMedium,
                     color = SimpleTheme.colors.onBackgroundUnselected,
-                )
-            }
-        }
-
-        AnimatedVisibility(
-            enter = fadeIn() + scaleIn(),
-            exit = fadeOut() + scaleOut(),
-            visible = current.max != null
-        ) {
-            if (current.max != null) {
-                Text(
-                    text = stringResource(CoreStrings.temperature_max, current.max),
-                    style = MaterialTheme.typography.bodyLarge,
-                    color = SimpleTheme.colors.onBackgroundUnselected,
+                    maxLines = 1,
+                    overflow = TextOverflow.Ellipsis,
                 )
             }
         }

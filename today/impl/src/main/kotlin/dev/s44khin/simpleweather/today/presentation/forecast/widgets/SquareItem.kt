@@ -2,8 +2,15 @@
 
 package dev.s44khin.simpleweather.today.presentation.forecast.widgets
 
+import androidx.compose.animation.core.FastOutSlowInEasing
+import androidx.compose.animation.core.RepeatMode
+import androidx.compose.animation.core.animateFloat
+import androidx.compose.animation.core.infiniteRepeatable
+import androidx.compose.animation.core.rememberInfiniteTransition
+import androidx.compose.animation.core.tween
 import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.background
+import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.BoxScope
 import androidx.compose.foundation.layout.Column
@@ -16,22 +23,37 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.grid.LazyGridScope
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.unit.dp
+import dev.s44khin.simpleweather.today.presentation.forecast.model.DangerLevel
+import dev.s44khin.simpleweather.today.presentation.forecast.model.color
 import dev.s44khin.simpleweather.uikit.theme.SimpleTheme
+import dev.s44khin.simpleweather.uikit.util.ifThen
 
 internal fun LazyGridScope.squareBox(
     modifier: Modifier = Modifier,
     key: Any? = null,
     contentType: Any? = null,
     contentPadding: PaddingValues = PaddingValues(),
+    dangerLevel: DangerLevel? = null,
     content: @Composable BoxScope.() -> Unit,
 ) {
     item(
         key = key,
         contentType = contentType,
     ) {
+        val infiniteTransition = rememberInfiniteTransition()
+        val animatedBorderWidth by infiniteTransition.animateFloat(
+            initialValue = 50f,
+            targetValue = 300f,
+            animationSpec = infiniteRepeatable(
+                animation = tween(1_000, easing = FastOutSlowInEasing),
+                repeatMode = RepeatMode.Reverse
+            )
+        )
+
         Box(
             modifier = modifier
                 .animateItemPlacement()
@@ -41,6 +63,13 @@ internal fun LazyGridScope.squareBox(
                     shape = RoundedCornerShape(16.dp)
                 )
                 .clip(RoundedCornerShape(16.dp))
+                .ifThen(dangerLevel != null) {
+                    border(
+                        width = (animatedBorderWidth / 100f).dp,
+                        shape = RoundedCornerShape(16.dp),
+                        color = dangerLevel.color,
+                    )
+                }
                 .padding(contentPadding),
             content = content,
         )
@@ -52,6 +81,7 @@ internal fun LazyGridScope.squareColumn(
     key: Any? = null,
     contentType: Any? = null,
     contentPadding: PaddingValues = PaddingValues(),
+    dangerLevel: DangerLevel? = null,
     content: @Composable ColumnScope.() -> Unit,
 ) {
     item(
@@ -67,6 +97,13 @@ internal fun LazyGridScope.squareColumn(
                     shape = RoundedCornerShape(16.dp)
                 )
                 .clip(RoundedCornerShape(16.dp))
+                .ifThen(dangerLevel != null) {
+                    border(
+                        width = 2.dp,
+                        shape = RoundedCornerShape(16.dp),
+                        color = dangerLevel.color,
+                    )
+                }
                 .padding(contentPadding),
             content = content,
         )
@@ -78,6 +115,7 @@ internal fun LazyGridScope.squareRow(
     key: Any? = null,
     contentType: Any? = null,
     contentPadding: PaddingValues = PaddingValues(),
+    dangerLevel: DangerLevel? = null,
     content: @Composable RowScope.() -> Unit,
 ) {
     item(
@@ -93,6 +131,13 @@ internal fun LazyGridScope.squareRow(
                     shape = RoundedCornerShape(16.dp)
                 )
                 .clip(RoundedCornerShape(16.dp))
+                .ifThen(dangerLevel != null) {
+                    border(
+                        width = 2.dp,
+                        shape = RoundedCornerShape(16.dp),
+                        color = dangerLevel.color,
+                    )
+                }
                 .padding(contentPadding),
             content = content,
         )

@@ -4,6 +4,7 @@ package dev.s44khin.simpleweather.today.presentation.forecast.widgets
 
 import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.background
+import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.BoxScope
 import androidx.compose.foundation.layout.Column
@@ -20,13 +21,17 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.unit.dp
+import dev.s44khin.simpleweather.today.presentation.forecast.model.DangerLevel
+import dev.s44khin.simpleweather.today.presentation.forecast.model.color
 import dev.s44khin.simpleweather.uikit.theme.SimpleTheme
+import dev.s44khin.simpleweather.uikit.util.ifThen
 
 internal fun LazyGridScope.rectangleBox(
     modifier: Modifier = Modifier,
     key: Any? = null,
     contentType: Any? = null,
     contentPadding: PaddingValues = PaddingValues(),
+    dangerLevel: DangerLevel? = null,
     content: @Composable BoxScope.() -> Unit,
 ) {
     item(
@@ -36,6 +41,7 @@ internal fun LazyGridScope.rectangleBox(
     ) {
         Box(
             modifier = modifier
+                .animateItemPlacement()
                 .aspectRatio(2f)
                 .background(
                     color = SimpleTheme.colors.background,
@@ -43,7 +49,13 @@ internal fun LazyGridScope.rectangleBox(
                 )
                 .clip(RoundedCornerShape(16.dp))
                 .padding(contentPadding)
-                .animateItemPlacement(),
+                .ifThen(dangerLevel != null) {
+                    border(
+                        width = 2.dp,
+                        shape = RoundedCornerShape(16.dp),
+                        color = dangerLevel.color,
+                    )
+                },
             content = content,
         )
     }
@@ -54,6 +66,7 @@ internal fun LazyGridScope.rectangleColumn(
     key: Any? = null,
     contentType: Any? = null,
     contentPadding: PaddingValues = PaddingValues(),
+    dangerLevel: DangerLevel? = null,
     content: @Composable ColumnScope.() -> Unit,
 ) {
     item(
@@ -63,6 +76,7 @@ internal fun LazyGridScope.rectangleColumn(
     ) {
         Column(
             modifier = modifier
+                .animateItemPlacement()
                 .aspectRatio(2f)
                 .background(
                     color = SimpleTheme.colors.background,
@@ -70,7 +84,13 @@ internal fun LazyGridScope.rectangleColumn(
                 )
                 .clip(RoundedCornerShape(16.dp))
                 .padding(contentPadding)
-                .animateItemPlacement(),
+                .ifThen(dangerLevel != null) {
+                    border(
+                        width = 2.dp,
+                        shape = RoundedCornerShape(16.dp),
+                        color = dangerLevel.color,
+                    )
+                },
             content = content,
         )
     }
@@ -81,6 +101,7 @@ internal fun LazyGridScope.rectangleRow(
     key: Any? = null,
     contentType: Any? = null,
     contentPadding: PaddingValues = PaddingValues(),
+    dangerLevel: DangerLevel? = null,
     content: @Composable RowScope.() -> Unit,
 ) {
     item(
@@ -90,6 +111,7 @@ internal fun LazyGridScope.rectangleRow(
     ) {
         Row(
             modifier = modifier
+                .animateItemPlacement()
                 .aspectRatio(2f)
                 .background(
                     color = SimpleTheme.colors.background,
@@ -97,7 +119,14 @@ internal fun LazyGridScope.rectangleRow(
                 )
                 .clip(RoundedCornerShape(16.dp))
                 .padding(contentPadding)
-                .animateItemPlacement(),
+                .ifThen(dangerLevel != null) {
+                    border(
+                        width = 2.dp,
+                        shape = RoundedCornerShape(16.dp),
+                        color = dangerLevel.color,
+                    )
+                },
+
             content = content,
         )
     }
