@@ -20,6 +20,7 @@ import androidx.compose.ui.unit.dp
 import dev.s44khin.simpleweather.resources.CoreStrings
 import dev.s44khin.simpleweather.today.presentation.forecast.model.ForecastCurrentUviVo
 import dev.s44khin.simpleweather.uikit.theme.SimpleTheme
+import kotlin.math.roundToInt
 
 @Composable
 internal fun ColumnScope.UvIndex(
@@ -27,7 +28,7 @@ internal fun ColumnScope.UvIndex(
 ) {
     Column(horizontalAlignment = Alignment.CenterHorizontally) {
         Text(
-            text = uvindex.value.toString(),
+            text = uvindex.value.roundToInt().toString(),
             style = MaterialTheme.typography.headlineMedium,
             color = SimpleTheme.colors.onBackground
         )
