@@ -99,8 +99,10 @@ internal fun TodayForecastContent(
                 )
             }
 
-            squareBox {
-
+            squareBox(contentPadding = PaddingValues(16.dp)) {
+                CurrentSun(
+                    suntime = uiState.current.sintime
+                )
             }
 
             rectangleColumn(

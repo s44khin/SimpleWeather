@@ -8,6 +8,7 @@ import dev.s44khin.simpleweather.today.presentation.forecast.model.ForecastCurre
 import dev.s44khin.simpleweather.today.presentation.forecast.model.ForecastCurrentVo
 import dev.s44khin.simpleweather.today.presentation.forecast.model.ForecastCurrentWeatherVo
 import dev.s44khin.simpleweather.today.presentation.forecast.model.ForecastPrecipitationVo
+import dev.s44khin.simpleweather.today.presentation.forecast.model.ForecastSuntimeVo
 import dev.s44khin.simpleweather.today.presentation.forecast.model.ForecustCurrentWindVo
 import dev.s44khin.simpleweather.utils.enumValueOrDefault
 
@@ -52,6 +53,11 @@ internal object TodayForecastConverter {
                     snow = screenState.current.precipitation.snow,
                 ),
                 time = screenState.current.time,
+                sintime = ForecastSuntimeVo(
+                    sunrise = screenState.current.suntime.sunrise,
+                    sunset = screenState.current.suntime.sunset,
+                    isNight = screenState.current.suntime.isNight,
+                )
             )
         }
     )

@@ -55,7 +55,7 @@ internal fun BoxScope.TodayForecastScrollableContent(
         lazyGridState = lazyGridState,
         contentPadding = PaddingValues(
             top = TopNavigationHeight + StatusBarHeight + 16.dp,
-            bottom = BottomNavigationHeight + NavigationBarHeight + 16.dp,
+            bottom = BottomNavigationHeight + NavigationBarHeight + 16.dp - TopNavigationHeight,
             start = 16.dp,
             end = 16.dp,
         )

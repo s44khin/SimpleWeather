@@ -51,6 +51,12 @@ internal data class ForecastCurrentDto(
 
     @SerialName(value = "wind_gust")
     val windGust: Float? = null,
+
+    @SerialName(value = "sunrise")
+    val sunrise: Long,
+
+    @SerialName(value = "sunset")
+    val sunset: Long,
 )
 
 @Serializable

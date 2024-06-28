@@ -58,4 +58,6 @@
     <string name="precipitation_snow">Snow</string>
     <string name="precipitation_rain">Rain</string>
     <string name="precipitation_rain_snow">Rain and snow</string>
+    <string name="sunrise">Sunrise</string>
+    <string name="sunset">Sunset</string>
 </resources>

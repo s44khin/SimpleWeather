@@ -24,6 +24,7 @@ internal data class ForecastCurrentVo(
     val wind: ForecustCurrentWindVo,
     val precipitation: ForecastPrecipitationVo,
     val time: String,
+    val sintime: ForecastSuntimeVo,
 )
 
 @Immutable
@@ -113,3 +114,10 @@ internal data class ForecastPrecipitationVo(
 
     private fun Float?.isValid() = this != null && this != 0.0f
 }
+
+@Immutable
+internal data class ForecastSuntimeVo(
+    val sunrise: String,
+    val sunset: String,
+    val isNight: Boolean,
+)

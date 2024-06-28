@@ -18,6 +18,7 @@ data class ForecastCurrent(
     val wind: ForecustCurrentWind,
     val precipitation: ForecastPrecipitation,
     val time: String,
+    val suntime: ForecastSuntime,
 )
 
 data class ForecastCurrentWeather(
@@ -49,4 +50,10 @@ data class ForecastPrecipitation(
     val pop: Int,
     val rain: Float?,
     val snow: Float?,
+)
+
+data class ForecastSuntime(
+    val sunrise: String,
+    val sunset: String,
+    val isNight: Boolean,
 )
