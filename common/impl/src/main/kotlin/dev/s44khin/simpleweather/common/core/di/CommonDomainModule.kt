@@ -1,6 +1,7 @@
 package dev.s44khin.simpleweather.common.core.di
 
 import dev.s44khin.simpleweather.common.api.domain.useCases.GetAlwaysShowLabelUseCase
+import dev.s44khin.simpleweather.common.api.domain.useCases.GetBarometerUnitsUseCase
 import dev.s44khin.simpleweather.common.api.domain.useCases.GetColorUseCase
 import dev.s44khin.simpleweather.common.api.domain.useCases.GetForecastUseCase
 import dev.s44khin.simpleweather.common.api.domain.useCases.GetThemeUseCase
@@ -10,11 +11,13 @@ import dev.s44khin.simpleweather.common.api.domain.useCases.IsResetSettingsAvail
 import dev.s44khin.simpleweather.common.api.domain.useCases.ResetSettingsUseCase
 import dev.s44khin.simpleweather.common.api.domain.useCases.SearchLocationUseCase
 import dev.s44khin.simpleweather.common.api.domain.useCases.SetAlwaysShowLabelUseCase
+import dev.s44khin.simpleweather.common.api.domain.useCases.SetBarometerUnitsUseCase
 import dev.s44khin.simpleweather.common.api.domain.useCases.SetColorUseCase
 import dev.s44khin.simpleweather.common.api.domain.useCases.SetThemeUseCase
 import dev.s44khin.simpleweather.common.api.domain.useCases.SetTransparentUseCase
 import dev.s44khin.simpleweather.common.api.domain.useCases.SetUnitsUseCase
 import dev.s44khin.simpleweather.common.domain.useCases.GetAlwaysShowLabelUseCaseImpl
+import dev.s44khin.simpleweather.common.domain.useCases.GetBarometerUnitsUseCaseImpl
 import dev.s44khin.simpleweather.common.domain.useCases.GetColorUseCaseImpl
 import dev.s44khin.simpleweather.common.domain.useCases.GetForecastUseCaseImpl
 import dev.s44khin.simpleweather.common.domain.useCases.GetThemeUseCaseImpl
@@ -24,6 +27,7 @@ import dev.s44khin.simpleweather.common.domain.useCases.IsResetSettingsAvailable
 import dev.s44khin.simpleweather.common.domain.useCases.ResetSettingsUseCaseImpl
 import dev.s44khin.simpleweather.common.domain.useCases.SearchLocationUseCaseImpl
 import dev.s44khin.simpleweather.common.domain.useCases.SetAlwaysShowLabelUseCaseImpl
+import dev.s44khin.simpleweather.common.domain.useCases.SetBarometerUnitsUseCaseImpl
 import dev.s44khin.simpleweather.common.domain.useCases.SetColorUseCaseImpl
 import dev.s44khin.simpleweather.common.domain.useCases.SetThemeUseCaseImpl
 import dev.s44khin.simpleweather.common.domain.useCases.SetTransparentUseCaseImpl
@@ -45,4 +49,6 @@ internal val commonDomainModule = module {
     factory<SetTransparentUseCase> { SetTransparentUseCaseImpl(get()) }
     factory<SetUnitsUseCase> { SetUnitsUseCaseImpl(get()) }
     factory<GetForecastUseCase> { GetForecastUseCaseImpl(get()) }
+    factory<SetBarometerUnitsUseCase> { SetBarometerUnitsUseCaseImpl(get()) }
+    factory<GetBarometerUnitsUseCase> { GetBarometerUnitsUseCaseImpl(get()) }
 }

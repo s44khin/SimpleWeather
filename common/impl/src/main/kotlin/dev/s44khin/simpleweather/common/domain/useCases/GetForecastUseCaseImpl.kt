@@ -8,6 +8,7 @@ internal class GetForecastUseCaseImpl(
 ) : GetForecastUseCase {
 
     override suspend fun execute() = repository.getAllWeather(
-        tempUnits = repository.unitsFlow.value
+        tempUnits = repository.unitsFlow.value,
+        barometerUnits = repository.barometerUnitsFlow.value,
     )
 }

@@ -1,5 +1,6 @@
 package dev.s44khin.simpleweather.common.data.mappers
 
+import dev.s44khin.simpleweather.common.api.domain.model.BarometerUnits
 import dev.s44khin.simpleweather.common.api.domain.model.Forecast
 import dev.s44khin.simpleweather.common.api.domain.model.ForecastCurrent
 import dev.s44khin.simpleweather.common.api.domain.model.ForecastCurrentPressure
@@ -17,7 +18,7 @@ import kotlin.math.roundToInt
 
 internal class ForecastMapper {
 
-    fun map(response: ForecastResponse) = Forecast(
+    fun map(response: ForecastResponse, barometerUnits: BarometerUnits) = Forecast(
         current = ForecastCurrent(
             locationName = response.timezone,
             temp = formatTemp(
@@ -37,8 +38,14 @@ internal class ForecastMapper {
                 )
             },
             pressure = ForecastCurrentPressure(
-                value = response.current.pressure,
-                isLow = pressureIsLow(response.current.pressure)
+                value = mapPressure(
+                    value = response.current.pressure,
+                    units = barometerUnits
+                ),
+                isLow = pressureIsLow(
+                    value = response.current.pressure,
+                    barometerUnits = barometerUnits
+                )
             ),
             humidity = response.current.humidity,
             iconId = response.current.weather[0].icon,
@@ -79,7 +86,10 @@ internal class ForecastMapper {
         return (value.toDoubleOrNull()?.toInt()?.toString() ?: "NoN")
     }
 
-    private fun pressureIsLow(value: Int) = value < 1013
+    private fun pressureIsLow(value: Int, barometerUnits: BarometerUnits) = when (barometerUnits) {
+        BarometerUnits.Hectopascals -> value < 1013
+        BarometerUnits.MercuryСolumn -> value < 760
+    }
 
     private fun getUviType(value: Float) = when (value) {
         in 0f..<3f -> ForecastCurrentUviType.Low
@@ -93,5 +103,11 @@ internal class ForecastMapper {
         val instant = Instant.ofEpochSecond(unix)
         val formatter = DateTimeFormatter.ofPattern("HH:mm").withZone(ZoneId.systemDefault())
         return formatter.format(instant)
+    }
+
+    private fun mapPressure(value: Int, units: BarometerUnits) = if (units == BarometerUnits.MercuryСolumn) {
+        (value.toFloat() * 0.75f).roundToInt()
+    } else {
+        value
     }
 }

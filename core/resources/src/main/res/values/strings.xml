@@ -36,6 +36,7 @@
     <string name="humidity">Humidity</string>
     <string name="pressure">Pressure</string>
     <string name="pressure_hPa">hPa</string>
+    <string name="pressure_mercury_column">mmHg</string>
     <string name="uvindex">UV-Index</string>
     <string name="uvindex_low">Low</string>
     <string name="uvindex_moderate">Moderate</string>

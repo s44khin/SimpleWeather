@@ -1,5 +1,6 @@
 package dev.s44khin.simpleweather.common.data.local
 
+import dev.s44khin.simpleweather.common.api.domain.model.BarometerUnits
 import dev.s44khin.simpleweather.common.api.domain.model.PrimaryColor
 import dev.s44khin.simpleweather.common.api.domain.model.Theme
 import dev.s44khin.simpleweather.common.api.domain.model.Units
@@ -9,6 +10,8 @@ internal class CommonLocal(
 ) {
 
     val unitsFlow get() = sharedPrefSettings.unitsFlow
+
+    val barometerUnitsFlow get() = sharedPrefSettings.barometerUnitsFlow
 
     val colorFlow get() = sharedPrefSettings.colorFlow
 
@@ -20,6 +23,10 @@ internal class CommonLocal(
 
     suspend fun setUnits(units: Units) {
         sharedPrefSettings.setUnits(units)
+    }
+
+    suspend fun setBarometerUnits(units: BarometerUnits) {
+        sharedPrefSettings.setBarometerUnits(units)
     }
 
     suspend fun setColor(color: PrimaryColor) {

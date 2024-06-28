@@ -77,7 +77,8 @@ internal fun TodayForecastContent(
                 contentPadding = PaddingValues(16.dp)
             ) {
                 Pressure(
-                    current = uiState.current
+                    pressure = uiState.current.pressure,
+                    units = uiState.barometerUnits,
                 )
             }
 

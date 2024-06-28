@@ -1,5 +1,6 @@
 package dev.s44khin.simpleweather.today.presentation.forecast
 
+import dev.s44khin.simpleweather.common.api.presentation.model.toBarometerUnitsVo
 import dev.s44khin.simpleweather.common.api.presentation.model.toScreenModeVo
 import dev.s44khin.simpleweather.common.api.presentation.model.toUnitsVo
 import dev.s44khin.simpleweather.today.presentation.forecast.model.ForecastCurrentPressureVo
@@ -18,6 +19,7 @@ internal object TodayForecastConverter {
         screenMode = screenState.mode.toScreenModeVo(),
         isRefreshing = screenState.isRefreshing,
         units = screenState.units.toUnitsVo(),
+        barometerUnits = screenState.barometerUnits.toBarometerUnitsVo(),
         current = screenState.current?.let {
             ForecastCurrentVo(
                 locationName = it.locationName,

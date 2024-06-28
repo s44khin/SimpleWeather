@@ -1,6 +1,7 @@
 package dev.s44khin.simpleweather.common.data.local
 
 import android.content.Context
+import dev.s44khin.simpleweather.common.api.domain.model.BarometerUnits
 import dev.s44khin.simpleweather.common.api.domain.model.PrimaryColor
 import dev.s44khin.simpleweather.common.api.domain.model.Theme
 import dev.s44khin.simpleweather.common.api.domain.model.Units
@@ -17,6 +18,7 @@ internal class SharedPrefSettings(
     private companion object {
         const val SETTINGS = "settings"
         const val UNITS = "units"
+        const val UNITS_BAROMETER = "units_barometer"
         const val COLOR = "color"
         const val THEME = "theme"
         const val TRANSPARENT = "transparent"
@@ -39,6 +41,12 @@ internal class SharedPrefSettings(
             default = PrimaryColor.CedarChest
         )
     )
+
+    private val _barometerUnitsFlow = MutableStateFlow(
+        value = sharedPreferences.getEnum(key = UNITS_BAROMETER, default = BarometerUnits.MercuryСolumn)
+    )
+
+    val barometerUnitsFlow = _barometerUnitsFlow.asStateFlow()
 
     val colorFlow = _colorFlow.asStateFlow()
 
@@ -70,6 +78,15 @@ internal class SharedPrefSettings(
         )
 
         _unitsFlow.emit(units)
+    }
+
+    suspend fun setBarometerUnits(units: BarometerUnits) {
+        sharedPreferences.putEnum(
+            key = UNITS_BAROMETER,
+            value = units,
+        )
+
+        _barometerUnitsFlow.emit(units)
     }
 
     suspend fun setColor(color: PrimaryColor) {
