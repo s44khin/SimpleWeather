@@ -7,3 +7,13 @@ inline fun Modifier.ifThen(condition: Boolean, then: Modifier.() -> Modifier) = 
 } else {
     this
 }
+
+inline fun <T> Modifier.ifNotNull(
+    value: T?,
+    additionalCondition: () -> Boolean = { true },
+    then: Modifier.(value: T) -> Modifier,
+) = if (value != null && additionalCondition()) {
+    then(value)
+} else {
+    this
+}

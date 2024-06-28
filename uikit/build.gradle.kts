@@ -49,4 +49,5 @@ dependencies {
 
     // Other
     implementation(libs.lottie)
+    implementation(project(":utils"))
 }

@@ -61,7 +61,6 @@ internal enum class ForecastCurrentUviTypeVo {
     val border: Color?
         @Composable
         get() = when (this) {
-            High -> SimpleTheme.staticColors.uviOrange
             VeryHigh -> SimpleTheme.staticColors.uviRed
             Extreme -> SimpleTheme.staticColors.uviViolet
             else -> null

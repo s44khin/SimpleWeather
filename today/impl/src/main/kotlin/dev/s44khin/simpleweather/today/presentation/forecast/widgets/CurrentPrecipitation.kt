@@ -70,7 +70,7 @@ internal fun BoxScope.CurrentPrecipitation(
                     modifier = Modifier.alignByBaseline(),
                     text = precipitation.value,
                     style = MaterialTheme.typography.bodyMedium,
-                    color = SimpleTheme.colors.onBackground,
+                    color = SimpleTheme.colors.onBackgroundUnselected,
                     maxLines = 1,
                     overflow = TextOverflow.Ellipsis
                 )
