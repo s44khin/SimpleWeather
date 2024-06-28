@@ -150,7 +150,7 @@ fun TopNavigation(
                 modifier = Modifier
                     .height(TopNavigationHeight)
                     .onGloballyPositioned {
-                        animatedAlpha = (2 * (it.size.height / -heightOffsetLimit) - 1).coerceIn(0f..1f)
+                        animatedAlpha = (3f * (it.size.height / -heightOffsetLimit) - 2).coerceIn(0f..1f)
                     }
                     .alpha(animatedAlpha)
                     .fillMaxWidth(0.75f)
