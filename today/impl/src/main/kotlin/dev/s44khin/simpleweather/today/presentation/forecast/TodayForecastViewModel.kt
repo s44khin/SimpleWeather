@@ -50,7 +50,8 @@ internal class TodayForecastViewModel(
                 isRefreshing = false,
                 current = result.current,
                 mode = ScreenMode.Content,
-                units = getUnitsUseCase.execute()
+                units = getUnitsUseCase.execute(),
+                barometerUnits = getBarometerUnitsUseCase.execute()
             )
 
             onSuccess(result)

@@ -8,12 +8,13 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import dev.s44khin.simpleweather.settings.presentation.SettingsListAction
+import dev.s44khin.simpleweather.settings.presentation.SettingsListUiState
 import dev.s44khin.simpleweather.uikit.theme.SimpleTheme
 import dev.s44khin.simpleweather.uikit.util.Spacer
 
 @Composable
 internal fun ColumnScope.SettingsListScrollableContent(
-    state: dev.s44khin.simpleweather.settings.presentation.SettingsListUiState,
+    state: SettingsListUiState,
     onAction: (SettingsListAction) -> Unit,
 ) {
     Spacer(height = 32.dp)
@@ -21,6 +22,13 @@ internal fun ColumnScope.SettingsListScrollableContent(
     UnitsBlock(
         selectedUnit = state.units,
         onUnitClicked = { onAction(SettingsListAction.OnUnitsClicked(it)) }
+    )
+
+    Spacer(height = 48.dp)
+
+    BarometerUnitsBLock(
+        selectedUnit = state.barometerUnits,
+        onUnitClicked = { onAction(SettingsListAction.OnBarometerUnitsClicked(it)) }
     )
 
     Spacer(height = 48.dp)

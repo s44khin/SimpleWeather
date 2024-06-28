@@ -4,12 +4,14 @@ import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.rounded.Autorenew
 import androidx.lifecycle.viewModelScope
 import dev.s44khin.simpleweather.common.api.domain.CommonRepository
+import dev.s44khin.simpleweather.common.api.domain.model.BarometerUnits
 import dev.s44khin.simpleweather.common.api.domain.model.ConfirmationDialogButtonData
 import dev.s44khin.simpleweather.common.api.domain.model.ConfirmationDialogData
 import dev.s44khin.simpleweather.common.api.domain.model.PrimaryColor
 import dev.s44khin.simpleweather.common.api.domain.model.Theme
 import dev.s44khin.simpleweather.common.api.domain.model.Units
 import dev.s44khin.simpleweather.common.api.domain.useCases.GetAlwaysShowLabelUseCase
+import dev.s44khin.simpleweather.common.api.domain.useCases.GetBarometerUnitsUseCase
 import dev.s44khin.simpleweather.common.api.domain.useCases.GetColorUseCase
 import dev.s44khin.simpleweather.common.api.domain.useCases.GetThemeUseCase
 import dev.s44khin.simpleweather.common.api.domain.useCases.GetTransparentUseCase
@@ -17,11 +19,13 @@ import dev.s44khin.simpleweather.common.api.domain.useCases.GetUnitsUseCase
 import dev.s44khin.simpleweather.common.api.domain.useCases.IsResetSettingsAvailableUseCase
 import dev.s44khin.simpleweather.common.api.domain.useCases.ResetSettingsUseCase
 import dev.s44khin.simpleweather.common.api.domain.useCases.SetAlwaysShowLabelUseCase
+import dev.s44khin.simpleweather.common.api.domain.useCases.SetBarometerUnitsUseCase
 import dev.s44khin.simpleweather.common.api.domain.useCases.SetColorUseCase
 import dev.s44khin.simpleweather.common.api.domain.useCases.SetThemeUseCase
 import dev.s44khin.simpleweather.common.api.domain.useCases.SetTransparentUseCase
 import dev.s44khin.simpleweather.common.api.domain.useCases.SetUnitsUseCase
 import dev.s44khin.simpleweather.common.api.navigation.CommonNavigation
+import dev.s44khin.simpleweather.common.api.presentation.model.BarometerUnitsVo
 import dev.s44khin.simpleweather.common.api.presentation.model.PrimaryColorVo
 import dev.s44khin.simpleweather.common.api.presentation.model.ThemeVo
 import dev.s44khin.simpleweather.common.api.presentation.model.UnitsVo
@@ -47,6 +51,8 @@ internal class SettingsListViewModel(
     private val setThemeUseCase: SetThemeUseCase,
     private val setTransparentUseCase: SetTransparentUseCase,
     private val setUnitsUseCase: SetUnitsUseCase,
+    private val setBarometerUnitsUseCase: SetBarometerUnitsUseCase,
+    private val getBarometerUnitsUseCase: GetBarometerUnitsUseCase,
     getColorUseCase: GetColorUseCase,
     getThemeUseCase: GetThemeUseCase,
     getTransparentUseCase: GetTransparentUseCase,
@@ -55,6 +61,7 @@ internal class SettingsListViewModel(
 ) : BaseViewModel<SettingsListScreenState, SettingsListUiState, SettingsListAction>(
     initState = SettingsListScreenState(
         units = getUnitsUseCase.execute(),
+        barometerUnits = getBarometerUnitsUseCase.execute(),
         color = getColorUseCase.execute(),
         theme = getThemeUseCase.execute(),
         transparent = getTransparentUseCase.execute(),
@@ -76,6 +83,7 @@ internal class SettingsListViewModel(
         is SettingsListAction.OnThemeClicked -> onThemeClicked(action.theme)
         is SettingsListAction.OnTransparentChanged -> onTransparentChanged()
         is SettingsListAction.OnUnitsClicked -> onUnitsClicked(action.units)
+        is SettingsListAction.OnBarometerUnitsClicked -> onBarometerUnitsClicked(action.units)
     }
 
     private fun onUnitsClicked(units: UnitsVo) {
@@ -87,6 +95,19 @@ internal class SettingsListViewModel(
         viewModelScope.launch {
             setUnitsUseCase.execute(
                 units = tempUnitsDomain,
+            )
+        }
+    }
+
+    private fun onBarometerUnitsClicked(units: BarometerUnitsVo) {
+        val barometerUnitsDomain = enumValueOrDefault(
+            string = units.name,
+            default = BarometerUnits.MercuryСolumn,
+        )
+
+        viewModelScope.launch {
+            setBarometerUnitsUseCase.execute(
+                units = barometerUnitsDomain,
             )
         }
     }
@@ -155,6 +176,7 @@ internal class SettingsListViewModel(
         subscribeToTransparent()
         subscribeToAlwaysShowLabel()
         subscribeToUnits()
+        subscribeBarometerToUnits()
     }
 
     private fun subscribeToColor() {
@@ -206,6 +228,17 @@ internal class SettingsListViewModel(
             commonRepository.unitsFlow.collectLatest {
                 screenState = screenState.copy(
                     units = it,
+                    isResetAvailable = isResetSettingsAvailableUseCase.execute(),
+                )
+            }
+        }
+    }
+
+    private fun subscribeBarometerToUnits() {
+        viewModelScope.launch {
+            commonRepository.barometerUnitsFlow.collectLatest {
+                screenState = screenState.copy(
+                    barometerUnits = it,
                     isResetAvailable = isResetSettingsAvailableUseCase.execute(),
                 )
             }

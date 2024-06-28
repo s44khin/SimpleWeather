@@ -16,7 +16,9 @@
     <string name="settings_theme">Theme</string>
     <string name="settings_theme_info">Theme</string>
     <string name="settings_units">Units</string>
+    <string name="settings_barometer_units">Barometer units</string>
     <string name="settings_units_info">Select the units of measurement in which the temperature will be displayed</string>
+    <string name="settings_barometer_units_info">Select the units of measurement in which the pressure will be displayed</string>
     <string name="temperature_feels_like">Feels like: %s</string>
     <string name="temperature_min_max">Min: %s Max: %s</string>
     <string name="today_label">Today</string>
@@ -37,6 +39,8 @@
     <string name="pressure">Pressure</string>
     <string name="pressure_hPa">hPa</string>
     <string name="pressure_mercury_column">mmHg</string>
+    <string name="pressure_hpa_sample">1006</string>
+    <string name="pressure_mercury_column_sample">754</string>
     <string name="uvindex">UV-Index</string>
     <string name="uvindex_low">Low</string>
     <string name="uvindex_moderate">Moderate</string>

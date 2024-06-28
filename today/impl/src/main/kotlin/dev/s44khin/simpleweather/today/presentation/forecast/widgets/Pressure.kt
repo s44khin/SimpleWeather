@@ -57,7 +57,7 @@ internal fun BoxScope.Pressure(
         )
 
         Text(
-            text = stringResource(units.label),
+            text = units.label.resolve(),
             style = MaterialTheme.typography.bodyMedium,
             color = SimpleTheme.colors.onBackgroundUnselected,
             maxLines = 1,

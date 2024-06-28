@@ -75,3 +75,63 @@ internal fun UnitItem(
         }
     }
 }
+
+@Composable
+internal fun BarometerUnitItem(
+    label: String,
+    sample: String,
+    selected: Boolean,
+    modifier: Modifier = Modifier,
+) {
+    val animatedColor by animateColorAsState(
+        targetValue = if (selected) {
+            SimpleTheme.colors.primary
+        } else {
+            SimpleTheme.colors.onBackgroundUnselected
+        },
+        label = "animatedColor"
+    )
+
+    val animatedTextColor by animateColorAsState(
+        targetValue = if (selected) {
+            SimpleTheme.colors.onPrimary
+        } else {
+            SimpleTheme.colors.onBackgroundUnselected
+        },
+        label = "animatedTextColor"
+    )
+
+    val animatedChipColor by animateColorAsState(
+        targetValue = if (selected) {
+            SimpleTheme.colors.primary
+        } else {
+            SimpleTheme.colors.background
+        },
+        label = "animatedChipColor"
+    )
+
+    Column(
+        modifier = modifier,
+        horizontalAlignment = Alignment.CenterHorizontally,
+        verticalArrangement = Arrangement.spacedBy(8.dp)
+    ) {
+        Text(
+            text = sample,
+            color = animatedColor,
+            fontSize = 32.sp,
+            maxLines = 1,
+        )
+
+        Box(
+            modifier = Modifier
+                .background(color = animatedChipColor, shape = CircleShape)
+                .padding(vertical = 2.dp, horizontal = 4.dp)
+        ) {
+            Text(
+                text = label,
+                color = animatedTextColor,
+                maxLines = 1,
+            )
+        }
+    }
+}
