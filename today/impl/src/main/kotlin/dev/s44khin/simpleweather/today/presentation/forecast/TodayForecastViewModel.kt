@@ -7,7 +7,6 @@ import dev.s44khin.simpleweather.common.api.domain.useCases.GetForecastUseCase
 import dev.s44khin.simpleweather.common.api.domain.useCases.GetUnitsUseCase
 import dev.s44khin.simpleweather.core.base.BaseViewModel
 import dev.s44khin.simpleweather.navigation.api.ScreenRouter
-import dev.s44khin.simpleweather.today.api.navigation.TodayNavigation
 import dev.s44khin.simpleweather.utils.launchUiCoroutine
 
 internal class TodayForecastViewModel(
@@ -27,13 +26,11 @@ internal class TodayForecastViewModel(
 
     override fun onAction(action: TodayForecastAction) = when (action) {
         is TodayForecastAction.OnPullToRefresh -> onPullToRefresh()
-        is TodayForecastAction.OnSearchClicked -> onSearchClicked()
+        is TodayForecastAction.OnEditClicked -> onEditClicked()
     }
 
-    private fun onSearchClicked() {
-        screenRouter.navigateTo(
-            navDestination = TodayNavigation.SearchDialog
-        )
+    private fun onEditClicked() {
+
     }
 
     private fun getWether(onSuccess: (Forecast) -> Unit = {}) {
@@ -47,7 +44,6 @@ internal class TodayForecastViewModel(
             val result = getForecastUseCase.execute()
 
             screenState = screenState.copy(
-                locationName = result.timezone,
                 isRefreshing = false,
                 current = result.current,
                 mode = ScreenMode.Content,

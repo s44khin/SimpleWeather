@@ -4,8 +4,6 @@ import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.lazy.grid.rememberLazyGridState
-import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.rounded.Search
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.material3.rememberTopAppBarState
@@ -19,7 +17,6 @@ import dev.s44khin.simpleweather.resources.CoreStrings
 import dev.s44khin.simpleweather.today.presentation.forecast.widgets.TodayForecastScrollableContent
 import dev.s44khin.simpleweather.uikit.widgets.FullscreenLoader
 import dev.s44khin.simpleweather.uikit.widgets.TopNavigation
-import dev.s44khin.simpleweather.uikit.widgets.TopNavigationAction
 import org.koin.androidx.compose.koinViewModel
 
 /**
@@ -42,13 +39,7 @@ internal fun TodayForecastScreen(
         TopNavigation(
             modifier = Modifier.fillMaxWidth(),
             title = stringResource(CoreStrings.forecust),
-            subTitle = state.locationName,
-            subTitleIsVisible = state.locationName != null,
             scrollableState = lazyGridState,
-            rightAction = TopNavigationAction(
-                icon = Icons.Rounded.Search,
-                onClick = { viewModel.onAction(TodayForecastAction.OnSearchClicked) }
-            ),
             scrollBehavior = scrollBehavior,
         )
 

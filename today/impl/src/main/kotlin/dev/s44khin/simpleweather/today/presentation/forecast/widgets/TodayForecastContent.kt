@@ -16,7 +16,7 @@ import androidx.compose.ui.unit.dp
 import dev.s44khin.simpleweather.today.presentation.forecast.TodayForecastUiState
 
 private enum class TodayForecastKeys {
-    CurrentForecast, Humidity, Pressure, UVIndex, Hourly, Wind, Precipitation
+    CurrentForecast, Humidity, Pressure, UVIndex, Hourly, Wind, Precipitation, EditMenu
 }
 
 @Composable
@@ -41,6 +41,17 @@ internal fun TodayForecastContent(
         userScrollEnabled = userScrollEnabled
     ) {
         if (uiState.current != null) {
+            transparentReactangleRow(
+                key = TodayForecastKeys.EditMenu,
+                horizontalArrangement = Arrangement.SpaceBetween,
+                verticalAlignment = Alignment.CenterVertically
+            ) {
+                CurrentEditMenu(
+                    location = uiState.current.locationName,
+                    time = uiState.current.time,
+                )
+            }
+
             squareBox(key = TodayForecastKeys.CurrentForecast) {
                 CurrentForecast(
                     current = uiState.current,

@@ -172,3 +172,27 @@ internal fun LazyGridScope.rectangleRow(
         )
     }
 }
+
+internal fun LazyGridScope.transparentReactangleRow(
+    modifier: Modifier = Modifier,
+    key: Any? = null,
+    contentType: Any? = null,
+    contentPadding: PaddingValues = PaddingValues(),
+    horizontalArrangement: Arrangement.Horizontal = Arrangement.Start,
+    verticalAlignment: Alignment.Vertical = Alignment.Top,
+    content: @Composable RowScope.() -> Unit,
+) {
+    item(
+        key = key,
+        contentType = contentType,
+        span = { GridItemSpan(maxLineSpan) },
+    ) {
+        Row(
+            modifier = modifier.padding(contentPadding),
+            verticalAlignment = verticalAlignment,
+            horizontalArrangement = horizontalArrangement,
+        ) {
+            content()
+        }
+    }
+}

@@ -11,6 +11,7 @@ import kotlin.math.roundToInt
 
 @Immutable
 internal data class ForecastCurrentVo(
+    val locationName: String,
     val temp: String,
     val feelsLike: String,
     val min: String?,
@@ -21,7 +22,8 @@ internal data class ForecastCurrentVo(
     val iconId: String,
     val weather: ForecastCurrentWeatherVo,
     val wind: ForecustCurrentWindVo,
-    val precipitation: ForecastPrecipitationVo
+    val precipitation: ForecastPrecipitationVo,
+    val time: String,
 )
 
 @Immutable

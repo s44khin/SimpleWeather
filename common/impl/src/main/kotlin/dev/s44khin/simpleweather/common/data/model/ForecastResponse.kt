@@ -22,6 +22,9 @@ internal data class ForecastResponse(
 @Serializable
 internal data class ForecastCurrentDto(
 
+    @SerialName(value = "dt")
+    val dt: Long,
+
     @SerialName(value = "temp")
     val temp: String,
 

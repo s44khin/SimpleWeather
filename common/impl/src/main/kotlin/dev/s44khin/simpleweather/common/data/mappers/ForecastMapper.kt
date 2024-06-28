@@ -9,13 +9,16 @@ import dev.s44khin.simpleweather.common.api.domain.model.ForecastCurrentWeather
 import dev.s44khin.simpleweather.common.api.domain.model.ForecastPrecipitation
 import dev.s44khin.simpleweather.common.api.domain.model.ForecustCurrentWind
 import dev.s44khin.simpleweather.common.data.model.ForecastResponse
+import java.time.Instant
+import java.time.ZoneId
+import java.time.format.DateTimeFormatter
 import kotlin.math.roundToInt
 
 internal class ForecastMapper {
 
     fun map(response: ForecastResponse) = Forecast(
-        timezone = response.timezone,
         current = ForecastCurrent(
+            locationName = response.timezone,
             temp = formatTemp(
                 value = response.current.temp,
             ),
@@ -57,7 +60,8 @@ internal class ForecastMapper {
                 pop = ((response.hourly.getOrNull(0)?.pop ?: 0f) * 100).roundToInt(),
                 rain = response.hourly.getOrNull(0)?.rain?.value ?: 0f,
                 snow = response.hourly.getOrNull(0)?.snow?.value ?: 0f,
-            )
+            ),
+            time = timeMapper(response.current.dt)
         )
     )
 
@@ -73,5 +77,11 @@ internal class ForecastMapper {
         in 5f..<7f -> ForecastCurrentUviType.High
         in 7f..10f -> ForecastCurrentUviType.VeryHigh
         else -> ForecastCurrentUviType.Extreme
+    }
+
+    private fun timeMapper(unix: Long): String {
+        val instant = Instant.ofEpochSecond(unix)
+        val formatter = DateTimeFormatter.ofPattern("HH:mm").withZone(ZoneId.systemDefault())
+        return formatter.format(instant)
     }
 }

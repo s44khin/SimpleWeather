@@ -15,11 +15,11 @@ internal object TodayForecastConverter {
 
     fun convert(screenState: TodayForecastScreenState) = TodayForecastUiState(
         screenMode = screenState.mode.toScreenModeVo(),
-        locationName = screenState.locationName,
         isRefreshing = screenState.isRefreshing,
         units = screenState.units.toUnitsVo(),
         current = screenState.current?.let {
             ForecastCurrentVo(
+                locationName = it.locationName,
                 temp = it.temp,
                 feelsLike = it.feelsLike,
                 min = it.min,
@@ -50,7 +50,8 @@ internal object TodayForecastConverter {
                     pop = screenState.current.precipitation.pop,
                     rain = screenState.current.precipitation.rain,
                     snow = screenState.current.precipitation.snow,
-                )
+                ),
+                time = screenState.current.time,
             )
         }
     )
